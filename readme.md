@@ -1,2 +1,7 @@
-1. git clone https://Parodis@bitbucket.org/Parodis/final_project.git
-2. pip install -r requirements.txt
+# Furzon
+
+Интернет-магазин на Django, использующий *Amazon API* в качестве контента.
+
+Для установки выполните следующие шаги:
+  - Склонируйте репозиторий командой `git clone https://Parodis@bitbucket.org/Parodis/final_project.git`
+  - Установите обязательные для работы пакеты `pip install -r requirements.txt`
