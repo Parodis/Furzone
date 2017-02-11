@@ -1,0 +1,24 @@
+{
+  "name": "furzone",
+  "version": "1.0.0",
+  "description": "shop which uses Amazon API",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-watch": "^4.3.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Parodis@bitbucket.org/Parodis/final_project.git"
+  },
+  "author": "Darya",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/Parodis/final_project#readme"
+}
