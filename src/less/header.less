@@ -1,0 +1,51 @@
+.header {
+  background: #fff;
+}
+
+.header__container {
+  font-family: @font-family;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .container;
+
+  .header__menu {
+    color: #303030;
+    transition: all 0.5s ease;
+
+    .header__logo {
+      background: #222;
+      color: white;
+
+      a {
+        padding: 5px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: #303030;
+      font-weight: bold;
+      padding: 5px 10px;
+      -webkit-transition: all 0.3s ease;
+    }
+
+    a:hover {
+      border-bottom: 1px solid #303030;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+
+      padding: 20px 0;
+    }
+  }
+}
