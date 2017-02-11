@@ -1,0 +1,46 @@
+.banner {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .container;
+  padding: 100px 0;
+  font-family: @font-family;
+
+  h1 {
+    color: #303030;
+    font-weight: bold;
+    font-size: 5em;
+    text-align: center;
+  }
+
+  p {
+    color: #606060;
+    font-style: italic;
+    margin-top: -50px;
+    text-align: center;
+    font-size: 1.8em;
+  }
+
+  .banner__button {
+    margin-top: 40px;
+    a {
+      text-decoration: none;
+      color: #303030;
+      text-align: center;
+      font-size: 1.2em;
+      margin-left: 300px;
+
+    }
+    &--arrivals {
+      background: none;
+      border: 1px solid #959595;
+      padding: 10px 15px;
+      transition: all 0.5s ease;
+    }
+    &--arrivals:hover {
+      background: #606060;
+      color: white;
+    }
+  }
+}

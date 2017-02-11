@@ -10,19 +10,20 @@
 
   .container;
 
-  .header__menu {
-    color: #303030;
-    transition: all 0.5s ease;
+  .header__logo {
+    background: #222;
 
-    .header__logo {
-      background: #222;
+    a {
       color: white;
+      padding: 5px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+    .header__menu {
+      color: #303030;
+      transition: all 0.5s ease;
 
-      a {
-        padding: 5px;
-        font-weight: bold;
-        text-decoration: none;
-      }
     }
     a {
       text-decoration: none;
@@ -50,11 +51,13 @@
 
   .header__options {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
 
-    .header__options {
+    .header__account {
+      flex: 1 1 50%;
 
     }
+
+    .header__cart {
+      flex: 1 1 50%;
+    }
   }
-}
