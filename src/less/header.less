@@ -1,63 +1,68 @@
 .header {
-  background: #fff;
+    background: #fff;
 }
 
 .header__container {
-  font-family: @font-family;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  .container;
-
-  .header__logo {
-    background: #222;
-
-    a {
-      color: white;
-      padding: 5px;
-      font-weight: bold;
-      text-decoration: none;
-    }
-  }
-    .header__menu {
-      color: #303030;
-      transition: all 0.5s ease;
-
-    }
-    a {
-      text-decoration: none;
-      color: #303030;
-      font-weight: bold;
-      padding: 5px 10px;
-      -webkit-transition: all 0.3s ease;
-    }
-
-    a:hover {
-      border-bottom: 1px solid #303030;
-    }
-
-    ul {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-    }
-
-    li {
-      padding: 20px 0;
-    }
-  }
-
-  .header__options {
+    font-family: @font-family;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .container;
+    border-bottom: 0.5px solid #9c9c9c;
 
-    .header__account {
-      flex: 1 1 50%;
+    .header__menu {
+        color: #303030;
+        transition: all 0.5s ease;
+        width: 75%;
+        display: flex;
 
+        .header__logo {
+            background: #222;
+            color: white;
+            margin: 10px 40px 10px 20px;
+
+            a {
+                padding: 5px;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: #303030;
+            font-weight: bold;
+            padding: 10px;
+            -webkit-transition: all 0.3s ease;
+        }
+
+        a:hover {
+            border-bottom: 1px solid #303030;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            padding: 20px 15px;
+        }
     }
 
-    .header__cart {
-      flex: 1 1 50%;
+    .header__options {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 10%;
+
+        .header__options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 15%;
+        }
     }
-  }
+}
