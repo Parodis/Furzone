@@ -1,7 +1,8 @@
 .about {
   font-family: @font-family;
-  margin-top: @bread-padd;
+  margin-top: @mb-bread;
   .container;
+  margin-bottom: 55px;
     .about-text {
       text-align: center;
       h1 {
@@ -14,9 +15,37 @@
         margin-top: @indent-h1-to-h2;
         font-style: italic;
         font-size: 1.2em;
+        font-weight: 300;
       }
     }
     .about-content {
+      margin-top: 450px;
       display: flex;
+      justify-content: space-between;
+
+
+      .about-content__who {
+
+        h2 {
+          color: @h-color;
+        }
+        p {
+          line-height: 1.5em;
+          width: 75%;
+          color: @p-color;
+        }
+      }
+      .about-content__what {
+
+        h2 {
+          color: @h-color;
+        }
+        p {
+          line-height: 1.5em;
+          width: 75%;
+          color: @p-color;
+        }
+      }
+
     }
   }
