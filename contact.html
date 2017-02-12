@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Furzon | About</title>
+    <title>Furzon | Contact</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link href="src/less/main.less" rel="stylesheet/less" type="text/css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js">
@@ -40,48 +40,43 @@
             <a href="index.html">Home</a>
         </li>
         <li class="breadcrumbs__item">
-            <a href="#">About</a>
+            <a href="contact.html">Contact</a>
         </li>
     </ul>
 </div>
-<section class="about">
-    <div class="about__text">
-        <h1>ABOUT</h1>
+<section class="contact">
+    <div class="contact__text">
+        <h1>CONTACT</h1>
         <p>Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.</p>
-        <img src="https://unsplash.it/1800/400/?random">
     </div>
-    <div class="about-content">
-        <div class="about-content__who">
-            <h2>WHO WE ARE?</h2>
-            <p>
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-            </p>
+<div class="form form--contact">
+    <div class="form__topic">
+        <label for="topic">Topic</label>
+        <select name="topic" id="topic">
+            <option>Lorem ipsum</option>
+            <option>Lorem ipsum</option>
+            <option>Lorem ipsum</option>
+            <option>Lorem ipsum</option>
+        </select>
+    </div>
+    <div class="form__data">
+        <div class="form__data--name">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder=" ">
         </div>
-        <div class="about-content__what">
-            <h2>WHAT WE ARE DOING?</h2>
-            <p>
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-                Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.
-            </p>
+        <div class="form__data--email">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder=" ">
         </div>
     </div>
+    <div class="form__message">
+        <label for="message">Message</label>
+        <input type="text" id="message">
+    </div>
+    <div class="form__input">
+            <input type="submit" value="SEND">
+        </div>
+</div>
 </section>
 <footer class="footer">
     <div class="footer__container">
