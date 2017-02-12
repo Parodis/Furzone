@@ -1,7 +1,7 @@
 .category-preview {
     font-family: @font-family;
     .container;
-    margin-bottom: 80px;
+    padding-bottom: 80px;
 
     &__header {
         text-align: center;
@@ -11,6 +11,7 @@
             text-transform: uppercase;
             font-size: 36px;
             font-weight: bold;
+            margin: 20px 0;
         }
 
         .category-preview__link {
@@ -30,5 +31,9 @@
             color: #ababab;
             margin-left: 5px;
         }
+    }
+
+    .category-preview__content {
+        padding-top: @h2-to-content;
     }
 }
