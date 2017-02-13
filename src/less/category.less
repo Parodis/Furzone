@@ -1,0 +1,54 @@
+.category {
+  font-family: @font-family;
+  margin-top: @mb-bread;
+  .container;
+  margin-bottom: 80px;
+  .category__text {
+    text-align: center;
+    h1 {
+      color: @h-color;
+      font-weight: 400;
+      font-size: 2.2em;
+    }
+    p {
+      color: @p-color;
+      margin-top: @indent-h1-to-h2;
+      font-style: italic;
+      font-size: 1.2em;
+      font-weight: 300;
+    }
+  }
+  &__filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    margin-bottom: 50px;
+
+    &--price {
+      padding-right: 20px;
+    }
+    &--size {
+      padding-right: 20px;
+    }
+  }
+  &__content {
+    margin-bottom: 20px;
+  }
+  &__pages {
+    text-align: center;
+    margin-top: @h2-to-content;
+    a {
+      text-decoration: none;
+      background: #222;
+      padding: 5px 10px;
+      color: #fff;
+      border: 1px solid @p-color;
+      transition: all 0.5s ease;
+    }
+    a:hover {
+      background: #fff;
+      color: #8a8a8a;
+    }
+  }
+}
