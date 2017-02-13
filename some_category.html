@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Furzon | Categories</title>
+    <title>Furzon | Outwear</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link href="src/less/main.less" rel="stylesheet/less" type="text/css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js">
     </script>
 </head>
-
 <body>
 <header class="header">
     <div class="header__container">
@@ -44,15 +42,28 @@
         <li class="breadcrumbs__item">
             <a href="men.html">Men</a>
         </li>
+        <li class="breadcrumbs__item">
+            <a href="some_category.html">Outwear</a>
+        </li>
     </ul>
 </div>
-<div class="category-preview">
-    <div class="category-preview__header">
-        <h2 class="category-preview__caption">Coats</h2>
-        <a href="empty_categories.html" class="category-preview__link">show more</a><span
-            class="category-preview__link-arrow">→</span>
+<section class="category">
+    <div class="category__text">
+        <h1>Outwear</h1>
+        <p>All Products</p>
     </div>
-    <div class="category-preview__content">
+    <div class="category__filters">
+        <div class="category__filters--price">
+            <p>Price</p>
+        </div>
+        <div class="category__filters--size">
+            <p>Size</p>
+        </div>
+        <div class="category__filters--color">
+            <p>Color</p>
+        </div>
+    </div>
+    <div class="category__content">
         <div class="product-thumb__list">
             <div class="product-thumb">
                 <div class="product-thumb__image">
@@ -92,13 +103,7 @@
             </div>
         </div>
     </div>
-</div>
-<div class="category-preview">
-    <div class="category-preview__header">
-        <h2 class="category-preview__caption">Outerwear</h2>
-        <a href="some_category.html" class="category-preview__link">show more</a><span class="category-preview__link-arrow">→</span>
-    </div>
-    <div class="category-preview__content">
+    <div class="category__content">
         <div class="product-thumb__list">
             <div class="product-thumb">
                 <div class="product-thumb__image">
@@ -138,13 +143,7 @@
             </div>
         </div>
     </div>
-</div>
-<div class="category-preview">
-    <div class="category-preview__header">
-        <h2 class="category-preview__caption">T-shirt</h2>
-        <a href="#" class="category-preview__link">show more</a><span class="category-preview__link-arrow">→</span>
-    </div>
-    <div class="category-preview__content">
+    <div class="category__content">
         <div class="product-thumb__list">
             <div class="product-thumb">
                 <div class="product-thumb__image">
@@ -184,7 +183,13 @@
             </div>
         </div>
     </div>
-</div>
+    <div class="category__pages">
+        <a href="some_category.html">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+    </div>
+</section>
 <footer class="footer">
     <div class="footer__container">
         <div class="footer__collection">
@@ -226,5 +231,4 @@
     </div>
 </footer>
 </body>
-
 </html>
