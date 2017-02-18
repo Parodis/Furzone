@@ -12,6 +12,31 @@
 </head>
 
 <body>
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+  <symbol id="icon-cart" viewBox="0 0 32 32">
+  <title>cart</title>
+  <path d="M12 29c0 1.657-1.343 3-3 3s-3-1.343-3-3c0-1.657 1.343-3 3-3s3 1.343 3 3z"></path>
+  <path d="M32 29c0 1.657-1.343 3-3 3s-3-1.343-3-3c0-1.657 1.343-3 3-3s3 1.343 3 3z"></path>
+  <path d="M32 16v-12h-24c0-1.105-0.895-2-2-2h-6v2h4l1.502 12.877c-0.915 0.733-1.502 1.859-1.502 3.123 0 2.209 1.791 4 4 4h24v-2h-24c-1.105 0-2-0.895-2-2 0-0.007 0-0.014 0-0.020l26-3.98z"></path>
+  </symbol>
+  <symbol id="icon-user" viewBox="0 0 32 32">
+  <title>user</title>
+  <path d="M18 22.082v-1.649c2.203-1.241 4-4.337 4-7.432 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h28c0-4.030-5.216-7.364-12-7.918z"></path>
+  </symbol>
+  <symbol id="icon-arrow-left" viewBox="0 0 32 32">
+  <title>arrow-left</title>
+  <path d="M12.586 27.414l-10-10c-0.781-0.781-0.781-2.047 0-2.828l10-10c0.781-0.781 2.047-0.781 2.828 0s0.781 2.047 0 2.828l-6.586 6.586h19.172c1.105 0 2 0.895 2 2s-0.895 2-2 2h-19.172l6.586 6.586c0.39 0.39 0.586 0.902 0.586 1.414s-0.195 1.024-0.586 1.414c-0.781 0.781-2.047 0.781-2.828 0z"></path>
+  </symbol>
+  <!-- <svg class="icon icon-arrow-left"><use xlink:href="#icon-arrow-left"></use></svg> -->
+    <symbol id="icon-twitter" viewBox="0 0 32 32">
+        <title>twitter</title>
+        <path d="M32 7.075c-1.175 0.525-2.444 0.875-3.769 1.031 1.356-0.813 2.394-2.1 2.887-3.631-1.269 0.75-2.675 1.3-4.169 1.594-1.2-1.275-2.906-2.069-4.794-2.069-3.625 0-6.563 2.938-6.563 6.563 0 0.512 0.056 1.012 0.169 1.494-5.456-0.275-10.294-2.888-13.531-6.862-0.563 0.969-0.887 2.1-0.887 3.3 0 2.275 1.156 4.287 2.919 5.463-1.075-0.031-2.087-0.331-2.975-0.819 0 0.025 0 0.056 0 0.081 0 3.181 2.263 5.838 5.269 6.437-0.55 0.15-1.131 0.231-1.731 0.231-0.425 0-0.831-0.044-1.237-0.119 0.838 2.606 3.263 4.506 6.131 4.563-2.25 1.762-5.075 2.813-8.156 2.813-0.531 0-1.050-0.031-1.569-0.094 2.913 1.869 6.362 2.95 10.069 2.95 12.075 0 18.681-10.006 18.681-18.681 0-0.287-0.006-0.569-0.019-0.85 1.281-0.919 2.394-2.075 3.275-3.394z"></path>
+    </symbol>
+    <!-- <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg> -->
+
+    </defs>
+    </svg>
     <header class="header">
         <div class="header__container">
             <nav class="header__menu">
@@ -26,9 +51,11 @@
             </nav>
             <div class="header__options">
                 <div class="header__account">
+                    <svg class="icon icon-user"><use xlink:href="#icon-user"></use></svg>
                     <p>Log In</p>
                 </div>
                 <div class="header__cart">
+                    <svg class="icon icon-cart"><use xlink:href="#icon-cart"></use></svg>
                     <p>Basket(0)</p>
                 </div>
                 <div class="header__search">
@@ -51,47 +78,139 @@
         <div class="home-promo__container">
             <div class="home-promo__column">
                 <div class="home-promo__block--colspan" style="background: url(https://unsplash.it/400/600?random); background-size: cover;">
-                    <div class="home-promo__header">
-                        <span class="home-promo__caption">Heather grey basics</span>
-                        <span class="home-promo__subcaption">new arrival</span>
-                    </div>
+                    <a href="/men.html" class="home-promo__block-link">
+                        <div class="home-promo__block-inner">
+                            <div class="home-promo__header">
+                                <h5 class="home-promo__caption">Heather grey basics</h5>
+                                <h6 class="home-promo__subcaption">new arrival</h6>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="home-promo__block" style="background: url(https://unsplash.it/400/290?random)">
+                <div class="home-promo__block home-promo__block--picture" style="background: url(https://unsplash.it/400/290?random)">
+                    <a href="/men.html" class="home-promo__block-link">
+                        <img src="https://unsplash.it/400/290?random" class="home-promo__product-image">
+                    </a>
                 </div>
             </div>
             <div class="home-promo__column">
-                <div class="home-promo__block" style="background: url(https://unsplash.it/400/303?random)">1</div>
-                <div class="home-promo__block" style="background: url(https://unsplash.it/400/301?random)">1</div>
-                <div class="home-promo__block" style="background: url(https://unsplash.it/400/300?random)">1</div>
+                <div class="home-promo__block" style="background: url(https://unsplash.it/400/303?random)">
+                    <a href="/men.html" class="home-promo__block-link">
+                        <div class="home-promo__block-inner">
+                            <div class="home-promo__twitter">
+                                <div class="home-promo__twitter-header">
+                                    <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
+                                </div>
+                                <p class="home-promo__twitter-quote">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores laudantium, quidem unde!
+                                </p>
+                                <p class="home-promo__twitter-nickname">
+                                    @Nyashnyy
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="home-promo__block" style="background: url(https://unsplash.it/400/301?random)">
+                    <a href="/men.html" class="home-promo__block-link">
+                        <div class="home-promo__block-inner">
+                            <div class="home-promo__product">
+                                <p class="home-promo__product-name">
+                                    CHUCK TAYLORS
+                                </p>
+                                <p class="home-promo__product-price">
+                                    $125.00
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="home-promo__block" style="background: url(https://unsplash.it/400/300?random)">
+                    <a href="/men.html" class="home-promo__block-link">
+                        <div class="home-promo__block-inner">
+                            <svg class="icon icon-arrow-left"><use xlink:href="#icon-arrow-left"></use></svg>
+                            <div class="home-promo__product">
+                                <p class="home-promo__product-name">
+                                    JAXON HAT
+                                </p>
+                                <p class="home-promo__product-price home-promo__product-price--upper">
+                                    BEANIE HAT
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
             <div class="home-promo__column" style="background: url(https://unsplash.it/400/295?random)">
 
-                <div class="home-promo__block" style="background: url(https://unsplash.it/400/305?random)">1</div>
+                <div class="home-promo__block" style="background: url(https://unsplash.it/400/305?random)">
+                    <a href="/men.html" class="home-promo__block-link">
+                        <img src="https://unsplash.it/400/290?random" class="home-promo__product-image">
+                    </a>
+                </div>
 
-                <div class="home-promo__block" style="background: url(https://unsplash.it/400/307?random)">1</div>
+                <div class="home-promo__block" style="background: url(https://unsplash.it/400/307?random)">
+                    <a href="/men.html" class="home-promo__block-link">
+                        <div class="home-promo__block-inner">
+                            <div class="home-promo__twitter">
+                                <div class="home-promo__twitter-header">
+                                    <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
+                                </div>
+                                <p class="home-promo__twitter-quote">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores laudantium, quidem unde!
+                                </p>
+                                <p class="home-promo__twitter-nickname">
+                                    @Nyashnyy
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
 
-                <div class="home-promo__block" style="background: url(https://unsplash.it/400/309?random)">1</div>
+                <div class="home-promo__block" style="background: url(https://unsplash.it/400/309?random)">
+                    <a href="/men.html" class="home-promo__block-link">
+                        <div class="home-promo__block-inner">
+                            <div class="home-promo__product">
+                                <p class="home-promo__product-name">
+                                    CHUCK TAYLORS
+                                </p>
+                                <p class="home-promo__product-price">
+                                    $125.00
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
             <div class="home-promo__column">
-                <div class="home-promo__block" style="background: url(https://unsplash.it/400/302?random)">1</div>
+                <div class="home-promo__block" style="background: url(https://unsplash.it/400/302?random)">
+                    <a href="/men.html" class="home-promo__block-link">
+                        <div class="home-promo__block-inner">
+                            <svg class="icon icon-arrow-left"><use xlink:href="#icon-arrow-left"></use></svg>
+                            <div class="home-promo__product">
+                                <p class="home-promo__product-name">
+                                    JAXON HAT
+                                </p>
+                                <p class="home-promo__product-price home-promo__product-price--upper">
+                                    BEANIE HAT
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
                 <div class="home-promo__block--colspan" style="background: url(https://unsplash.it/400/610?random); background-size: cover;">
-                    <div class="home-promo__header">
-                        <span class="home-promo__caption">Heather grey basics</span>
-                        <span class="home-promo__subcaption">new arrival</span>
-                    </div>
+                    <a href="/men.html" class="home-promo__block-link">
+                        <div class="home-promo__block-inner">
+                            <div class="home-promo__header">
+                                <h5 class="home-promo__caption">Heather grey basics</h5>
+                                <h6 class="home-promo__subcaption">new arrival</h6>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-        <!-- <div class="home-promo__container">
-            <div class="home-promo__column">
-                <div class="home-promo__block"></div>
-                <div class="home-promo__block"></div>
-                <div class="home-promo__block"></div>
-                <div class="home-promo__block"></div>
-                <div class="home-promo__block"></div>
-                <div class="home-promo__block"></div>
-            </div>
-        </div> -->
     </section>
     <section class="newsletter">
         <div class="newsletter__text">
