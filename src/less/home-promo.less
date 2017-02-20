@@ -1,22 +1,91 @@
 .home-promo {
     .container;
+    padding: 70px 0;
 
     &__container {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
+        @media (max-width: 780px) {
+            display: block;
+            align-items: inherit;
+            justify-content: inherit;
+        }
     }
 
     &__block {
         height: 290px;
         flex: 1;
         color: white;
+    }
+
+    &__block-link {
+        font-family: "Lato", sans-serif;
+        width: 100%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        background: rgba(0, 0, 0, 0.35);
+        text-decoration: none;
+        color: #fff;
+        text-align: center;
+        outline: none;
     }
 
-    .home-promo__block-link {}
+    &__block-inner {
+        position: relative;
+    }
+
+    &__twitter-header {
+        font-size: 36px;
+
+        &::after,
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 10%;
+            height: 1px;
+            background: #fff;
+            position: absolute;
+            left: 30%;
+            top: 10%;
+        }
+
+        &::after {
+            right: 30%;
+            left: auto;
+        }
+    }
+
+    &__twitter-quote {
+        font-weight: 400;
+        font-size: 14px;
+        font-style: italic;
+        width: 70%;
+        margin: 1em auto;
+        line-height: 1.5em;
+    }
+
+    &__caption,
+    .home-promo__product-name {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 24px;
+        margin: 0.4em;
+    }
+
+    .home-promo__product-price,
+    .home-promo__subcaption {
+        font-style: italic;
+        font-size: 18px;
+        font-weight: normal;
+        margin: 0.4em;
+    }
+
+    .home-promo__product-price--upper {
+        text-transform: uppercase;
+    }
 
     &__column {
         flex: 1;
