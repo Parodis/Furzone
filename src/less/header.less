@@ -1,69 +1,77 @@
 .header {
-    background: #fff;
+  background: #fff;
 }
 
 .header__container {
-    font-family: @font-family;
+  font-family: @font-family;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  .container;
+  border-bottom: 0.5px solid #9c9c9c;
+
+  .header__menu {
+    color: @h-color;
+    transition: all 0.5s ease;
+    width: 75%;
+    display: flex;
+
+    .header__logo {
+      background: #222;
+      color: white;
+      margin: 10px 40px 10px 0;
+
+      a {
+        padding: 5px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: @h-color;
+      font-weight: 400;
+      padding: 10px;
+      -webkit-transition: all 0.3s ease;
+    }
+
+    a:hover {
+      border-bottom: 1px solid @h-color;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      padding: 20px 15px;
+    }
+  }
+
+  .header__options {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 10px;
-    .container;
-    border-bottom: 0.5px solid #9c9c9c;
+    width: 15%;
 
-    .header__menu {
+    .header__cart {
+
+      a {
+        text-decoration: none;
         color: @h-color;
-        transition: all 0.5s ease;
-        width: 75%;
-        display: flex;
-
-        .header__logo {
-            background: #222;
-            color: white;
-            margin: 10px 40px 10px 0;
-
-            a {
-                padding: 5px;
-                font-weight: bold;
-                text-decoration: none;
-            }
-        }
-
-        a {
-            text-decoration: none;
-            color: @h-color;
-            font-weight: 400;
-            padding: 10px;
-            -webkit-transition: all 0.3s ease;
-        }
-
-        a:hover {
-            border-bottom: 1px solid @h-color;
-        }
-
-        ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        li {
-            padding: 20px 15px;
-        }
+        font-weight: 400;
+      }
     }
 
-
-        .header__options {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 15%;
-
-            .header__search {
-                border: 1px solid @border-color;
-                padding: 10px 15px;
-            }
-        }
+    .header__search {
+      border: 1px solid @border-color;
+      padding: 10px 15px;
     }
+  }
+}
 
