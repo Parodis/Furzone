@@ -17,6 +17,9 @@
       padding: 12px 25px;
       border: none;
     }
+    &--order {
+      margin-top: @form-divs-indent;
+    }
   }
 
   &--inline {
@@ -51,7 +54,7 @@
   }
   &__data {
     display: flex;
-    margin-top: 30px;
+    margin-top: @form-divs-indent;
 
     &--name {
       padding-right: 40px;
@@ -68,10 +71,145 @@
     }
   }
   &__message {
-    margin: 30px 0;
+    margin: @form-divs-indent 0;
     input[type="text"] {
       border: 1px color @border-color;
       padding: 10px 305px 250px 10px;
+    }
+  }
+
+  &--order {
+    border: 1px solid @border-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: @h2-to-content;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+  }
+
+  &__caption {
+    font-family: @font-family;
+    text-align: center;
+    margin-bottom: @h2-to-content;
+
+    h2 {
+      color: @h-color;
+      font-weight: 700;
+      font-size: 2.3em;
+      text-transform: uppercase;
+    }
+    p {
+      color: @p-color;
+      font-style: italic;
+      font-size: 1.3em;
+      font-weight: 300;
+      margin-top: @indent-h1-to-h2;
+    }
+  }
+
+  &__delivery {
+    select {
+      border: 1px color @border-color;
+      padding: 10px 325px 10px 10px;
+      color: @p-color;
+      font-size: 1em;
+    }
+  }
+
+  &__name {
+    display: flex;
+    margin-top: @form-divs-indent;
+
+    &--first {
+      padding-right: @from-input-padding;
+      input[type="text"] {
+        border: 1px color @border-color;
+        padding: 10px 80px 10px 10px;
+      }
+    }
+    &--second {
+      input[type="text"] {
+        border: 1px color @border-color;
+        padding: 10px 80px 10px 10px;
+      }
+    }
+  }
+
+  &__address {
+    margin-top: @form-divs-indent;
+    input[type="text"] {
+      border: 1px color @border-color;
+      padding: 10px 380px 10px 10px;
+    }
+  }
+  &__info {
+    display: flex;
+    margin-top: @form-divs-indent;
+    &--city {
+      padding-right: @from-input-padding;
+      input[type="text"] {
+        border: 1px color @border-color;
+        padding: 10px 80px 10px 10px;
+      }
+    }
+    &--zip {
+      input[type="text"] {
+        border: 1px color @border-color;
+        padding: 10px 80px 10px 10px;
+      }
+    }
+    &--phone {
+      padding-right: @from-input-padding;
+      input[type="tel"] {
+        border: 1px color @border-color;
+        padding: 10px 80px 10px 10px;
+      }
+    }
+    &--email {
+      input[type="email"] {
+        border: 1px color @border-color;
+        padding: 10px 80px 10px 10px;
+      }
+    }
+  }
+  &__checkbox {
+    display: flex;
+    margin-top: @form-divs-indent;
+  }
+
+  &--payment {
+    border: 1px solid @border-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: @h2-to-content 0 40px;
+    padding: 40px 0 @h2-to-content;
+  }
+
+  &__amount {
+    h3 {
+      font-weight: 400;
+      color: @p-color;
+      span {
+        font-style: italic;
+      }
+        .total {
+          color: @orange;
+          font-style: normal;
+        }
+    }
+  }
+  &__payment {
+    margin-top: @form-divs-indent;
+    select {
+      border: 1px color @border-color;
+      padding: 10px 360px 10px 10px;
+      color: @p-color;
+      font-size: 1em;
     }
   }
 }
