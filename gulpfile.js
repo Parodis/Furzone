@@ -24,17 +24,17 @@ gulp.task('browserSync', function() {
     });
 });
 
-gulp.task('img', function() {
-    return gulp.src(['src/img/*.{png,jpg,gif}'])
-        .pipe(imagemin({
-
-            optimizationLevel: 7,
-
-            progressive: true
-
-        }))
-        .pipe(gulp.dest('dist/img'));
-});
+// gulp.task('img', function() {
+//     return gulp.src(['src/img/*.{png,jpg,gif}'])
+//         .pipe(imagemin({
+//
+//             optimizationLevel: 7,
+//
+//             progressive: true
+//
+//         }))
+//         .pipe(gulp.dest('dist/img'));
+// });
 
 gulp.task('watch', function() {
     gulp.watch(['src/img/*.{png,jpg,gif}'], ['img']);
@@ -43,4 +43,4 @@ gulp.task('watch', function() {
     });
 });
 
-gulp.task('default', ['watch', 'browserSync', 'img']);
+gulp.task('default', ['watch', 'browserSync']);

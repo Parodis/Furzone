@@ -1,7 +1,7 @@
 .form {
   &__input {
     input[type="email"] {
-      border: 1px solid @border-color;
+      border: 1px solid @form-border-color;
       padding: 12px 180px 10px 5px;
     }
     input[type="submit"] {
@@ -19,6 +19,23 @@
     }
     &--order {
       margin-top: @form-divs-indent;
+      input[type="submit"] {
+        padding: 20px 70px;
+        letter-spacing: @h-letter-spacing;
+      }
+      input[type="submit"]:hover {
+        padding: 20px 70px;
+      }
+    }
+    &--account {
+      margin-top: @form-divs-indent;
+      input[type="submit"] {
+        padding: 20px 80px;
+        letter-spacing: @h-letter-spacing;
+      }
+      input[type="submit"]:hover {
+        padding: 20px 80px;
+      }
     }
   }
 
@@ -47,7 +64,7 @@
 
   &__topic {
     select {
-      border: 1px color @border-color;
+      border: 1px solid @form-border-color;
       padding: 10px 360px 10px 10px;
       color: @p-color;
       font-size: 1em;
@@ -60,13 +77,13 @@
     &--name {
       padding-right: 40px;
       input[type="text"] {
-        border: 1px color @border-color;
+        border: 1px solid @form-border-color;
         padding: 10px 50px 10px 10px;
       }
     }
     &--email {
       input[type="email"] {
-        border: 1px color @border-color;
+        border: 1px solid @form-border-color;
         padding: 10px 50px 10px 10px;
       }
     }
@@ -74,13 +91,13 @@
   &__message {
     margin: @form-divs-indent 0;
     input[type="text"] {
-      border: 1px color @border-color;
+      border: 1px solid @form-border-color;
       padding: 10px 305px 250px 10px;
     }
   }
 
   &--order {
-    border: 1px solid @border-color;
+    border: 1px solid @form-border-color;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,7 +130,7 @@
 
   &__delivery {
     select {
-      border: 1px color @border-color;
+      border: 1px solid @form-border-color;
       padding: 10px 325px 10px 10px;
       color: @p-color;
       font-size: 1em;
@@ -127,13 +144,13 @@
     &--first {
       padding-right: @from-input-padding;
       input[type="text"] {
-        border: 1px color @border-color;
+        border: 1px solid @form-border-color;
         padding: 10px 80px 10px 10px;
       }
     }
     &--second {
       input[type="text"] {
-        border: 1px color @border-color;
+        border: 1px solid @form-border-color;
         padding: 10px 80px 10px 10px;
       }
     }
@@ -142,7 +159,7 @@
   &__address {
     margin-top: @form-divs-indent;
     input[type="text"] {
-      border: 1px color @border-color;
+      border: 1px solid @form-border-color;
       padding: 10px 380px 10px 10px;
     }
   }
@@ -152,26 +169,26 @@
     &--city {
       padding-right: @from-input-padding;
       input[type="text"] {
-        border: 1px color @border-color;
+        border: 1px solid @form-border-color;
         padding: 10px 80px 10px 10px;
       }
     }
     &--zip {
       input[type="text"] {
-        border: 1px color @border-color;
+        border: 1px solid @form-border-color;
         padding: 10px 80px 10px 10px;
       }
     }
     &--phone {
       padding-right: @from-input-padding;
       input[type="tel"] {
-        border: 1px color @border-color;
+        border: 1px solid @form-border-color;
         padding: 10px 80px 10px 10px;
       }
     }
     &--email {
       input[type="email"] {
-        border: 1px color @border-color;
+        border: 1px solid @form-border-color;
         padding: 10px 80px 10px 10px;
       }
     }
@@ -182,7 +199,7 @@
   }
 
   &--payment {
-    border: 1px solid @border-color;
+    border: 1px solid @form-border-color;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -199,17 +216,54 @@
       span {
         font-style: italic;
       }
-        .total {
-          color: @orange;
-          font-style: normal;
-        }
+      .total {
+        color: @orange;
+        font-style: normal;
+      }
     }
   }
   &__payment {
     margin-top: @form-divs-indent;
     select {
-      border: 1px color @border-color;
+      border: 1px solid @form-border-color;
       padding: 10px 360px 10px 10px;
+      color: @p-color;
+      font-size: 1em;
+    }
+  }
+  &--account {
+    margin: 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  &__company {
+    margin-top: @form-divs-indent;
+    display: flex;
+    span {
+      font-style: italic;
+      text-transform: none;
+    }
+    &--name {
+      padding-right: @from-input-padding;
+      input[type="text"] {
+        border: 1px solid @form-border-color;
+        padding: 10px 170px 10px 10px;
+      }
+    }
+    &--nip {
+      input[type="text"] {
+        padding: 10px 0;
+        border: 1px solid @form-border-color;
+      }
+    }
+  }
+  &__country {
+    margin-top: @form-divs-indent;
+    select {
+      border: 1px solid @form-border-color;
+      padding: 10px 425px 10px 10px;
       color: @p-color;
       font-size: 1em;
     }
