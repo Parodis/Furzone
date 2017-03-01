@@ -9,7 +9,7 @@
     justify-content: space-between;
     padding-bottom: 10px;
     .container;
-    border-bottom: 0.5px solid #9c9c9c;
+    position: relative;
     @media (max-width: 780px) {
         display: block;
         align-items: inherit;
@@ -23,6 +23,12 @@
         display: flex;
         @media (max-width: 780px) {
             display: block;
+        }
+
+        .header__menu-active {
+            a {
+                font-weight: 700;
+            }
         }
 
         .header__logo {
@@ -42,11 +48,25 @@
             color: @h-color;
             font-weight: 400;
             padding: 10px;
-            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        a:hover {
-            border-bottom: 1px solid @h-color;
+        a:after {
+            content: '';
+            display: block;
+            bottom: 0;
+            position: absolute;
+            margin: auto;
+            height: 0;
+            width: 95%;
+            background: transparent;
+            transition: width 0.5s ease, background-color 0.5s ease;
+        }
+
+        a:hover:after {
+            height: 1px;
+            background: @h-color;
         }
 
         ul {
@@ -105,4 +125,11 @@
             padding: 10px 15px;
         }
     }
+}
+
+.header__divider {
+    width: 95%;
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 1px;
+    margin: 0 auto;
 }

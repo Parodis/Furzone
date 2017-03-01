@@ -49,7 +49,7 @@
                     <li><a href="womens.html">Women</a></li>
                     <li><a href="men.html">Men</a></li>
                     <li><a href="kids.html">Kids</a></li>
-                    <li><a href="#">Coming soon</a></li>
+                    <li class="header__menu-active"><a href="#">Coming soon</a></li>
                     <li><a href="about.html">About</a></li>
                 </ul>
             </nav>
@@ -58,16 +58,25 @@
                     <a href="history.html" class="header__options-link"><svg class="icon icon-user header__options-icon">
                     <use xlink:href="#icon-user"></use>
                 </svg>Log In</a>
-                        </div>
+                </div>
                 <div class="header__cart">
                     <img src="/dist/img/shopping-bag.svg" class="header__options-img">
                     <a href="cart.html" class="header__options-link">Basket(0)</a>
                 </div>
                 <div class="header__search">
+                    <div class="form form--inline form--header">
+                        <div class="form__input">
+                            <input type="text" placeholder="Your search term">
+                        </div>
+                        <div class="form__input">
+                            <input type="submit" value="add">
+                        </div>
+                    </div>
                     <a href="#" class="header__options-link"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg></a>
                 </div>
             </div>
         </div>
+        <div class="header__divider"></div>
     </header>
     <section class="banner">
         <div class="banner__container">
