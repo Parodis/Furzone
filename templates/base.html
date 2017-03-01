@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <title></title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="src/less/main.less" rel="stylesheet/less" type="text/css">
+    <link href="{% static "less/main.less"%}" rel="stylesheet/less" type="text/css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js">
     </script>
 </head>
@@ -58,7 +59,7 @@
                 </svg>Log In</a>
                         </div>
                 <div class="header__cart">
-                    <img src="/dist/img/shopping-bag.svg" class="header__options-img">
+                    <img src="{%  static "img/shopping-bag.svg"  %}" class="header__options-img">
                     <a href="cart.html" class="header__options-link">Basket(0)</a>
                 </div>
                 <div class="header__search">

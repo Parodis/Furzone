@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,7 +42,8 @@ INSTALLED_APPS = [
     "category",
     "item",
     "cart",
-    "order"
+    "order",
+    "contact"
 ]
 
 MIDDLEWARE = [
@@ -83,7 +83,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'D:/courses/final_project/shop/debug.log',
+            'filename': 'debug.log',
         },
     },
     'loggers': {
@@ -149,4 +149,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "src"),
+    os.path.join(BASE_DIR, "dist")
+]
+
+STATIC_URL = '/src/'
