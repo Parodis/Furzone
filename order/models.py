@@ -6,7 +6,6 @@ from payment.models import Payment
 
 
 class UserOrder(models.Model):
-    id = models.IntegerField(unique=True, primary_key=True)
     cart_id = models.ForeignKey(CartOrder)
     user_id = models.ForeignKey(User)
     status = models.IntegerField()
