@@ -1,0 +1,31 @@
+.product-thumb__list {
+    display: flex;
+}
+
+.product-thumb {
+    flex: 1 1 auto;
+
+    &__image {
+        width: 210px;
+        height: 300px;
+        margin: 0 auto;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__info {
+        text-align: center;
+
+        .product-thumb__price {
+            margin: 0;
+        }
+
+        .product-thumb__name {
+            margin-bottom: 15px;
+        }
+    }
+}

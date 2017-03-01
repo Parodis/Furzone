@@ -90,3 +90,56 @@
                 AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
                 AND pg_catalog.pg_table_is_visible(c.oid); args=None
 (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.000) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET / HTTP/1.1" 200 6357
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6357
+"GET /src/less/main.less HTTP/1.1" 200 6357
+"GET / HTTP/1.1" 200 6359
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6359
+"GET /src/less/main.less HTTP/1.1" 200 6359
+"GET / HTTP/1.1" 200 6359
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6359
+"GET /src/less/main.less HTTP/1.1" 200 6359
+"GET /about.html HTTP/1.1" 200 6359
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6359
+"GET /src/less/main.less HTTP/1.1" 200 6359
+"GET /about.html HTTP/1.1" 200 6359
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6359
+"GET /src/less/main.less HTTP/1.1" 200 6359
+"GET /about.html HTTP/1.1" 200 6359
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6359
+"GET /src/less/main.less HTTP/1.1" 200 6359
+"GET /about.html HTTP/1.1" 200 6356
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6356
+"GET /src/less/main.less HTTP/1.1" 200 6356
+"GET /about.html HTTP/1.1" 200 6357
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6357
+"GET /src/less/main.less HTTP/1.1" 200 6357
+"GET /about.html HTTP/1.1" 200 6357
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6357
+"GET /src/less/main.less HTTP/1.1" 200 6357
+"GET /about.html HTTP/1.1" 200 6357
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6357
+"GET /src/less/main.less HTTP/1.1" 200 6357
+"GET /about.html HTTP/1.1" 200 6357
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6357
+"GET /src/less/main.less HTTP/1.1" 200 6357
+"GET /about.html HTTP/1.1" 200 6363
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6363
+"GET /src/less/main.less HTTP/1.1" 200 6363
+"GET /about.html HTTP/1.1" 200 6363
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6363
+"GET /src/less/main.less HTTP/1.1" 200 6363
+"GET /about.html HTTP/1.1" 200 6363
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6363
+"GET /src/less/main.less HTTP/1.1" 200 6363
+"GET /index.html HTTP/1.1" 200 6363
+"GET /dist/img/shopping-bag.svg HTTP/1.1" 200 6363
+"GET /src/less/main.less HTTP/1.1" 200 6363

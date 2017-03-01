@@ -1,0 +1,38 @@
+.banner {
+    &__link {
+        width: 30%;
+        margin: 5% auto;
+        @media (max-width: 780px) {
+            width: 65%;
+        }
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container;
+    padding: 35px 0;
+    font-family: @font-family;
+
+    h1 {
+        color: @h-color;
+        font-weight: 400;
+        font-size: 5em;
+        text-align: center;
+        letter-spacing: @h-letter-spacing;
+        @media (max-width: 780px) {
+            font-size: 1.2em;
+        }
+    }
+
+    p {
+        color: #606060;
+        font-style: italic;
+        margin: 10px;
+        text-align: center;
+        font-size: 1.8em;
+        font-weight: 300;
+        @media (max-width: 780px) {
+            font-size: 1em;
+        }
+    }
+}
