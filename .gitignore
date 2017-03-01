@@ -6,7 +6,6 @@ node_modules/
 .tox/
 __pycache__
 MANIFEST
-dist/
 docs/_build/
 docs/locale/
 node_modules/
