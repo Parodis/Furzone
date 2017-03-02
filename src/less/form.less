@@ -56,6 +56,35 @@
 
     &--header {
         margin: 0;
+
+        .form__input--search {
+            font-style: italic;
+            width: 0;
+            padding: 0;
+            font-size: 0;
+            line-height: 0;
+            border: none;
+            transition: all 10s ease;
+        }
+
+        .animated {
+            line-height: 25px;
+            font-size: 12px;
+            padding: 5px 10px;
+            width: 100%;
+            border: 1px solid rgb(149, 149, 149);
+        }
+
+        .form__input button {
+            line-height: 25px;
+            padding: 5px 10px;
+            font-size: 12px;
+            background: #606060;
+            border: 1px solid rgb(149, 149, 149);
+            border-left: none;
+            color: #ffffff;
+            outline: none;
+        }
     }
 
     label {
