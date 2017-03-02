@@ -11,7 +11,7 @@
     </script>
 </head>
 <body>
-    <svg style="position: absolute; width: 0; height: 0; overflow: hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg style="position: absolute; width: 0; height: 0; overflow: hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <symbol id="icon-cart" viewBox="0 0 32 32">
             <title>cart</title>
@@ -42,31 +42,40 @@
     </svg>
     <header class="header">
         <div class="header__container">
-            <nav class="header__menu">
-                <a href="index.html" class="header__logo">FZ</a>
-                <ul>
-                    <li><a href="womens.html">Women</a></li>
-                    <li><a href="men.html">Men</a></li>
-                    <li><a href="kids.html">Kids</a></li>
-                    <li><a href="#">Coming soon</a></li>
-                    <li><a href="../about.html">About</a></li>
+            <nav class="header__navigation" id="headerNavigation">
+                <a href="{% url "home" %}" class="header__logo">FZ</a>
+                <ul class="header__menu">
+                    <li class="header__menu-item"><a href="womens.html">Women</a></li>
+                    <li class="header__menu-item"><a href="men.html">Men</a></li>
+                    <li class="header__menu-item"><a href="kids.html">Kids</a></li>
+                    <li class="header__menu-item header__menu-item--active"><a href="#">Coming soon</a></li>
+                    <li class="header__menu-item"><a href="about.html">About</a></li>
                 </ul>
             </nav>
-            <div class="header__options">
+            <div class="header__options" id="headerOptions">
                 <div class="header__account">
                     <a href="history.html" class="header__options-link"><svg class="icon icon-user header__options-icon">
                     <use xlink:href="#icon-user"></use>
                 </svg>Log In</a>
-                        </div>
+                </div>
                 <div class="header__cart">
-                    <img src="{%  static "img/shopping-bag.svg"  %}" class="header__options-img">
+                    <img src="/dist/img/shopping-bag.svg" class="header__options-img">
                     <a href="cart.html" class="header__options-link">Basket(0)</a>
                 </div>
                 <div class="header__search">
-                    <a href="#" class="header__options-link"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg></a>
+                    <div class="form form--inline form--header">
+                        <div class="form__input">
+                            <input type="text" name="q" class="form__input--search" id="searchInput" placeholder="Search something...">
+                        </div>
+                        <div class="form__input">
+                            <button type="submit"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg></button>
+                        </div>
+                    </div>
+                    <a href="#" class="header__options-link" id="headerSearch"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg></a>
                 </div>
             </div>
         </div>
+        <div class="header__divider"></div>
     </header>
 {% block main %}
 
