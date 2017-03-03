@@ -6,33 +6,49 @@ function headerSearch() {
 
     search.addEventListener('click', function() {
         console.log('click');
-        addClass(headerNavigation, 'header__navigation--shorted');
-        addClass(headerOptions, 'header__options--expanded');
-        addClass(searchInput, 'animated');
+        headerNavigation.classList.add('header__navigation--shorted');
+        headerOptions.classList.add('header__options--expanded');
+        searchInput.classList.add('animated');
     });
 }
 headerSearch();
 
+function mobileMenu() {
+    let mobileMenu = selectQuery('#mobileMenu'),
+        headerMenu = selectQuery('.header__menu'),
+        options = selectQuery('.header__options'),
+        childs = getChildElements(headerMenu),
+        childCount;
 
-/* work with classes */
+    mobileMenu.addEventListener('click', function() {
+        options.classList.toggle('header__options--active')
+        mobileMenu.classList.toggle('is-active');
+        headerMenu.classList.toggle('header__menu--active');
 
-function hasClass(el, className) {
-    if (el.classList)
-        el.classList.contains(className);
-    else
-        new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+        for (childCount = 0; childCount < childs.length; childCount++) {
+            childs[childCount].classList.toggle('animation-bounceIn');
+        }
+
+
+    });
+}
+mobileMenu()
+
+
+/* Utils */
+
+function selectQuery(query) {
+    return document.querySelector(query);
 }
 
-function addClass(el, className) {
-    if (el.classList)
-        el.classList.add(className);
-    else
-        el.className += ' ' + className;
-}
+function getChildElements(el) {
+    let childs = el.childNodes,
+        childCount,
+        nodes = [];
 
-function removeClass(el, className) {
-    if (el.classList)
-        el.classList.remove(className);
-    else
-        el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    for (childCount = 0; childCount < childs.length; childCount++) {
+        if (childs[childCount].nodeType != 1) continue;
+        nodes.push(childs[childCount]);
+    }
+    return nodes;
 }

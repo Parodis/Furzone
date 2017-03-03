@@ -2,21 +2,29 @@
     &__input {
         input[type="email"] {
             border: 1px solid @form-border-color;
-            padding: 12px 180px 10px 5px;
+            padding: 0 15px;
+            font-size: 14px;
+            line-height: 43px;
+            font-style: italic;
+            min-width: 300px;
+            @media (max-width: 768px) {
+                min-width: 90%;
+            }
         }
 
         input[type="submit"] {
             color: white;
             background: @orange;
-            padding: 12px 25px;
+            padding: 1px 25px;
+            line-height: 43px;
             border: none;
             transition: all 0.5s ease;
             cursor: pointer;
+            font-size: 14px;
         }
 
         input[type="submit"]:hover {
             background: #717171;
-            padding: 12px 25px;
             border: none;
         }
 
@@ -51,39 +59,36 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 60px 0;
+        margin: 40px 0 60px;
     }
 
     &--header {
         margin: 0;
+        transition: visibility 0s, opacity 1s linear;
 
         .form__input--search {
-            font-style: italic;
-            width: 0;
-            padding: 0;
-            font-size: 0;
-            line-height: 0;
-            border: none;
-            transition: all 10s ease;
-        }
-
-        .animated {
-            line-height: 25px;
-            font-size: 12px;
-            padding: 5px 10px;
+            line-height: 23px;
+            font-size: 14px;
+            padding: 10px 30px 10px 10px;
             width: 100%;
-            border: 1px solid rgb(149, 149, 149);
+            border: 1px solid #959595;
+            outline: none;
+            transition: all 1s ease;
+            font-style: italic;
         }
-
+        // .animated {
+        //     visibility: visible;
+        //     opacity: 1;
+        // }
         .form__input button {
-            line-height: 25px;
-            padding: 5px 10px;
-            font-size: 12px;
+            line-height: 43px;
+            padding: 0 15px;
+            font-size: 14px;
             background: #606060;
-            border: 1px solid rgb(149, 149, 149);
-            border-left: none;
             color: #ffffff;
             outline: none;
+            border: 1px solid #959595;
+            border-left: none;
         }
     }
 
@@ -340,5 +345,9 @@
             color: @p-color;
             font-size: 1em;
         }
+    }
+
+    &--visible {
+        display: block;
     }
 }

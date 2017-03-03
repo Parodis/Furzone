@@ -1,9 +1,9 @@
 .banner {
     &__link {
-        width: 30%;
-        margin: 5% auto;
+        text-align: center;
+        padding: 50px;
         @media (max-width: 780px) {
-            width: 65%;
+            padding: 20px 0;
         }
     }
     display: flex;
@@ -11,16 +11,24 @@
     align-items: center;
     .container;
     padding: 35px 0;
+    margin: 40px auto;
     font-family: @font-family;
+    @media (max-width: 768px) {
+        padding: 35px 0 0;
+    }
 
     h1 {
         color: @h-color;
         font-weight: 400;
-        font-size: 5em;
+        font-size: 72px;
         text-align: center;
+        line-height: 43px;
+        margin: 40px 0;
         letter-spacing: @h-letter-spacing;
         @media (max-width: 780px) {
-            font-size: 1.2em;
+            font-size: 20px;
+            line-height: 25px;
+            margin: 20px 0;
         }
     }
 
@@ -29,7 +37,8 @@
         font-style: italic;
         margin: 10px;
         text-align: center;
-        font-size: 1.8em;
+        font-size: 24px;
+        line-height: 35px;
         font-weight: 300;
         @media (max-width: 780px) {
             font-size: 1em;

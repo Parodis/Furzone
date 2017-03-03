@@ -44,13 +44,22 @@
     <header class="header">
         <div class="header__container">
             <nav class="header__navigation" id="headerNavigation">
-                <a href="index.html" class="header__logo">FZ</a>
+                <div class="header__menu-logo">
+                    <div class="header__logo-block">
+                        <a href="index.html" class="header__logo">FZ</a>
+                    </div>
+                    <button class="hamburger hamburger--squeeze" id="mobileMenu" type="button">
+                    <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                  </span>
+                  </button>
+                </div>
                 <ul class="header__menu">
-                    <li class="header__menu-item"><a href="womens.html">Women</a></li>
-                    <li class="header__menu-item"><a href="men.html">Men</a></li>
-                    <li class="header__menu-item"><a href="kids.html">Kids</a></li>
-                    <li class="header__menu-item header__menu-item--active"><a href="#">Coming soon</a></li>
-                    <li class="header__menu-item"><a href="about.html">About</a></li>
+                    <li class="header__menu-item element__animated" style="animation-delay: 0s;"><a href="womens.html">Women</a></li>
+                    <li class="header__menu-item element__animated" style="animation-delay: .2s;"><a href="men.html">Men</a></li>
+                    <li class="header__menu-item element__animated" style="animation-delay: .4s;"><a href="kids.html">Kids</a></li>
+                    <li class="header__menu-item element__animated header__menu-item--active" style="animation-delay: .6s;"><a href="#">Coming soon</a></li>
+                    <li class="header__menu-item element__animated" style="animation-delay: .8s;"><a href="about.html">About</a></li>
                 </ul>
             </nav>
             <div class="header__options" id="headerOptions">
@@ -61,17 +70,17 @@
                 </div>
                 <div class="header__cart">
                     <img src="/dist/img/shopping-bag.svg" class="header__options-img">
-                    <a href="cart.html" class="header__options-link">Basket(0)</a>
+                    <a href="cart.html" class="header__options-link">Basket <span class="basket__quantity" id="basketQuantity">(2)</span></a>
                 </div>
                 <div class="header__search">
-                    <div class="form form--inline form--header">
+                    <form class="form form--inline form--header" target="/" method="get">
                         <div class="form__input">
-                            <input type="text" name="q" class="form__input--search" id="searchInput" placeholder="Search something...">
+                            <input type="text" name="q" required class="form__input--search" id="searchInput" placeholder="Search something...">
                         </div>
                         <div class="form__input">
                             <button type="submit"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg></button>
                         </div>
-                    </div>
+                    </form>
                     <a href="#" class="header__options-link" id="headerSearch"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg></a>
                 </div>
             </div>
@@ -239,14 +248,14 @@
             <h2>Sing up to receive our updates</h2>
             <p>Nulla ipsum dolor lacus, suscipit adipiscing. Cum sociis natoque penatibus et ultrices volutrat.</p>
         </div>
-        <div class="form form--inline">
+        <form class="form form--inline" target="/" method="post">
             <div class="form__input">
-                <input type="email" class="form__input--email" placeholder="Your email">
+                <input type="email" class="form__input--email" name="email" placeholder="Your email">
             </div>
             <div class="form__input">
                 <input type="submit" value="add">
             </div>
-        </div>
+        </form>
     </section>
     <footer class="footer">
         <div class="footer__container">
