@@ -11,7 +11,7 @@
     </script>
 </head>
 <body>
-        <svg style="position: absolute; width: 0; height: 0; overflow: hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <symbol id="icon-cart" viewBox="0 0 32 32">
             <title>cart</title>
@@ -43,13 +43,22 @@
     <header class="header">
         <div class="header__container">
             <nav class="header__navigation" id="headerNavigation">
-                <a href="{% url "home" %}" class="header__logo">FZ</a>
+                <div class="header__menu-logo">
+                    <div class="header__logo-block">
+                        <a href="{% url "home" %}" class="header__logo">FZ</a>
+                    </div>
+                    <button class="hamburger hamburger--squeeze" id="mobileMenu" type="button">
+                    <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                  </span>
+                  </button>
+                </div>
                 <ul class="header__menu">
-                    <li class="header__menu-item"><a href="womens.html">Women</a></li>
-                    <li class="header__menu-item"><a href="men.html">Men</a></li>
-                    <li class="header__menu-item"><a href="kids.html">Kids</a></li>
-                    <li class="header__menu-item header__menu-item--active"><a href="#">Coming soon</a></li>
-                    <li class="header__menu-item"><a href="about.html">About</a></li>
+                    <li class="header__menu-item element__animated" style="animation-delay: 0s;"><a href="womens.html">Women</a></li>
+                    <li class="header__menu-item element__animated" style="animation-delay: .2s;"><a href="men.html">Men</a></li>
+                    <li class="header__menu-item element__animated" style="animation-delay: .4s;"><a href="kids.html">Kids</a></li>
+                    <li class="header__menu-item element__animated header__menu-item--active" style="animation-delay: .6s;"><a href="#">Coming soon</a></li>
+                    <li class="header__menu-item element__animated" style="animation-delay: .8s;"><a href="{% url "about" %}">About</a></li>
                 </ul>
             </nav>
             <div class="header__options" id="headerOptions">
@@ -60,26 +69,25 @@
                 </div>
                 <div class="header__cart">
                     <img src="/dist/img/shopping-bag.svg" class="header__options-img">
-                    <a href="cart.html" class="header__options-link">Basket(0)</a>
+                    <a href="cart.html" class="header__options-link">Basket <span class="basket__quantity" id="basketQuantity">(2)</span></a>
                 </div>
                 <div class="header__search">
-                    <div class="form form--inline form--header">
+                    <form class="form form--inline form--header" target="/" method="get">
                         <div class="form__input">
-                            <input type="text" name="q" class="form__input--search" id="searchInput" placeholder="Search something...">
+                            <input type="text" name="q" required class="form__input--search" id="searchInput" placeholder="Search something...">
                         </div>
                         <div class="form__input">
                             <button type="submit"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg></button>
                         </div>
-                    </div>
+                    </form>
                     <a href="#" class="header__options-link" id="headerSearch"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg></a>
                 </div>
             </div>
         </div>
         <div class="header__divider"></div>
     </header>
-{% block main %}
-
-{% endblock main %}
+{% block breadcrumps %}{% endblock breadcrumps %}
+       {% block content %} {% endblock content %}
 <footer class="footer">
         <div class="footer__container">
             <div class="footer__collection">
@@ -104,10 +112,10 @@
             <div class="footer__shop">
                 <h2>SHOP</h2>
                 <ul>
-                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="{% url "about" %}">About Us</a></li>
                     <li><a href="#">Shipping Methods</a></li>
                     <li><a href="#">Career</a></li>
-                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="{% url "contact" %}">Contact</a></li>
                     <li></li>
                     <li></li>
                 </ul>

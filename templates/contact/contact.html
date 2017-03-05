@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block breadcrumps %}
+    <div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="{% url 'contact' %}">Contact</a>
+            </li>
+        </ul>
+    </div>
+{% endblock breadcrumps %}
+{% block content %}
+    <section class="contact">
+        <div class="contact__text">
+            <h1>CONTACT</h1>
+            <p>Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.</p>
+        </div>
+    </section>
+    <form class="form form--contact" action="." method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <div class="form__input">
+            <input type="submit" value="SEND">
+        </div>
+    </form>
+{% endblock content %}

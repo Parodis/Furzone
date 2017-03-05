@@ -108,6 +108,11 @@
         flex-direction: column;
         margin-top: @h2-to-content;
         margin-bottom: 40px;
+        @media(max-width: 780px) {
+            display: block;
+            width: 95%;
+            margin: 0 auto;
+        }
     }
 
     &__topic {
@@ -116,6 +121,7 @@
             padding: 10px 360px 10px 10px;
             color: @p-color;
             font-size: 1em;
+
         }
     }
 

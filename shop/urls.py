@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from shop.views import Home
+from shop.views import *
+from contact.views import ContactCreate
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', Home.as_view(), name='home')
+    url(r'^$', Home.as_view(), name='home'),
+    url(r'^contact$', ContactCreate, name='contact'),
+    url(r'^about$', About.as_view(), name='about')
 ]
