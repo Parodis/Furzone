@@ -106,8 +106,9 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        margin-top: @h2-to-content;
-        margin-bottom: 40px;
+        width: 25%;
+        min-width: 300px;
+        margin: @h2-to-content auto 40px;
         @media(max-width: 780px) {
             display: block;
             width: 95%;
@@ -116,42 +117,54 @@
     }
 
     &__topic {
+        display: block;
+        width: 100%;
+
         select {
             border: 1px solid @form-border-color;
-            padding: 10px 360px 10px 10px;
+            padding: 10px;
             color: @p-color;
             font-size: 1em;
-
+            width: 100%;
+            margin: 0 auto;
+            -webkit-appearance: none;
         }
     }
 
     &__data {
+        width: 100%;
         display: flex;
         margin-top: @form-divs-indent;
 
         &--name {
-            padding-right: 40px;
+            flex: 1 1 50%;
 
             input[type="text"] {
                 border: 1px solid @form-border-color;
-                padding: 10px 50px 10px 10px;
+                padding: 10px 0 10px 2.5%;
+                width: 95%;
             }
         }
 
         &--email {
+            flex: 1 1 50%;
+
             input[type="email"] {
                 border: 1px solid @form-border-color;
-                padding: 10px 50px 10px 10px;
+                padding: 10px 2.5%;
+                width: 95%;
             }
         }
     }
 
     &__message {
         margin: @form-divs-indent 0;
+        width: 100%;
 
-        input[type="text"] {
+        textarea {
+            width: 95%;
             border: 1px solid @form-border-color;
-            padding: 10px 305px 250px 10px;
+            padding: 1% 2.5%;
         }
     }
 
