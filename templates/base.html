@@ -58,7 +58,7 @@
                     <li class="header__menu-item element__animated" style="animation-delay: .2s;"><a href="men.html">Men</a></li>
                     <li class="header__menu-item element__animated" style="animation-delay: .4s;"><a href="kids.html">Kids</a></li>
                     <li class="header__menu-item element__animated header__menu-item--active" style="animation-delay: .6s;"><a href="#">Coming soon</a></li>
-                    <li class="header__menu-item element__animated" style="animation-delay: .8s;"><a href="{% url "about" %}">About</a></li>
+                    <li class="header__menu-item element__animated" style="animation-delay: .8s;"><a href="about.html">About</a></li>
                 </ul>
             </nav>
             <div class="header__options" id="headerOptions">
@@ -90,7 +90,7 @@
        {% block content %} {% endblock content %}
 <footer class="footer">
         <div class="footer__container">
-            <div class="footer__collection">
+            <div class="footer__block footer__collection">
                 <h2>COLLECTION</h2>
                 <ul>
                     <li><a href="#">Women (1735)</a></li>
@@ -99,7 +99,7 @@
                     <li><a href="#">Other (76)</a></li>
                 </ul>
             </div>
-            <div class="footer__site">
+            <div class="footer__block footer__site">
                 <h2>SITE</h2>
                 <ul>
                     <li><a href="#">Terms Of Service</a></li>
@@ -109,7 +109,7 @@
                     <li><a href="#">Support</a></li>
                 </ul>
             </div>
-            <div class="footer__shop">
+            <div class="footer__block footer__shop">
                 <h2>SHOP</h2>
                 <ul>
                     <li><a href="{% url "about" %}">About Us</a></li>
@@ -120,7 +120,7 @@
                     <li></li>
                 </ul>
             </div>
-            <div class="footer__social">
+            <div class="footer__block footer__social">
                 <h2>SOCIAL</h2>
                 <p>Shoper is made with love in Minsk</p>
                 <p>2017 @ All rights reserved. El Passion</p>
@@ -130,5 +130,7 @@
             </div>
         </div>
     </footer>
+    <script src="/dist/js/main.js">
+    </script>
 </body>
 </html>

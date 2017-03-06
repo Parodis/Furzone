@@ -3,8 +3,6 @@ from .models import Contact
 from django import forms
 
 
-# from .forms import ContactCreateForm
-
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
@@ -15,12 +13,6 @@ class ContactForm(forms.ModelForm):
                                   ("Advet", "Advertisement"), ("Other", "Other questions")))),
             'message': (forms.TextInput(attrs={'class': 'message'}))
         }
-        # topis = forms.CharField(max_length=100, widget=forms.Select(
-        #     choices=(("Product", "Question about product"), ("Shipment", "Problem with order shipment"),
-        #              ("Advet", "Advertisement"), ("Other", "Other questions"))))
-        # name = forms.CharField(max_length=100)
-        # email = forms.EmailField()
-        # message = forms.CharField()
 
 
 def ContactCreate(request):
