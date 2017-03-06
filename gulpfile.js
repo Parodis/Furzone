@@ -24,6 +24,16 @@ gulp.task('browserSync', function() {
     });
 });
 
+gulp.task('styles', function() {
+    return gulp.src(['src/less/main.less'])
+        .pipe(
+            less({
+                plugins: [autoprefix]
+            })
+        ).pipe(gulp.dest('dist/css'))
+        .pipe(reload());
+});
+
 // gulp.task('img', function() {
 //     return gulp.src(['src/img/*.{png,jpg,gif}'])
 //         .pipe(imagemin({
@@ -38,7 +48,7 @@ gulp.task('browserSync', function() {
 
 gulp.task('watch', function() {
     gulp.watch(['src/img/*.{png,jpg,gif}'], ['img']);
-    gulp.watch(['index.html', 'src/less/*.less']).on('change', function(evt) {
+    gulp.watch(['*.html', 'src/less/*.less']).on('change', function(evt) {
         browserSync.reload();
     });
 });
