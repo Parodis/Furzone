@@ -13,35 +13,7 @@
             justify-content: inherit;
         }
 
-        .footer__collection {
-            text-align: start;
-
-            h2 {
-                text-align: center;
-                color: @h-color;
-            }
-
-            ul {
-                list-style: none;
-                padding: 0;
-            }
-
-            li {
-                padding-bottom: 10px;
-            }
-
-            a {
-                text-decoration: none;
-                color: #222222;
-                text-align: left;
-            }
-
-            a:hover {
-                border-bottom: 1px solid #222222;
-            }
-        }
-
-        .footer__site {
+        .footer__block {
             border-left: 2px solid @border-color;
             padding-left: 15px;
 
@@ -63,53 +35,35 @@
                 text-decoration: none;
                 color: #222222;
                 text-align: left;
+                transition: all 0.3s ease;
+                position: relative;
+                padding-bottom: 5px;
             }
 
-            a:hover {
-                border-bottom: 1px solid #222222;
-            }
-        }
-
-        .footer__shop {
-            border-left: 2px solid @border-color;
-            padding-left: 15px;
-
-            h2 {
-                text-align: start;
-                color: @h-color;
+            a:after {
+                content: '';
+                display: block;
+                bottom: 0;
+                position: absolute;
+                margin: auto;
+                height: 0;
+                width: 95%;
+                background: transparent;
+                transition: width 0.5s ease, background-color 0.5s ease;
             }
 
-            ul {
-                list-style: none;
-                padding: 0;
+            a:hover:after {
+                height: 1px;
+                background: @h-color;
             }
 
-            li {
-                padding-bottom: 10px;
+            &:first-child {
+                padding-left: none;
+                border: none;
             }
-
-            a {
-                text-decoration: none;
-                color: #222222;
-                text-align: left;
-            }
-
-            a:hover {
-                border-bottom: 1px solid #222222;
-            }
-        }
-
-        .footer__social {
-            border-left: 2px solid @border-color;
-            padding-left: 15px;
-
-            h2 {
-                text-align: start;
-                color: @h-color;
-            }
-
-            p {
-                color: #222222;
+            @media (max-width: 768px) {
+                padding-left: none;
+                border: none;
             }
         }
     }
