@@ -21,6 +21,6 @@ from contact.views import ContactCreate
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', Home.as_view(), name='home'),
-    url(r'^contact$', ContactCreate, name='contact'),
+    url(r'^contact/$', ContactCreate, name='contact'),
     url(r'^about$', About.as_view(), name='about')
 ]
