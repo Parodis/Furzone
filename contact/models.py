@@ -10,4 +10,7 @@ class Contact(models.Model):
     email = models.EmailField(verbose_name='Email')
     message = models.TextField(verbose_name='Message')
 
+    def __str__(self):
+        return self.name
+
 # Create your models here.

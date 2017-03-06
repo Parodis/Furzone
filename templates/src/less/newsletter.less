@@ -1,21 +1,35 @@
 .newsletter {
-  text-align: center;
-  font-family: @font-family;
+    text-align: center;
+    font-family: @font-family;
+    padding-bottom: 70px;
 
-  .newsletter__text {
-    h2 {
-      color: #303030;
-      font-size: 2.2em;
-      text-transform: uppercase;
-      font-weight: 400;
-      letter-spacing: @h-letter-spacing;
+    .newsletter__text {
+        h2 {
+            color: #303030;
+            font-size: 2.2em;
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: @h-letter-spacing;
+            @media (max-width: 768px ) {
+                font-size: 20px;
+                line-height: 23px;
+                padding-bottom: 20px;
+            }
+        }
+
+        p {
+            color: #606060;
+            font-style: italic;
+            margin-top: @indent-h1-to-h2;
+            font-size: 1.2em;
+            font-weight: 300;
+            @media (max-width: 768px) {
+                font-size: 1em;
+                line-height: 1.5em;
+            }
+        }
     }
-    p {
-      color: #606060;
-      font-style: italic;
-      margin-top: @indent-h1-to-h2;
-      font-size: 1.2em;
-      font-weight: 300;
+    @media (max-width: 768px) {
+        padding-bottom: 20px;
     }
-  }
 }

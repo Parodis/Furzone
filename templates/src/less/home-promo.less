@@ -1,6 +1,6 @@
 .home-promo {
     .container;
-    padding: 70px 0;
+    padding: 50px 0 70px;
 
     &__container {
         width: 100%;
@@ -104,5 +104,11 @@
     }
 
     .home-promo__header {}
+
+    &__hidden-mobile {
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
 }
 //
