@@ -11,7 +11,7 @@ class ContactForm(forms.ModelForm):
             'topis': (
             forms.Select(choices=(("Product", "Question about product"), ("Shipment", "Problem with order shipment"),
                                   ("Advet", "Advertisement"), ("Other", "Other questions")))),
-            'message': (forms.TextInput(attrs={'class': 'message'}))
+            'message': (forms.Textarea(attrs={'class': 'message'}))
         }
 
 
