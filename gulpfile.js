@@ -35,11 +35,14 @@ gulp.task('runserver', function() {
 })
 
 
-gulp.task('browserSync', ['runserver'], function() {
+gulp.task('browserSync', function() {
     browserSync({
-        port: 8000,
+        server: {
+            baseDir: "./"
+        },
+        port: 8080,
         open: true,
-        proxy: 'localhost:8000',
+        //  proxy: 'localhost:8000',
         notify: false
     });
 });
@@ -77,10 +80,10 @@ gulp.task('img', function() {
 });
 
 gulp.task('scripts', function() {
-    gulp.src('vendor/src/js/*.js')
+    gulp.src('src/js/*.js')
         .pipe(plumber(plumberErrorHandler))
         .pipe(babel())
-        .pipe(gulp.dest('vendor/assets/javascripts'))
+        .pipe(gulp.dest('dist/js'))
         .pipe(reload({
             stream: true
         }))
