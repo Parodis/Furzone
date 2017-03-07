@@ -7,6 +7,11 @@
     .cart__product-block {
         flex: 1 1 16%;
         text-align: center;
+        @media (max-width: 768px) {
+            flex: 1 1 auto;
+            margin: 0 10px;
+            min-width: 115px;
+        }
     }
 
     &__caption {
@@ -104,6 +109,10 @@
                 }
             }
         }
+        @media (max-width: 768px) {
+            width: 100%;
+            overflow-x: scroll;
+        }
     }
 
     &__button {
@@ -117,7 +126,7 @@
             }
         }
 
-        .cart__order {
+        .cart__order-button {
             a {
                 color: white;
                 background: @orange;
