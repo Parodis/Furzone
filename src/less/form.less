@@ -123,13 +123,17 @@
         width: 100%;
 
         select {
-            border: 1px solid @form-border-color;
-            padding: 10px;
-            color: @p-color;
-            font-size: 1em;
-            width: 100%;
-            margin: 0 auto;
+            font-family: "Lato", sans-serif;
             -webkit-appearance: none;
+            border: none;
+            background: #fff;
+            border-bottom: 1px solid @form-border-color;
+            border-radius: inherit;
+            font-size: 14px;
+            color: #606060;
+            outline: none;
+            width: 100%;
+            line-height: 33px;
         }
     }
 
@@ -370,5 +374,28 @@
 
     &--visible {
         display: block;
+    }
+
+    .form__filter-group {
+        flex: 1 1 auto;
+        margin: 0 10%;
+    }
+
+    .form__filter-select {
+        -webkit-appearance: none;
+        border: none;
+        background: #fff;
+        border-bottom: 1px solid black;
+        border-radius: inherit;
+        font-size: 14px;
+        font-family: Georgia, Times, "Times New Roman", serif;
+        font-style: italic;
+        color: #606060;
+        outline: none;
+        line-height: 33px;
+        background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+        background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+        background-size: 5px 5px, 5px 5px, 1px 1.5em;
+        background-repeat: no-repeat;
     }
 }
