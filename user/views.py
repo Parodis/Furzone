@@ -33,5 +33,35 @@ def login_in(request):
                 login(request, login_form.get_user())
                 return HttpResponseRedirect('/')
         else:
-            form = LoginForm()
+            login_form = LoginForm()
         return render(request, 'base.html', {'form': login_form})
+
+
+class RegistrationForm(forms.ModelForm):
+    password2 = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = ['email', 'password']
+        widgets = {
+            'password': forms.PasswordInput,
+        }
+
+    def clean_password2(self):
+        cd = self.cleaned_data
+        if cd['password'] != cd['password2']:
+            raise forms.ValidationError("Password don't match")
+        return cd['password']
+
+
+def register(request):
+    if request.method == "POST":
+        register_form = RegistrationForm(request.POST)
+        if register_form.is_valid():
+            new_user = register_form.save(commit=False)
+            new_user.set_password(register_form.cleaned_data['password'])
+            new_user.save()
+            return HttpResponseRedirect('/')
+        else:
+            register_form = RegistrationForm()
+        return render(request, 'base.html', {'register_form': register_form})
