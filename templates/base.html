@@ -1,15 +1,17 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title></title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static "less/main.less" %}" rel="stylesheet/less" type="text/css">
+    <link href="{% static 'less/main.less' %}" rel="stylesheet/less" type="text/css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js">
     </script>
 </head>
+
 <body>
     <svg style="position: absolute; width: 0; height: 0; overflow: hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
@@ -63,7 +65,7 @@
             <nav class="header__navigation" id="headerNavigation">
                 <div class="header__menu-logo">
                     <div class="header__logo-block">
-                        <a href="{% url "home" %}" class="header__logo">FZ</a>
+                        <a href="{% url 'home' %}" class="header__logo">FZ</a>
                     </div>
                     <button class="hamburger hamburger--squeeze" id="mobileMenu" type="button">
                     <span class="hamburger-box">
@@ -76,7 +78,7 @@
                     <li class="header__menu-item element__animated" style="animation-delay: .2s;"><a href="men.html">Men</a></li>
                     <li class="header__menu-item element__animated" style="animation-delay: .4s;"><a href="kids.html">Kids</a></li>
                     <li class="header__menu-item element__animated header__menu-item--active" style="animation-delay: .6s;"><a href="#">Coming soon</a></li>
-                    <li class="header__menu-item element__animated" style="animation-delay: .8s;"><a href="{% url "about" %}">About</a></li>
+                    <li class="header__menu-item element__animated" style="animation-delay: .8s;"><a href="{% url 'about' %}">About</a></li>
                 </ul>
             </nav>
             <div class="header__options" id="headerOptions">
@@ -104,99 +106,68 @@
         </div>
         <div class="header__divider"></div>
     </header>
-{% block breadcrumps %}{% endblock breadcrumps %}
-{% block content %} {% endblock content %}
-<footer class="footer">
-    <div class="footer__container">
-        <div class="footer__block footer__collection">
-            <h2>COLLECTION</h2>
-            <ul>
-                <li><a href="#">Women (1735)</a></li>
-                <li><a href="#">Men (650)</a></li>
-                <li><a href="#">Kids (2140)</a></li>
-                <li><a href="#">Other (76)</a></li>
-            </ul>
-        </div>
-        <div class="footer__block footer__site">
-            <h2>SITE</h2>
-            <ul>
-                <li><a href="#">Terms Of Service</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Copyright Policy</a></li>
-                <li><a href="#">Press Kit</a></li>
-                <li><a href="#">Support</a></li>
-            </ul>
-        </div>
-        <div class="footer__block footer__shop">
-            <h2>SHOP</h2>
-            <ul>
-                <li><a href="{% url "about" %}">About Us</a></li>
-                <li><a href="#">Shipping Methods</a></li>
-                <li><a href="#">Career</a></li>
-                <li><a href="{% url "contact" %}">Contact</a></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-        <div class="footer__block footer__social">
-            <h2>SOCIAL</h2>
-            <p>Shoper is made with love in Minsk</p>
-            <p>2017 @ All rights reserved. El Passion</p>
-            <div class="social__sidebar">
+    {% block breadcrumps %}{% endblock breadcrumps %} {% block content %} {% endblock content %}
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__block footer__collection">
+                <h2>COLLECTION</h2>
+                <ul>
+                    <li><a href="#">Women (1735)</a></li>
+                    <li><a href="#">Men (650)</a></li>
+                    <li><a href="#">Kids (2140)</a></li>
+                    <li><a href="#">Other (76)</a></li>
+                </ul>
+            </div>
+            <div class="footer__block footer__site">
+                <h2>SITE</h2>
+                <ul>
+                    <li><a href="#">Terms Of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Copyright Policy</a></li>
+                    <li><a href="#">Press Kit</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer__block footer__shop">
+                <h2>SHOP</h2>
+                <ul>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="#">Shipping Methods</a></li>
+                    <li><a href="#">Career</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="footer__block footer__social">
+                <h2>SOCIAL</h2>
+                <p>Shoper is made with love in Minsk</p>
+                <p>2017 @ All rights reserved. El Passion</p>
+                <div class="social__sidebar">
 
-                <a href="https://twitter.com/" target="_blank" class="social__link">
-                    <svg class="icon icon-twitter">
+                    <a href="https://twitter.com/" target="_blank" class="social__link">
+                        <svg class="icon icon-twitter">
                         <use xlink:href="#icon-twitter"></use>
                     </svg>
-                </a>
-                <a href="https://vk.com" target="_blank" class="social__link">
-                    <svg class="icon icon-vk">
+                    </a>
+                    <a href="https://vk.com" target="_blank" class="social__link">
+                        <svg class="icon icon-vk">
                         <use xlink:href="#icon-vk"></use>
                     </svg>
-                </a>
-                <a href="https://instagram.com" target="_blank" class="social__link">
-                    <svg class="icon icon-instagram">
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social__link">
+                        <svg class="icon icon-instagram">
                         <use xlink:href="#icon-instagram"></use>
                     </svg>
-                </a>
-            </div>
-
-        </div>
-    </div>
-</footer>
-        <div class="login" id="loginPopup">
-
-        <div class="login__wrapper" id="loginWrapper">
-            <h3 class="login__header" id="loginHeader">SIGN IN</h3>
-            <form action="" class="login__form" method="post" id="login_form">
-                {% csrf_token %}
-                <input type="hidden" name="action" value="log" id="formAction">
-                <div class="login__form-group">
-                    <label for="id_email" class="login__form-label">E-mail</label>
-                    <input type="email" name="user[email]" id="id_email" class="login__form-input">
-                </div>
-                <div class="login__form-group login__form-group--relative" id="forgotPassGroup">
-                    <label for="id_password" class="login__form-label">Password <a href="#" class="login__form-link login__form-link--right" id="forgotPassLink">
-                      forgot password
-                    </a></label>
-
-                    <input type="password" name="user[password]" id="id_password" class="login__form-input">
-                    <a href="#" class="login__form-link login__form-link--show-pass" id="showPass">show</a>
-                </div>
-                <div class="login__form-group login__form-group--invisible" id="passwordRepeat">
-                    <label for="passwordRepeat" class="login__form-label">Password Repeat</label>
-                    <input type="password" name="user[passwordRepeat]" id="passwordRepeat" class="login__form-input">
-                </div>
-                <div class="login__form-submit">
-                    <button type="submit" class="login__form-button" id="submitButton">Sign in</button>
-                    <a href="#" id="signUpLink" class="login__form-link login__form-link--block">
-                      I don't have an account
                     </a>
                 </div>
-            </form>
+
+            </div>
         </div>
-        </div>
-<script src="{% static "js/main.js" %}">
-</script>
+    </footer>
+    {% include 'popup.html' %}
+    <script src="{% static 'js/main.js' %}">
+    </script>
 </body>
+
 </html>

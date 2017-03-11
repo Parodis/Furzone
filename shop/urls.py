@@ -25,7 +25,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', Home.as_view(), name='home'),
     url(r'^contact/$', ContactCreate, name='contact'),
-    url(r'^about$', About.as_view(), name='about')
+    url(r'^about$', About.as_view(), name='about'),
+    url(r'^login/$', login_in, name="log in")
 ]
 
 if settings.DEBUG:

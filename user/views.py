@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django import forms
 from django.contrib.auth import authenticate, login
 from .models import User
@@ -26,15 +26,17 @@ class LoginForm(forms.ModelForm):
 
 
 def login_in(request):
-    if request.method == "POST":
-        login_form = LoginForm(request.POST)
-        if login_form.is_valid():
-            if login_form.get_user():
-                login(request, login_form.get_user())
-                return HttpResponseRedirect('/')
-        else:
-            login_form = LoginForm()
-        return render(request, 'base.html', {'form': login_form})
+        login_form = LoginForm(request.POST or None)
+        if request.method == "POST":
+            if login_form.is_valid():
+                if login_form.get_user():
+                    login(request, login_form.get_user())
+                    return HttpResponseRedirect('/')
+            else:
+                login_form = LoginForm()
+                return HttpResponse(login_form.errors['__all__'])
+
+            return render(request, 'login/success.html', {'login_form': login_form})
 
 
 class RegistrationForm(forms.ModelForm):
@@ -64,4 +66,4 @@ def register(request):
             return HttpResponseRedirect('/')
         else:
             register_form = RegistrationForm()
-        return render(request, 'base.html', {'register_form': register_form})
+        return render(request, 'login/success.html', {'register_form': register_form})
