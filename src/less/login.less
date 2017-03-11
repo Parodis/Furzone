@@ -9,9 +9,7 @@
     align-items: center;
     background: #e5e5e5;
     flex-wrap: wrap;
-    display: flex;
-    opacity: 0;
-    visibility: hidden;
+    display: none;
     transition: visibility 100s linear 0s, opacity 300ms;
 
     &__wrapper {
@@ -124,7 +122,6 @@
     }
 
     &__opened {
-        visibility: visible;
-        opacity: 1;
+        display: flex;
     }
 }
