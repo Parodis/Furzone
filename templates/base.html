@@ -165,37 +165,7 @@
             </div>
         </div>
     </footer>
-    <div class="login" id="loginPopup">
-
-        <div class="login__wrapper" id="loginWrapper">
-            <h3 class="login__header" id="loginHeader">SIGN IN</h3>
-            <form action="/login/" id="login_form" class="login__form" method="post">
-                {% csrf_token %}
-                <input type="hidden" name="action" value="log" id="formAction">
-                <div class="login__form-group">
-                    <label for="email" class="login__form-label">E-mail</label>
-                    <input type="email" name="email" id="email" class="login__form-input">
-                </div>
-                <div class="login__form-group login__form-group--relative" id="forgotPassGroup">
-                    <label for="password" class="login__form-label">Password <a href="#" class="login__form-link login__form-link--right" id="forgotPassLink">
-                      forgot password
-                    </a></label>
-                    <input type="password" name="password" id="password" class="login__form-input">
-                    <a href="#" class="login__form-link login__form-link--show-pass" id="showPass">show</a>
-                </div>
-                <div class="login__form-group login__form-group--invisible" id="passwordRepeat">
-                    <label for="passwordRepeat" class="login__form-label">Password Repeat</label>
-                    <input type="password" name="passwordRepeat" id="passwordRepeat" class="login__form-input">
-                </div>
-                <div class="login__form-submit">
-                    <button type="submit" class="login__form-button" id="submitButton">Sign in</button>
-                    <a href="#" id="signUpLink" class="login__form-link login__form-link--block">
-                      I don't have an account
-                    </a>
-                </div>
-            </form>
-        </div>
-    </div>
+    {% include 'popup.html' %}
     <script src="{% static 'js/main.js' %}">
     </script>
 </body>
