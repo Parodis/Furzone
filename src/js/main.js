@@ -1,12 +1,10 @@
-'use strict';
-
 function headerSearch() {
-    var search = document.querySelector('#headerSearch'),
+    let search = document.querySelector('#headerSearch'),
         headerNavigation = document.querySelector('#headerNavigation'),
         headerOptions = document.querySelector('#headerOptions'),
         searchInput = document.querySelector('#searchInput');
 
-    search.addEventListener('click', function () {
+    search.addEventListener('click', () => {
         console.log('click');
         headerNavigation.classList.add('header__navigation--shorted');
         headerOptions.classList.add('header__options--expanded');
@@ -16,14 +14,14 @@ function headerSearch() {
 headerSearch();
 
 function mobileMenu() {
-    var mobileMenu = selectQuery('#mobileMenu'),
+    let mobileMenu = selectQuery('#mobileMenu'),
         headerMenu = selectQuery('.header__menu'),
         options = selectQuery('.header__options'),
         childs = getChildElements(headerMenu),
-        childCount = void 0;
+        childCount;
 
-    mobileMenu.addEventListener('click', function () {
-        options.classList.toggle('header__options--active');
+    mobileMenu.addEventListener('click', () => {
+        options.classList.toggle('header__options--active')
         mobileMenu.classList.toggle('is-active');
         headerMenu.classList.toggle('header__menu--active');
 
@@ -32,37 +30,41 @@ function mobileMenu() {
         }
     });
 }
-mobileMenu();
+mobileMenu()
 
 function showPass() {
-    var showLink = selectQuery('#showPass'),
+    let showLink = selectQuery('#showPass'),
         password = selectQuery('#password');
 
-    showLink.addEventListener('click', function () {
-        if (password.getAttribute('type') == 'password') password.setAttribute('type', 'text');else password.setAttribute('type', 'password');
-    });
+    showLink.addEventListener('click', () => {
+        if (password.getAttribute('type') == 'password')
+            password.setAttribute('type', 'text')
+        else
+            password.setAttribute('type', 'password');
+    })
 }
 showPass();
 
 function togglePopup() {
-    var popup = selectQuery('#loginPopup'),
+    let popup = selectQuery('#loginPopup'),
         signInLink = selectQuery('#signInLink'),
         loginWrapper = selectQuery('#loginWrapper');
 
-    signInLink.addEventListener('click', function (event) {
+    signInLink.addEventListener('click', (event) => {
         event.preventDefault();
         popup.classList.toggle('login__opened');
     });
-    popup.addEventListener('click', function (event) {
+    popup.addEventListener('click', (event) => {
         if (!event.path.includes(loginWrapper)) {
             popup.classList.toggle('login__opened');
         }
+
     });
 }
 togglePopup();
 
 function formSignUp() {
-    var signUpLink = selectQuery('#signUpLink'),
+    let signUpLink = selectQuery('#signUpLink'),
         formAction = selectQuery('#formAction'),
         passwordRepeat = selectQuery('#passwordRepeat'),
         loginHeader = selectQuery('#loginHeader'),
@@ -70,7 +72,8 @@ function formSignUp() {
         submitButton = selectQuery('#submitButton'),
         forgotPassGroup = selectQuery('#forgotPassGroup');
 
-    signUpLink.addEventListener('click', function (event) {
+
+    signUpLink.addEventListener('click', (event) => {
         event.preventDefault();
         if (formAction.getAttribute('value') == 'log') {
             formAction.setAttribute('value', 'sign');
@@ -85,22 +88,24 @@ function formSignUp() {
             submitButton.innerText = 'SIGN IN';
             passwordRepeat.classList.toggle('login__form-group--invisible');
             if (forgotPassLink.classList.contains('login__form-group--invisible')) {
-                forgotPassLink.classList.remove('login__form-group--invisible');
+                forgotPassLink.classList.remove('login__form-group--invisible')
             }
         }
+
     });
-    forgotPassLink.addEventListener('click', function (event) {
+    forgotPassLink.addEventListener('click', (event) => {
         event.preventDefault();
         formAction.setAttribute('value', 'forgot');
         if (!passwordRepeat.classList.contains('login__form-group--invisible')) {
-            passwordRepeat.classList.add('login__form-group--invisible');
+            passwordRepeat.classList.add('login__form-group--invisible')
         }
         loginHeader.innerText = 'SEND PASS';
         submitButton.innerText = 'SEND PASS';
         forgotPassLink.classList.toggle('login__form-group--invisible');
         forgotPassGroup.classList.toggle('login__form-group--invisible');
         signUpLink.classList.toggle('login__form-group--invisible');
-    });
+    })
+
 }
 formSignUp();
 
@@ -111,8 +116,8 @@ function selectQuery(query) {
 }
 
 function getChildElements(el) {
-    var childs = el.childNodes,
-        childCount = void 0,
+    let childs = el.childNodes,
+        childCount,
         nodes = [];
 
     for (childCount = 0; childCount < childs.length; childCount++) {
