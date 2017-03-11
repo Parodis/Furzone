@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from shop.views import *
 from contact.views import ContactCreate
+from user.views import login_in
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
