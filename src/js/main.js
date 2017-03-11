@@ -109,6 +109,38 @@ function formSignUp() {
 }
 formSignUp();
 
+function loginFormSubmit() {
+    let loginForm = selectQuery('#login_form'),
+        login = selectQuery('#login_form #email'),
+        password = selectQuery('#login_form #password');
+
+    loginForm.addEventListener('submit', (event) => {
+        console.log(loginForm);
+        let data = new FormData(loginForm),
+            xmlhttp = new XMLHttpRequest();
+
+        console.log('submit');
+        event.preventDefault();
+
+
+        xmlhttp.open("POST", loginForm.getAttribute('action'), true);
+
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState != 4) return;
+
+            if (xmlhttp.status == 200) {
+
+            } else {
+                console.log(xmlhttp.statusText);
+            }
+        }
+        xmlhttp.send(data);
+    });
+}
+
+loginFormSubmit();
+
+
 /* Utils */
 
 function selectQuery(query) {
