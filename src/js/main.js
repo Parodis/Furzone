@@ -115,11 +115,8 @@ function loginFormSubmit() {
         password = selectQuery('#login_form #password');
 
     loginForm.addEventListener('submit', (event) => {
-        console.log(loginForm);
         let data = new FormData(loginForm),
             xmlhttp = new XMLHttpRequest();
-
-        console.log('submit');
         event.preventDefault();
 
 
@@ -140,6 +137,46 @@ function loginFormSubmit() {
 
 loginFormSubmit();
 
+
+function newsletterForm() {
+    let newsletter = selectQuery('#newsLetter'),
+        validator = new FormValidator('newsletter', [{
+            name: 'email',
+            rules: 'required|valid_email'
+        }], function(errors, event) {
+
+            if (errors.length > 0) {
+                let length = errors.length,
+                    element;
+                for (let i = 0; i < length; i++) {
+                    console.log(errors[i]);
+                    // element = selectQuery(errors[i].element);
+                    console.log(errors[i].element.setAttribute('value', errors[i].message));
+                }
+            }
+        });
+
+    newsletter.addEventListener('submit', (event) => {
+        let data = new FormData(newsletter),
+            xmlhttp = new XMLHttpRequest();
+        event.preventDefault();
+
+
+        xmlhttp.open("POST", newsletter.getAttribute('action'), true);
+
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState != 4) return;
+
+            if (xmlhttp.status == 200) {
+                console.log(xmlhttp.statusText);
+            } else {
+                console.log(xmlhttp.statusText);
+            }
+        }
+        xmlhttp.send(data);
+    });
+}
+newsletterForm();
 
 /* Utils */
 
