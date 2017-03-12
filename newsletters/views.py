@@ -16,10 +16,10 @@ def send(request):
         if letter_form.is_valid():
             email = letter_form.cleaned_data['email']
             if email is not None:
-                exseption = {'status': 'false', 'message': 'Email is duplicate', 'code': '400'}
-                return HttpResponse(exseption, status=400)
-            letter_form.save()
-            return render(request, "base.html", status=200)
+                if email in Newsletter.objects.filter(email=email):
+                    return HttpResponse(content='{"status": "False", "message": "Email is duplicate"}', status=400)
+                letter_form.save()
+                return render(request, "base.html")
         else:
             letter_form = NewsletterForm()
         return render(request, 'base.html', {'letter_form': letter_form})
