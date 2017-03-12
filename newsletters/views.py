@@ -11,7 +11,7 @@ class NewsletterForm(forms.ModelForm):
 
 
 def send(request):
-    if request.method == 'POST' and request.is_ajax:
+    if request.method == 'POST' and request.is_ajax():
         letter_form = NewsletterForm(request.POST)
         if letter_form.is_valid():
             email = letter_form.cleaned_data['email']
@@ -23,4 +23,4 @@ def send(request):
         else:
             letter_form = NewsletterForm()
     else:
-        return redirect('/', status=301)
+        return redirect("/", status=301)
