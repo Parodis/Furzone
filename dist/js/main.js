@@ -131,21 +131,22 @@ loginFormSubmit();
 
 function newsletterForm() {
     var newsletter = selectQuery('#newsLetter'),
-        validator = new FormValidator('newsletter', [{
-        name: 'email',
-        rules: 'required|valid_email'
-    }], function (errors, event) {
-
-        if (errors.length > 0) {
-            var length = errors.length,
-                element = void 0;
-            for (var i = 0; i < length; i++) {
-                console.log(errors[i]);
-                // element = selectQuery(errors[i].element);
-                console.log(errors[i].element.setAttribute('value', errors[i].message));
-            }
-        }
-    });
+        newsletterMessage = selectQuery('#newsletterMessage');
+    // validator = new FormValidator('newsletter', [{
+    //     name: 'email',
+    //     rules: 'required|valid_email'
+    // }], function(errors, event) {
+    //
+    //     if (errors.length > 0) {
+    //         let length = errors.length,
+    //             element;
+    //         for (let i = 0; i < length; i++) {
+    //             console.log(errors[i]);
+    //             // element = selectQuery(errors[i].element);
+    //             console.log(errors[i].element.setAttribute('value', errors[i].message));
+    //         }
+    //     }
+    // });
 
     newsletter.addEventListener('submit', function (event) {
         var data = new FormData(newsletter),
@@ -155,13 +156,20 @@ function newsletterForm() {
         xmlhttp.open("POST", newsletter.getAttribute('action'), true);
 
         xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState != 4) return;
 
+            if (xmlhttp.readyState != 4) return;
+            newsletterMessage.classList.add('newsletter__error--hidden');
+            var response = JSON.parse(xmlhttp.response);
+            console.log(response.message);
             if (xmlhttp.status == 200) {
+                newsletterMessage.classList.toggle('newsletter__error--success');
                 console.log(xmlhttp.statusText);
             } else {
+
                 console.log(xmlhttp.statusText);
             }
+            newsletterMessage.innerText = response.message;
+            newsletterMessage.classList.remove('newsletter__error--hidden');
         };
         xmlhttp.send(data);
     });
