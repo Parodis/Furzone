@@ -21,4 +21,5 @@ class Item(models.Model):
                               help_text='Maximum file size allowed is 5Mb')
     price = models.IntegerField()
     category_id = models.ForeignKey(Category)
+    slug = models.CharField(max_length=40, null=True)
 # Create your models here.
