@@ -20,13 +20,15 @@ from django.contrib import admin
 from shop.views import *
 from contact.views import ContactCreate
 from user.views import login_in
+from newsletters.views import send
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', Home.as_view(), name='home'),
     url(r'^contact/$', ContactCreate, name='contact'),
     url(r'^about$', About.as_view(), name='about'),
-    url(r'^login/$', login_in, name="log in")
+    url(r'^login/$', login_in, name="log in"),
+    url(r'^newsletters/$', send, name="newsletters")
 ]
 
 if settings.DEBUG:

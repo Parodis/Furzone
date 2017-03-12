@@ -20,9 +20,9 @@ def ContactCreate(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, "../templates/contact/created.html")
+            return render(request, "contact/created.html")
     else:
         form = ContactForm()
-    return render(request, '../templates/contact/contact.html', {'form': form})
+    return render(request, 'contact/contact.html', {'form': form})
 
 # Create your views here.

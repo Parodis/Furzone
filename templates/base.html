@@ -106,7 +106,24 @@
         </div>
         <div class="header__divider"></div>
     </header>
-    {% block breadcrumps %}{% endblock breadcrumps %} {% block content %} {% endblock content %}
+    {% block breadcrumps %}{% endblock breadcrumps %}
+    {% block content %}
+        <section class="newsletter">
+        <div class="newsletter__text">
+            <h2>Sing up to receive our updates</h2>
+            <p>Nulla ipsum dolor lacus, suscipit adipiscing. Cum sociis natoque penatibus et ultrices volutrat.</p>
+        </div>
+        <form class="form form--inline" target="/" method="post" action="/newsletters/">
+            {% csrf_token %}
+            <div class="form__input">
+                <input type="email" class="form__input--email" id="id_email" name="email" placeholder="Your email">
+            </div>
+            <div class="form__input">
+                <input type="submit" value="add">
+            </div>
+        </form>
+    </section>
+    {% endblock content %}
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__block footer__collection">
