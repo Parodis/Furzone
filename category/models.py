@@ -13,7 +13,7 @@ class Category(models.Model):
     name = models.CharField(max_length=50)
     slug = models.CharField(max_length=50, null=True, blank=True)
     sort_order = models.CharField(max_length=50, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True, upload_to='dist/img', validators=[validate_image],
+    image = models.ImageField(null=True, blank=True, upload_to='category', validators=[validate_image],
                               help_text='Maximum file size allowed is 5Mb')
 
     def __str__(self):

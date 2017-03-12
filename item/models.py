@@ -17,9 +17,12 @@ class Item(models.Model):
     size = models.CharField(choices=(('34', '34'), ('36', '36'), ('38', '38')), max_length=20)
     options = models.TextField()
     quantity = models.IntegerField()
-    image = models.ImageField(null=True, blank=True, upload_to='dist/img', validators=[validate_image],
+    image = models.ImageField(null=True, blank=True, upload_to='item', validators=[validate_image],
                               help_text='Maximum file size allowed is 5Mb')
     price = models.IntegerField()
     category_id = models.ForeignKey(Category)
     slug = models.CharField(max_length=40, null=True)
+
+    def __str__(self):
+        return self.name
 # Create your models here.

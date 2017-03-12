@@ -22,6 +22,8 @@ from contact.views import ContactCreate
 from user.views import login_in
 from newsletters.views import send
 from cart.views import CartView
+from category.views import *
+from item.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -31,7 +33,10 @@ urlpatterns = [
     url(r'^login/$', login_in, name="log in"),
     url(r'^newsletters/$', send, name="newsletters"),
     url(r'^cart/$', CartView.as_view(), name="cart"),
-    url(r'^')
+    url(r'^category/$', cat, name="category"),
+    url(r'^category/(?P<slug>[-\w]+)/$', category_by_slug, name="category"),
+    url(r'^category/(?P<slug>[-\w]+)/(?P<page>[\d]+)/$', category_by_slug, name="category"),
+    url(r'^(?P<slug>[-\w]+)/(?P<product_slug>[-\w]+)/$', get_item, name="product")
 ]
 
 if settings.DEBUG:
