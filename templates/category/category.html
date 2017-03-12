@@ -6,8 +6,71 @@
                 <a href="{% url "home" %}">Home</a>
             </li>
             <li class="breadcrumbs__item">
-                <a href="{%  %}">Men</a>
+                <a href="{% url "category" %}">{{ category.name }}</a>
             </li>
         </ul>
     </div>
 {% endblock breadcrumps %}
+{% block content %}
+<section class="category">
+        <div class="category__text">
+            <h1>{{ category.name }}</h1>
+            <p>All Products</p>
+        </div>
+        <div class="category__filters">
+            <form class="form form__filters form--inline" method="get" action="/">
+                <div class="form__filter-group">
+                    <select class="form__filter-select form__input">
+                      <option value="" selected="selected">Price</option>
+                      <option value="20-30">€20-30</option>
+                      <option value="30-50">€30-50</option>
+                      <option value="50-100">€50-100</option>
+                      <option value="100">€100 and more</option>
+                    </select>
+                </div>
+                <div class="form__filter-group">
+                    <select class="form__filter-select form__input">
+                      <option value="" selected="selected">Price</option>
+                      <option value="20-30">€20-30</option>
+                      <option value="30-50">€30-50</option>
+                      <option value="50-100">€50-100</option>
+                      <option value="100">€100 and more</option>
+                    </select>
+                </div>
+                <div class="form__filter-group">
+                    <select class="form__filter-select form__input">
+                      <option value="" selected="selected">Price</option>
+                      <option value="20-30">€20-30</option>
+                      <option value="30-50">€30-50</option>
+                      <option value="50-100">€50-100</option>
+                      <option value="100">€100 and more</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div class="category__content">
+            <div class="product-thumb__list">
+                {% for i in products %}
+                <a href="#" class="product-thumb__link">
+                    <div class="product-thumb">
+                        <div class="product-thumb__image">
+                            <img src="/dist/img/{{ i.image }}" alt="{{ i.name }}">
+                        </div>
+                        <div class="product-thumb__info">
+                            <h4 class="product-thumb__name">{{ i.name }}</h4>
+                            <p class="product-thumb__price">€ {{ i.price }}</p>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="pages">
+            <a href="some_category.html">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+        </div>
+    </section>
+{% endblock content %}

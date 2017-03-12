@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load get_item %}
+{% block breadcrumps %}
+<div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+                <a href="{% url "home" %}">Home</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="#">Categories</a>
+            </li>
+        </ul>
+    </div>
+{% endblock breadcrumps %}
+{% block content %}
+    {% for category in categories %}
+    <div class="category-preview">
+        <div class="category-preview__header">
+            <h2 class="category-preview__caption">{{ category.name }}</h2>
+            <a href="/category/{{ category.slug }}" class="category-preview__link">show more</a><span class="category-preview__link-arrow">→</span>
+        </div>
+        <div class="category-preview__content">
+            <div class="product-thumb__list">
+                 {% for product in products|get_item:category.id %}
+                <a href="/{{ category.slug }}/{{ product.slug }}" class="product-thumb__link">
+                    <div class="product-thumb">
+                        <div class="product-thumb__image">
+                            <img src="/dist/img/{{ product.image }}" alt="pants">
+                        </div>
+                        <div class="product-thumb__info">
+                            <h4 class="product-thumb__name">{{ product.name }}</h4>
+                            <p class="product-thumb__price">€ {{ product.price }}</p>
+                        </div>
+                    </div>
+                </a>
+                  {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock content %}
