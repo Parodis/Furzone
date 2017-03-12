@@ -113,7 +113,7 @@
             <h2>Sing up to receive our updates</h2>
             <p>Nulla ipsum dolor lacus, suscipit adipiscing. Cum sociis natoque penatibus et ultrices volutrat.</p>
         </div>
-        <form class="form form--inline" target="/" method="post" action="/newsletters/">
+        <form class="form form--inline" method="post" action="/newsletters/">
             {% csrf_token %}
             <div class="form__input">
                 <input type="email" class="form__input--email" id="id_email" name="email" placeholder="Your email">
