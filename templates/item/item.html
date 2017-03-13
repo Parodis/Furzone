@@ -5,14 +5,14 @@
             <li class="breadcrumbs__item">
                 <a href="{% url "home" %}">Home</a>
             </li>
-            <li class="breadcrumbs__item">
-                <a href="{% url "category" %}">{{ category.name }}</a>
+             <li class="breadcrumbs__item">
+                <a href="{% url "categories" %}">Categories</a>
             </li>
             <li class="breadcrumbs__item">
-                <a href="{% url "category" %}">{{ category.slug }}</a>
+                <a href="{% url "category view" slug=category.slug %}">{{ category.name }}</a>
             </li>
             <li class="breadcrumbs__item">
-                <a href="{#  #}">{{ item.slug }}</a>
+                <a href="#">{{ item.slug }}</a>
             </li>
         </ul>
     </div>

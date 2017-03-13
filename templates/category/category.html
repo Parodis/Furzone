@@ -6,10 +6,10 @@
                 <a href="{% url "home" %}">Home</a>
             </li>
             <li class="breadcrumbs__item">
-                <a href="{% url "category" %}">{{ category.name }}</a>
+                <a href="{% url "categories" %}">Categories</a>
             </li>
             <li class="breadcrumbs__item">
-                <a href="{% url "category" %}">{{ category.slug }}</a>
+                <a href="{% url "category view" slug=category.slug %}">{{ category.name }}</a>
             </li>
         </ul>
     </div>
@@ -55,7 +55,7 @@
         <div class="category__content">
             <div class="product-thumb__list">
                 {% for i in products %}
-                <a href="/{{category.slug}}/{{i.slug}}/" class="product-thumb__link">
+                <a href="{% url "product" slug=category.slug product_slug=i.slug %}" class="product-thumb__link">
                     <div class="product-thumb">
                         <div class="product-thumb__image">
                             <img src="/dist/img/{{ i.image }}" alt="{{ i.name }}">
