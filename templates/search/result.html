@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load get_url %}
 {% block breadcrumps %}
 <div class="breadcrumbs">
         <ul class="breadcrumbs__list">
@@ -13,14 +14,14 @@
 {% endblock breadcrumps %}
 {% block content %}
  <section class="result">
- {% for item in object_list %}
         <div class="result__text">
-            <h1>Search results for: <span>{{ item }}</span></h1>
-            <p>4 Items</p>
+            <h1>Search results for: <span>{{ object_list|first }}</span></h1>
+            <p>{{ object_list|length }} Items</p>
         </div>
         <div class="result__content">
             <div class="product-thumb__list">
-                <a href="#" class="product-thumb__link">
+                {% for item in object_list %}
+                <a href="{% item.url|get_url:item.id %}" class="product-thumb__link">
                     <div class="product-thumb">
                         <div class="product-thumb__image">
                             <img src="/dist/img/{{ item.image }}" alt="pants">
@@ -31,8 +32,8 @@
                         </div>
                     </div>
                 </a>
+                 {% endfor %}
             </div>
         </div>
- {% endfor %}
     </section>
 {% endblock content %}
