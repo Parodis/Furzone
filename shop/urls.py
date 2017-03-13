@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^category/(?P<slug>[-\w]+)/$', category_by_slug, name="category view"),
     url(r'^category/(?P<slug>[-\w]+)/(?P<page>[\d]+)/$', category_by_slug, name="category page"),
     url(r'^category/(?P<slug>[-\w]+)/(?P<product_slug>[-\w]+)/$', get_item, name="product"),
+    url(r'^amazon/$', get_amazon, name="amazon"),
     url(r'^search/', include('search.urls')),
 ]
 

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from .models import Category
 from item.models import Item
+from amazon.api import AmazonAPI
 
 
 class CategoryView(ListView):
@@ -50,5 +51,12 @@ def category_by_slug(request, slug, page=1):
     context['products'] = products
 
     return render(request, "category/category.html", context)
+
+
+def get_amazon(request):
+    amazon = AmazonAPI('AKIAIWSIBWPU5ZA6MWNA', 'djFsuQb/Jt7SOarF7DFB+fJwMk5cmnYxr+aMrOvZ', 'nekaravaev-20')
+    product = amazon.lookup(ItemId='B00EOE0WKQ')
+    title = product.title
+
 
 # Create your views here.
