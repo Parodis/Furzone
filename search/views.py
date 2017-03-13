@@ -1,6 +1,5 @@
 from django.shortcuts import render_to_response
 from item.models import Item
-from django.core.paginator import Paginator, EmptyPage
 from django.views.generic import ListView
 
 
@@ -11,7 +10,7 @@ class SearchView(ListView):
 
     def get_queryset(self):
         result = super(SearchView, self).get_queryset()
-        query = self.request.GET.get('query')
+        query = self.request.GET.get('q')
         if query:
             return result.filter(name__icontains=query)
         return result
