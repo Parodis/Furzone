@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -23,7 +23,7 @@ from user.views import login_in
 from newsletters.views import send
 from cart.views import CartView
 from category.views import *
-from item.views import *
+from item.views import get_item
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -36,7 +36,8 @@ urlpatterns = [
     url(r'^category/$', cat, name="categories"),
     url(r'^category/(?P<slug>[-\w]+)/$', category_by_slug, name="category view"),
     url(r'^category/(?P<slug>[-\w]+)/(?P<page>[\d]+)/$', category_by_slug, name="category page"),
-    url(r'^category/(?P<slug>[-\w]+)/(?P<product_slug>[-\w]+)/$', get_item, name="product")
+    url(r'^category/(?P<slug>[-\w]+)/(?P<product_slug>[-\w]+)/$', get_item, name="product"),
+    url(r'^search/', include('search.urls')),
 ]
 
 if settings.DEBUG:

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'django.contrib.postgres',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -44,7 +45,8 @@ INSTALLED_APPS = [
     "cart",
     "order",
     "contact",
-    "newsletters"
+    "newsletters",
+    "search"
 ]
 
 MIDDLEWARE = [

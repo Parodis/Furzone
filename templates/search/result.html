@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block breadcrumps %}
+<div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+                <a href="{% url "home" %}">Home</a>
+            </li>
+             <li class="breadcrumbs__item">
+                <a href="#">Search result</a>
+            </li>
+        </ul>
+</div>
+{% endblock breadcrumps %}
+{% block content %}
+ <section class="result">
+ {% for item in object_list %}
+        <div class="result__text">
+            <h1>Search results for: <span>{{ item }}</span></h1>
+            <p>4 Items</p>
+        </div>
+        <div class="result__content">
+            <div class="product-thumb__list">
+                <a href="#" class="product-thumb__link">
+                    <div class="product-thumb">
+                        <div class="product-thumb__image">
+                            <img src="/dist/img/{{ item.image }}" alt="pants">
+                        </div>
+                        <div class="product-thumb__info">
+                            <h4 class="product-thumb__name">{{ item.name }}</h4>
+                            <p class="product-thumb__price">€ {{ item.price }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+ {% endfor %}
+    </section>
+{% endblock content %}
