@@ -161,3 +161,7 @@ STATIC_URL = '/src/'
 MEDIA_URL = '/dist/img/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'dist/img')
 
+try:
+    from shop.local_settings import *
+except ImportError:
+    pass
