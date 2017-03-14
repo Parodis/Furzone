@@ -106,12 +106,12 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'shopbase',
-        'HOST': 'localhost',
-        'PORT': '5432',
-        'USER': 'admin',
-        'PASSWORD': 'admin',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Parodis$shopbase',
+        'HOST': 'Parodis.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
+        'USER': 'Parodis',
+        'PASSWORD': '426252873291w',
     }
 }
 
