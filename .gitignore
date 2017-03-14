@@ -16,3 +16,4 @@ tests/report/
 debug.log
 dist/css
 local_settings.py
+static/*
