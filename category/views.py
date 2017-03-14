@@ -54,9 +54,10 @@ def category_by_slug(request, slug, page=1):
 
 
 def get_amazon(request):
+    context = {}
     amazon = AmazonAPI('AKIAJWTF2DL2JCDJHFFQ', '2Pv0/KbNj5OwG6otEyg52zB9ZY3O+oWJWpzc8d+2', 'nekaravaev-20')
-    product = amazon.lookup(ItemId='B00EOE0WKQ')
-    title = product.title
+    product = amazon.lookup(ItemId='B01LXU4VO7')
+    context['item'] = product
 
-
+    return render(request, "item/amazon-item.html", context)
 # Create your views here.
