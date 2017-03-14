@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block breadcrumps %}
+    <div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+                <a href="{% url "home" %}">Home</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="{% url "about" %}">About</a>
+            </li>
+        </ul>
+    </div>
+{% endblock breadcrumps %}
+{% block content %}
+<section class="about">
+        <div class="about__text">
+            <h1>ABOUT</h1>
+            <p>Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque.</p>
+            <img src="https://unsplash.it/1800/400/?random">
+        </div>
+        <div class="about-content">
+            <div class="about-content__who">
+                <h2>WHO WE ARE?</h2>
+                <p>
+                    Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque. Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque. Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque. Lorem ipsum dolor sit amet
+                    enim. Etiam ullacorp uspendisse a pellentesque.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque. Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque. Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque. Lorem ipsum dolor sit amet
+                    enim. Etiam ullacorp uspendisse a pellentesque.
+                </p>
+            </div>
+            <div class="about-content__what">
+                <h2>WHAT WE ARE DOING?</h2>
+                <p>
+                    Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque. Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque. Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque. Lorem ipsum dolor sit amet
+                    enim. Etiam ullacorp uspendisse a pellentesque.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque. Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque. Lorem ipsum dolor sit amet enim. Etiam ullacorp uspendisse a pellentesque. Lorem ipsum dolor sit amet
+                    enim. Etiam ullacorp uspendisse a pellentesque.
+                </p>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

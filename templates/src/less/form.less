@@ -1,0 +1,372 @@
+.form {
+    &__input {
+        input[type="email"] {
+            border: 1px solid @form-border-color;
+            padding: 0 15px;
+            font-size: 14px;
+            line-height: 43px;
+            font-style: italic;
+            min-width: 300px;
+            @media (max-width: 768px) {
+                min-width: 90%;
+            }
+        }
+
+        input[type="submit"] {
+            color: white;
+            background: @orange;
+            padding: 1px 25px;
+            line-height: 43px;
+            border: none;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        input[type="submit"]:hover {
+            background: #717171;
+            border: none;
+        }
+
+        &--order {
+            margin-top: @form-divs-indent;
+
+            input[type="submit"] {
+                padding: 20px 70px;
+                letter-spacing: @h-letter-spacing;
+            }
+
+            input[type="submit"]:hover {
+                padding: 20px 70px;
+            }
+        }
+
+        &--account {
+            margin-top: @form-divs-indent;
+
+            input[type="submit"] {
+                padding: 20px 80px;
+                letter-spacing: @h-letter-spacing;
+            }
+
+            input[type="submit"]:hover {
+                padding: 20px 80px;
+            }
+        }
+    }
+
+    &--inline {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 40px 0 60px;
+    }
+
+    &--header {
+        margin: 0;
+        transition: visibility 0s, opacity 1s linear;
+
+        .form__input--search {
+            line-height: 23px;
+            font-size: 14px;
+            padding: 10px 30px 10px 10px;
+            width: 100%;
+            border: 1px solid #959595;
+            outline: none;
+            transition: all 1s ease;
+            font-style: italic;
+        }
+        // .animated {
+        //     visibility: visible;
+        //     opacity: 1;
+        // }
+        .form__input button {
+            line-height: 43px;
+            padding: 0 15px;
+            font-size: 14px;
+            background: #606060;
+            color: #ffffff;
+            outline: none;
+            border: 1px solid #959595;
+            border-left: none;
+        }
+    }
+
+    label {
+        display: block;
+        color: @p-color;
+        padding-bottom: 5px;
+        font-size: 1.1em;
+        text-transform: uppercase;
+        font-weight: 300;
+    }
+
+    &--contact {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 25%;
+        min-width: 300px;
+        margin: @h2-to-content auto 40px;
+        @media(max-width: 780px) {
+            display: block;
+            width: 95%;
+            margin: 0 auto;
+        }
+    }
+
+    &__topic {
+        display: block;
+        width: 100%;
+
+        select {
+            border: 1px solid @form-border-color;
+            padding: 10px;
+            color: @p-color;
+            font-size: 1em;
+            width: 100%;
+            margin: 0 auto;
+            -webkit-appearance: none;
+        }
+    }
+
+    &__data {
+        width: 100%;
+        display: flex;
+        margin-top: @form-divs-indent;
+
+        &--name {
+            flex: 1 1 50%;
+
+            input[type="text"] {
+                border: 1px solid @form-border-color;
+                padding: 10px 0 10px 2.5%;
+                width: 87.5%;
+            }
+        }
+
+        &--email {
+            flex: 1 1 50%;
+
+            input[type="email"] {
+                border: 1px solid @form-border-color;
+                padding: 10px 0 10px 2.5%;
+                width: 97.5%;
+            }
+        }
+    }
+
+    &__message {
+        margin: @form-divs-indent 0;
+        width: 100%;
+
+        textarea {
+            width: 95%;
+            border: 1px solid @form-border-color;
+            padding: 1% 2.5%;
+        }
+    }
+
+    &--order {
+        border: 1px solid @form-border-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 170px 0;
+        padding-bottom: 40px;
+        padding-top: 40px;
+    }
+
+    &__caption {
+        font-family: @font-family;
+        text-align: center;
+        margin-bottom: @h2-to-content;
+
+        h2 {
+            color: @h-color;
+            font-weight: 700;
+            font-size: 2.3em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            color: @p-color;
+            font-style: italic;
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-top: @indent-h1-to-h2;
+        }
+    }
+
+    &__delivery {
+        select {
+            border: 1px solid @form-border-color;
+            padding: 10px 325px 10px 10px;
+            color: @p-color;
+            font-size: 1em;
+        }
+    }
+
+    &__name {
+        display: flex;
+        margin-top: @form-divs-indent;
+
+        &--first {
+            padding-right: @from-input-padding;
+
+            input[type="text"] {
+                border: 1px solid @form-border-color;
+                padding: 10px 80px 10px 10px;
+            }
+        }
+
+        &--second {
+            input[type="text"] {
+                border: 1px solid @form-border-color;
+                padding: 10px 80px 10px 10px;
+            }
+        }
+    }
+
+    &__address {
+        margin-top: @form-divs-indent;
+
+        input[type="text"] {
+            border: 1px solid @form-border-color;
+            padding: 10px 380px 10px 10px;
+        }
+    }
+
+    &__info {
+        display: flex;
+        margin-top: @form-divs-indent;
+
+        &--city {
+            padding-right: @from-input-padding;
+
+            input[type="text"] {
+                border: 1px solid @form-border-color;
+                padding: 10px 80px 10px 10px;
+            }
+        }
+
+        &--zip {
+            input[type="text"] {
+                border: 1px solid @form-border-color;
+                padding: 10px 80px 10px 10px;
+            }
+        }
+
+        &--phone {
+            padding-right: @from-input-padding;
+
+            input[type="tel"] {
+                border: 1px solid @form-border-color;
+                padding: 10px 80px 10px 10px;
+            }
+        }
+
+        &--email {
+            input[type="email"] {
+                border: 1px solid @form-border-color;
+                padding: 10px 80px 10px 10px;
+            }
+        }
+    }
+
+    &__checkbox {
+        display: flex;
+        margin-top: @form-divs-indent;
+    }
+
+    &--payment {
+        border: 1px solid @form-border-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: @h2-to-content 0 40px;
+        padding: 40px 0 @h2-to-content;
+    }
+
+    &__amount {
+        margin-bottom: @h2-to-content;
+
+        h3 {
+            font-weight: 400;
+            color: @p-color;
+
+            span {
+                font-style: italic;
+            }
+
+            .total {
+                color: @orange;
+                font-style: normal;
+            }
+        }
+    }
+
+    &__payment {
+        margin-top: @form-divs-indent;
+
+        select {
+            border: 1px solid @form-border-color;
+            padding: 10px 360px 10px 10px;
+            color: @p-color;
+            font-size: 1em;
+        }
+    }
+
+    &--account {
+        margin: 100px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &__company {
+        margin-top: @form-divs-indent;
+        display: flex;
+
+        span {
+            font-style: italic;
+            text-transform: none;
+        }
+
+        &--name {
+            padding-right: @from-input-padding;
+
+            input[type="text"] {
+                border: 1px solid @form-border-color;
+                padding: 10px 170px 10px 10px;
+            }
+        }
+
+        &--nip {
+            input[type="text"] {
+                padding: 10px 0;
+                border: 1px solid @form-border-color;
+            }
+        }
+    }
+
+    &__country {
+        margin-top: @form-divs-indent;
+
+        select {
+            border: 1px solid @form-border-color;
+            padding: 10px 425px 10px 10px;
+            color: @p-color;
+            font-size: 1em;
+        }
+    }
+
+    &--visible {
+        display: block;
+    }
+}

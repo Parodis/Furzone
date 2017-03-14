@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Furzon | Cart</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="src/less/main.less" rel="stylesheet/less" type="text/css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js">
+    </script>
+</head>
+<body>
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <symbol id="icon-cart" viewBox="0 0 32 32">
+            <title>cart</title>
+            <path d="M12 29c0 1.657-1.343 3-3 3s-3-1.343-3-3c0-1.657 1.343-3 3-3s3 1.343 3 3z"></path>
+            <path d="M32 29c0 1.657-1.343 3-3 3s-3-1.343-3-3c0-1.657 1.343-3 3-3s3 1.343 3 3z"></path>
+            <path d="M32 16v-12h-24c0-1.105-0.895-2-2-2h-6v2h4l1.502 12.877c-0.915 0.733-1.502 1.859-1.502 3.123 0 2.209 1.791 4 4 4h24v-2h-24c-1.105 0-2-0.895-2-2 0-0.007 0-0.014 0-0.020l26-3.98z"></path>
+        </symbol>
+        <symbol id="icon-search" viewBox="0 0 32 32">
+        <title>search</title>
+        <path d="M31.008 27.231l-7.58-6.447c-0.784-0.705-1.622-1.029-2.299-0.998 1.789-2.096 2.87-4.815 2.87-7.787 0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12c2.972 0 5.691-1.081 7.787-2.87-0.031 0.677 0.293 1.515 0.998 2.299l6.447 7.58c1.104 1.226 2.907 1.33 4.007 0.23s0.997-2.903-0.23-4.007zM12 20c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z"></path>
+        </symbol>
+        <symbol id="icon-user" viewBox="0 0 32 32">
+            <title>user</title>
+            <path d="M18 22.082v-1.649c2.203-1.241 4-4.337 4-7.432 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h28c0-4.030-5.216-7.364-12-7.918z"></path>
+        </symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 32 32">
+            <title>arrow-left</title>
+            <path d="M12.586 27.414l-10-10c-0.781-0.781-0.781-2.047 0-2.828l10-10c0.781-0.781 2.047-0.781 2.828 0s0.781 2.047 0 2.828l-6.586 6.586h19.172c1.105 0 2 0.895 2 2s-0.895 2-2 2h-19.172l6.586 6.586c0.39 0.39 0.586 0.902 0.586 1.414s-0.195 1.024-0.586 1.414c-0.781 0.781-2.047 0.781-2.828 0z"></path>
+        </symbol>
+        <!-- <svg class="icon icon-arrow-left"><use xlink:href="#icon-arrow-left"></use></svg> -->
+    <symbol id="icon-twitter" viewBox="0 0 32 32">
+        <title>twitter</title>
+        <path d="M32 7.075c-1.175 0.525-2.444 0.875-3.769 1.031 1.356-0.813 2.394-2.1 2.887-3.631-1.269 0.75-2.675 1.3-4.169 1.594-1.2-1.275-2.906-2.069-4.794-2.069-3.625 0-6.563 2.938-6.563 6.563 0 0.512 0.056 1.012 0.169 1.494-5.456-0.275-10.294-2.888-13.531-6.862-0.563 0.969-0.887 2.1-0.887 3.3 0 2.275 1.156 4.287 2.919 5.463-1.075-0.031-2.087-0.331-2.975-0.819 0 0.025 0 0.056 0 0.081 0 3.181 2.263 5.838 5.269 6.437-0.55 0.15-1.131 0.231-1.731 0.231-0.425 0-0.831-0.044-1.237-0.119 0.838 2.606 3.263 4.506 6.131 4.563-2.25 1.762-5.075 2.813-8.156 2.813-0.531 0-1.050-0.031-1.569-0.094 2.913 1.869 6.362 2.95 10.069 2.95 12.075 0 18.681-10.006 18.681-18.681 0-0.287-0.006-0.569-0.019-0.85 1.281-0.919 2.394-2.075 3.275-3.394z"></path>
+    </symbol>
+    <!-- <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg> -->
+
+    </defs>
+    </svg>
+    <header class="header">
+        <div class="header__container">
+            <nav class="header__menu">
+                <a href="index.html" class="header__logo">FZ</a>
+                <ul>
+                    <li><a href="womens.html">Women</a></li>
+                    <li><a href="men.html">Men</a></li>
+                    <li><a href="kids.html">Kids</a></li>
+                    <li><a href="#">Coming soon</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="header__options">
+                <div class="header__account">
+                    <a href="history.html" class="header__options-link"><svg class="icon icon-user header__options-icon">
+                    <use xlink:href="#icon-user"></use>
+                </svg>Log In</a>
+                        </div>
+                <div class="header__cart">
+                    <img src="/dist/img/shopping-bag.svg" class="header__options-img">
+                    <a href="cart.html" class="header__options-link">Basket(0)</a>
+                </div>
+                <div class="header__search">
+                    <a href="#" class="header__options-link"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg></a>
+                </div>
+            </div>
+        </div>
+    </header>
+<section class="cart">
+    <div class="cart__caption">
+        <h1>Your shopping bag</h1>
+        <p>Items reserved for limited time only</p>
+    </div>
+    <div class="cart__order">
+        <div class="order-quality">
+            <div class="order-quality__product">
+                <p>Product</p>
+            </div>
+            <div class="order-quality__description">
+                <p>Description</p>
+            </div>
+            <div class="order-quality__color">
+                <p>Color</p>
+            </div>
+            <div class="order-quality__size">
+                <p>Size</p>
+            </div>
+            <div class="order-quality__quantity">
+                <p>Qty</p>
+            </div>
+            <div class="order-quality__amount">
+                <p>Amount</p>
+            </div>
+        </div>
+        <div class="cart__product">
+            <div class="product__image">
+                <img src="https://unsplash.it/100/100/?random">
+            </div>
+            <div class="product__caption">
+                <h2>Floral plimsoll</h2>
+                <p>Ref. 2514/302</p>
+            </div>
+            <div class="product__color">
+                <p>One color</p>
+            </div>
+            <div class="product__size">
+                <p>38</p>
+            </div>
+            <div class="product__quantity">
+                <p>1</p>
+            </div>
+            <div class="product__amount">
+                <p>€ 89,95</p>
+            </div>
+        </div>
+        <div class="cart__product">
+            <div class="product__image">
+                <img src="https://unsplash.it/100/100/?random">
+            </div>
+            <div class="product__caption">
+                <h2>Floral plimsoll</h2>
+                <p>Ref. 2514/302</p>
+            </div>
+            <div class="product__color">
+                <p>One color</p>
+            </div>
+            <div class="product__size">
+                <p>M</p>
+            </div>
+            <div class="product__quantity">
+                <p>1</p>
+            </div>
+            <div class="product__amount">
+                <p>€ 89,95</p>
+            </div>
+        </div>
+        <div class="cart__product">
+            <div class="product__image">
+                <img src="https://unsplash.it/100/100/?random">
+            </div>
+            <div class="product__caption">
+                <h2>Floral plimsoll</h2>
+                <p>Ref. 2514/302</p>
+            </div>
+            <div class="product__color">
+                <p>Black</p>
+            </div>
+            <div class="product__size">
+                <p>S</p>
+            </div>
+            <div class="product__quantity">
+                <p>1</p>
+            </div>
+            <div class="product__amount">
+                <p>€ 89,95</p>
+            </div>
+        </div>
+        <div class="cart__total">
+            <h3>Subtotal:<span>€ 269,85</span></h3>
+        </div>
+    </div>
+    <form class="form form--order">
+        <div class="form__caption">
+            <h2>Shipping address</h2>
+            <p>All fields are required</p>
+        </div>
+        <div class="form__delivery">
+            <label for="delivery">Select delivery method</label>
+            <select id="delivery" name="delivery">
+                <option>DHL International - € 15,00</option>
+                <option>Lorem ipsum</option>
+                <option>Lorem ipsum</option>
+            </select>
+        </div>
+        <div class="form__name">
+            <div class="form form__name--first">
+                <label for="first_name">First name</label>
+                <input type="text" id="first_name" required>
+            </div>
+            <div class="form form__name--second">
+                <label for="last_name">Last name</label>
+                <input type="text" id="last_name" required>
+            </div>
+        </div>
+        <div class="form__address">
+            <label for="address_1">Address <span>(line 1)</span></label>
+            <input type="text" id="address_1" required name="address">
+        </div>
+        <div class="form__address">
+            <label for="address_2">Address <span>(line 2)</span></label>
+            <input type="text" id="address_2" required>
+        </div>
+        <div class="form__info">
+            <div class="form form__info--city">
+                <label for="city">City</label>
+                <input id="city" type="text" required>
+            </div>
+            <div class="form form__info--zip">
+                <label for="zip">Postal code</label>
+                <input id="zip" type="text" required>
+            </div>
+        </div>
+        <div class="form__info">
+            <div class="form form__info--phone">
+                <label for="phone">Phone number</label>
+                <input id="phone" type="tel" required>
+            </div>
+            <div class="form form__info--email">
+                <label for="email">E-mail</label>
+                <input id="email" type="email" required>
+            </div>
+        </div>
+        <div class="form__checkbox">
+            <input id="check" type="checkbox">
+            <label for="check">Use this address for Billing</label>
+        </div>
+    </form>
+    <form class="form form--payment">
+        <div class="form__caption">
+            <h2>Payment options</h2>
+            <p>All fields are required</p>
+        </div>
+        <div class="form__amount">
+            <h3>Subtotal: <span>€ 269,85</span></h3>
+            <h3>Shipping: <span>€ 15</span></h3>
+            <h3><span class="total">Total: <span>€ 284,85</span></span></h3>
+        </div>
+        <div class="form__payment">
+            <label for="payment">Select payment method</label>
+            <select id="payment">
+                <option>Credit cart</option>
+                <option>Cash</option>
+            </select>
+        </div>
+        <div class="form__input form__input--order">
+            <input type="submit" value="ORDER NOW">
+        </div>
+    </form>
+</section>
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__collection">
+            <h2>COLLECTION</h2>
+            <ul>
+                <li><a href="#">Women (1735)</a></li>
+                <li><a href="#">Men (650)</a></li>
+                <li><a href="#">Kids (2140)</a></li>
+                <li><a href="#">Other (76)</a></li>
+            </ul>
+        </div>
+        <div class="footer__site">
+            <h2>SITE</h2>
+            <ul>
+                <li><a href="#">Terms Of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Copyright Policy</a></li>
+                <li><a href="#">Press Kit</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </div>
+        <div class="footer__shop">
+            <h2>SHOP</h2>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#">Shipping Methods</a></li>
+                <li><a href="#">Career</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="footer__social">
+            <h2>SOCIAL</h2>
+            <p>Shoper is made with love in Minsk</p>
+            <p>2017 @ All rights reserved. El Passion</p>
+            <div class="social__sidebar">
+
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

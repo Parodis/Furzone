@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block breadcrumps %}
+<div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+                <a href="{% url "home" %}">Home</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="{% url "cart" %}">Cart</a>
+            </li>
+        </ul>
+    </div>
+{% endblock breadcrumps %}
+{% block content %}
+<section class="cart">
+        <div class="cart__caption">
+            <h1>Your shopping bag</h1>
+            <p>Items reserved for limited time only</p>
+        </div>
+</section>
+{% endblock content %}

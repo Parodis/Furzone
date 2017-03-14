@@ -1,0 +1,56 @@
+.about {
+  font-family: @font-family;
+  margin-top: @mb-bread;
+  .container;
+  margin-bottom: 55px;
+  .about__text {
+    text-align: center;
+    h1 {
+      color: @h-color;
+      font-weight: 400;
+      font-size: 2.2em;
+      letter-spacing: @h-letter-spacing;
+    }
+    p {
+      color: @p-color;
+      margin-top: @indent-h1-to-h2;
+      font-style: italic;
+      font-size: 1.2em;
+      font-weight: 300;
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .about-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    .about-content__who {
+
+      h2 {
+        color: @h-color;
+        letter-spacing: @h-letter-spacing;
+      }
+      p {
+        line-height: 1.5em;
+        width: 75%;
+        color: @p-color;
+      }
+    }
+    .about-content__what {
+
+      h2 {
+        color: @h-color;
+        letter-spacing: @h-letter-spacing;
+      }
+      p {
+        line-height: 1.5em;
+        width: 75%;
+        color: @p-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block breadcrumps %}
+<div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+                <a href="{% url "home" %}">Home</a>
+            </li>
+             <li class="breadcrumbs__item">
+                <a href="{% url "categories" %}">Categories</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="#">{{ item.title }}</a>
+            </li>
+        </ul>
+    </div>
+{% endblock breadcrumps %}
+{% block content %}
+<section class="product-detail">
+    <div class="product-detail__image">
+        <img src="{% with item.images|first as first_img %}{{ first_img.LargeImage.URL }}{% endwith %}">
+    </div>
+    <div class="product-detail__text">
+        <h1>{{ item.title }}</h1>
+        <h2>Article number: 142100756062</h2>
+        <p>€ {{ item.price_and_currency }}</p>
+    </div>
+    <div class="product-detail__description">
+        {{ item.editorial_review|safe }}
+    </div>
+    <div class="product-detail__size">
+        <h3>Size</h3>
+        <div class="size">
+            <a href="#">{{ item.binding }}</a>
+{#            <a href="#">36</a>#}
+{#            <a href="#">38</a>#}
+{#            <a href="#">40</a>#}
+{#            <a href="#">42</a>#}
+{#            TODO: sizes#}
+        </div>
+    </div>
+    <div class="product-detail__button form__input">
+        <input type="submit" value="ADD TO CART">
+    </div>
+</section>
+{% endblock content %}
