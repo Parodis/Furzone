@@ -1,0 +1,87 @@
+.footer {
+    font-family: @font-family;
+
+    .footer__container {
+        .container;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        @media (max-width: 780px) {
+            display: block;
+            align-items: inherit;
+            justify-content: inherit;
+        }
+
+        .footer__block {
+            border-left: 2px solid @border-color;
+            padding-left: 15px;
+
+            h2 {
+                text-align: start;
+                color: @h-color;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            li {
+                padding-bottom: 10px;
+            }
+
+            a {
+                text-decoration: none;
+                color: #222222;
+                text-align: left;
+                transition: all 0.3s ease;
+                position: relative;
+                padding-bottom: 5px;
+            }
+
+            a:after {
+                content: '';
+                display: block;
+                bottom: 0;
+                position: absolute;
+                margin: auto;
+                height: 0;
+                width: 95%;
+                background: transparent;
+                transition: width 0.5s ease, background-color 0.5s ease;
+            }
+
+            a:hover:after {
+                height: 1px;
+                background: @h-color;
+            }
+
+            &:first-child {
+                padding-left: none;
+                border: none;
+            }
+            @media (max-width: 768px) {
+                padding-left: none;
+                border: none;
+            }
+        }
+
+        .social__sidebar {
+            display: flex;
+            width: 40%;
+
+            a {
+                flex: 1 1 33%;
+
+                svg {
+                    height: 30px;
+                }
+            }
+
+            a:hover:after {
+                height: 0;
+            }
+        }
+    }
+}

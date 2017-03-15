@@ -25,13 +25,12 @@ SECRET_KEY = 'y04rq)@#qx0c=mv4xzjfxd=kwc#w8j)u)0)6+vb5u15d)uo^l%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['parodis.pythonanywhere.com']
 
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.postgres',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -46,7 +45,7 @@ INSTALLED_APPS = [
     "order",
     "contact",
     "newsletters",
-    "search"
+    "search",
 ]
 
 MIDDLEWARE = [
@@ -106,15 +105,14 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'shopbase',
-        'HOST': 'localhost',
-        'PORT': '5432',
-        'USER': 'admin',
-        'PASSWORD': 'admin',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Parodis$shopbase',
+        'HOST': 'Parodis.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
+        'USER': 'Parodis',
+        'PASSWORD': '426252873291w',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -157,7 +155,12 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "dist")
 ]
 
-STATIC_URL = '/src/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/dist/img/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'dist/img')
 
+try:
+    from shop.local_settings import *
+except ImportError:
+    pass

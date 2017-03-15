@@ -39,31 +39,31 @@ def login_in(request):
             return render(request, 'login/success.html', {'login_form': login_form})
 
 
-class RegistrationForm(forms.ModelForm):
+class RegisterForm(forms.ModelForm):
+    error_messages = {
+        'password_mismatch': ("The two password fields didn't match."),
+    }
+    password1 = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
         model = User
-        fields = ['email', 'password']
-        widgets = {
-            'password': forms.PasswordInput,
-        }
+        fields = ('email',)
 
     def clean_password2(self):
-        cd = self.cleaned_data
-        if cd['password'] != cd['password2']:
-            raise forms.ValidationError("Password don't match")
-        return cd['password']
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError(
+                self.error_messages['password_mismatch'],
+                code='password_mismatch',
+            )
+        return password2
 
+    def save(self, commit=True):
+        user = super(RegisterForm, self).save(commit=False)
+        user.set_password(self.cleaned_data['password1'])
+        if commit:
+            user.save()
+        return user
 
-def register(request):
-    if request.method == "POST":
-        register_form = RegistrationForm(request.POST)
-        if register_form.is_valid():
-            new_user = register_form.save(commit=False)
-            new_user.set_password(register_form.cleaned_data['password'])
-            new_user.save()
-            return HttpResponseRedirect('/')
-        else:
-            register_form = RegistrationForm()
-        return render(request, 'login/success.html', {'register_form': register_form})

@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from shop.views import *
 from contact.views import ContactCreate
-from user.views import login_in
+from user.views import *
 from newsletters.views import send
 from cart.views import CartView
 from category.views import *
@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^$', Home.as_view(), name='home'),
     url(r'^contact/$', ContactCreate, name='contact'),
     url(r'^about$', About.as_view(), name='about'),
-    url(r'^login/$', login_in, name="log in"),
+    url(r'^login/$', LoginForm, name="log in"),
     url(r'^newsletters/$', send, name="newsletters"),
     url(r'^cart/$', CartView.as_view(), name="cart"),
     url(r'^category/$', cat, name="categories"),
@@ -39,6 +39,7 @@ urlpatterns = [
     url(r'^category/(?P<slug>[-\w]+)/(?P<product_slug>[-\w]+)/$', get_item, name="product"),
     url(r'^amazon/$', get_amazon, name="amazon"),
     url(r'^search/', include('search.urls')),
+    url(r'^register/$', RegisterForm, name='register')
 ]
 
 if settings.DEBUG:
