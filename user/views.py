@@ -34,7 +34,7 @@ def login_in(request):
                     return HttpResponseRedirect('/')
             else:
                 login_form = LoginForm()
-                return HttpResponse(login_form.errors['__all__'])
+                # return HttpResponse(login_form.errors['__all__'])
 
             return render(request, 'login/success.html', {'login_form': login_form})
 
