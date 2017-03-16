@@ -15,3 +15,4 @@ build/
 tests/report/
 debug.log
 dist/css
+local_settings
