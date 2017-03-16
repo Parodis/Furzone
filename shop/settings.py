@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "contact",
     "newsletters",
     "search",
+    "profiles"
 ]
 
 MIDDLEWARE = [

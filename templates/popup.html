@@ -8,7 +8,7 @@
                 </ol>
             {% endif %}
             <h3 class="login__header" id="loginHeader">SIGN IN</h3>
-            <form action="/login/" id="login_form" class="login__form" method="post">
+            <form action="{% url "log in" %}" id="login_form" class="login__form" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="action" value="log" id="formAction">
                 <div class="login__form-group">
