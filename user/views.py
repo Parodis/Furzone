@@ -1,7 +1,6 @@
-from django.contrib.auth.models import AbstractUser
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django import forms
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login
 from .models import User
 
 
