@@ -19,11 +19,11 @@ def login_in(request):
                 user = authenticate(username=login_form.cleaned_data['username'], password=login_form.cleaned_data['password'])
                 if user is not None:
                     login(request, user)
-                    return HttpResponseRedirect('/')
+                    return HttpResponse(content='{"status": "True", "message": "Success"}', status=200)
             else:
                 print(login_form.errors)
                 login_form = LoginForm()
-                return HttpResponse(login_form.errors)
+                return HttpResponse(content='login_form.errors')
 
             return render(request, 'login/success.html', {'login_form': login_form})
 
