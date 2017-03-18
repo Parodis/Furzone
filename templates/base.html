@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static 'less/main.less' %}" rel="stylesheet/less" type="text/css">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js">
+    <script src="{% static 'js/less.min.js' %}">
     </script>
 </head>
 
@@ -74,8 +74,8 @@
                   </button>
                 </div>
                 <ul class="header__menu">
-                    <li class="header__menu-item element__animated" style="animation-delay: 0s;"><a href="{% url "category view" slug="women" %}">Women</a></li>
-                    <li class="header__menu-item element__animated" style="animation-delay: .2s;"><a href="{% url "category view" slug="men" %}">Men</a></li>
+                    <li class="header__menu-item element__animated" style="animation-delay: 0s;"><a href="{% url 'category view' slug='women' %}">Women</a></li>
+                    <li class="header__menu-item element__animated" style="animation-delay: .2s;"><a href="{% url 'category view' slug='men' %}">Men</a></li>
                     <li class="header__menu-item element__animated" style="animation-delay: .4s;"><a href="kids.html">Kids</a></li>
                     <li class="header__menu-item element__animated header__menu-item--active" style="animation-delay: .6s;"><a href="#">Coming soon</a></li>
                     <li class="header__menu-item element__animated" style="animation-delay: .8s;"><a href="{% url 'about' %}">About</a></li>
@@ -83,13 +83,14 @@
             </nav>
             <div class="header__options" id="headerOptions">
                 <div class="header__account">
-                    <a href="#" class="header__options-link" id="signInLink"><svg class="icon icon-user header__options-icon">
+                    <!--TODO: link to user cabinet -->
+                    <a href="#" class="header__options-link" {% if user.is_authenticated == False %}id="signInLink" {% endif %}><svg class="icon icon-user header__options-icon">
                     <use xlink:href="#icon-user"></use>
-                </svg>Log In <svg class="icon ei-chevron-down-icon"><use xlink:href="#ei-chevron-down-icon"></use></svg></a>
+                </svg>{% if user.is_authenticated %} {{ user }} {% else %} Log in {% endif %}</a>
                 </div>
                 <div class="header__cart">
                     <img src="/dist/img/shopping-bag.svg" class="header__options-img">
-                    <a href="{% url "cart" %}" class="header__options-link">Basket <span class="basket__quantity" id="basketQuantity">(2)</span></a>
+                    <a href="{% url 'cart' %}" class="header__options-link">Basket <span class="basket__quantity" id="basketQuantity">(2)</span></a>
                 </div>
                 <div class="header__search">
                     <form class="form form--inline form--header" action="{% url 'search:index' %}" target="/" method="get">
@@ -106,7 +107,8 @@
         </div>
         <div class="header__divider"></div>
     </header>
-    {% block breadcrumps %}{% endblock breadcrumps %} {% block content %}
+    <div class="page-container">
+        {% block breadcrumps %}{% endblock breadcrumps %} {% block content %}
     <section class="newsletter">
         <div class="newsletter__text">
             <h2>Sing up to receive our updates</h2>
@@ -121,9 +123,10 @@
                 <input type="submit" value="add">
             </div>
         </form>
-     <p class="newsletter__error newsletter__error--hidden" id="newsletterMessage"></p>
+        <p class="newsletter__error newsletter__error--hidden" id="newsletterMessage"></p>
     </section>
     {% endblock content %}
+    </div>
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__block footer__collection">
@@ -182,9 +185,10 @@
             </div>
         </div>
     </footer>
-    {% include 'popup.html' %}
+    {% include 'popup.html' %} {% block scripts %}
     <script src="{% static 'js/validation.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    {% endblock scripts %}
 </body>
 
 </html>

@@ -11,7 +11,7 @@ class NewsletterForm(forms.ModelForm):
 
 
 def send(request):
-    if request.method == 'POST' and request.is_ajax():
+    if request.method == 'POST':
         letter_form = NewsletterForm(request.POST)
         if letter_form.is_valid():
             email = letter_form.cleaned_data['email']

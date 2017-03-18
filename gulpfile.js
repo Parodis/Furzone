@@ -37,12 +37,12 @@ gulp.task('runserver', function() {
 
 gulp.task('browserSync', function() {
     browserSync({
-        server: {
-            baseDir: "./"
-        },
+        // server: {
+        //     baseDir: "./"
+        // },
         port: 8080,
         open: true,
-        //  proxy: 'localhost:8000',
+        proxy: 'localhost:8000',
         notify: false
     });
 });
@@ -92,7 +92,7 @@ gulp.task('scripts', function() {
 gulp.task('watch', function() {
     gulp.watch(['src/img/*.{png,jpg,gif}']);
     gulp.watch(['src/js/*.js'], ['scripts']);
-    gulp.watch(['*.html', 'src/less/*.less']).on('change', function(evt) {
+    gulp.watch(['*.html', 'templates/*/*.html', 'templates/*.html', 'src/less/*.less']).on('change', function(evt) {
         browserSync.reload();
     });
 });

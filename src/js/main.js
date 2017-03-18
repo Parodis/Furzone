@@ -50,17 +50,21 @@ function togglePopup() {
         signInLink = selectQuery('#signInLink'),
         loginWrapper = selectQuery('#loginWrapper');
 
-    signInLink.addEventListener('click', (event) => {
+    if (signInLink) {
+        signInLink.addEventListener('click', (event) => {
         event.preventDefault();
         popup.classList.toggle('login__opened');
-    });
-    popup.addEventListener('click', (event) => {
-        if (!event.path.includes(loginWrapper)) {
-            popup.classList.toggle('login__opened');
-        }
+        });
+        popup.addEventListener('click', (event) => {
+            if (!event.path.includes(loginWrapper)) {
+                popup.classList.toggle('login__opened');
+            }
+        });
+    }
 
-    });
+
 }
+
 togglePopup();
 
 function formSignUp() {
@@ -122,15 +126,17 @@ function loginFormSubmit() {
 
         xmlhttp.open("POST", loginForm.getAttribute('action'), true);
 
-        xmlhttp.onreadystatechange = function() {
+        xmlhttp.onreadystatechange = () => {
             if (xmlhttp.readyState != 4) return;
-
+            let response = JSON.parse(xmlhttp.responseText);
             if (xmlhttp.status == 200) {
-
+                if (response.message == "Success") {
+                    location.reload();
+                }
             } else {
                 console.log(xmlhttp.statusText);
             }
-        }
+        };
         xmlhttp.send(data);
     });
 }
@@ -157,32 +163,34 @@ function newsletterForm() {
     //     }
     // });
 
-    newsletter.addEventListener('submit', (event) => {
-        let data = new FormData(newsletter),
-            xmlhttp = new XMLHttpRequest();
-        event.preventDefault();
+    if (newsletter) {
+        newsletter.addEventListener('submit', (event) => {
+            let data = new FormData(newsletter),
+                xmlhttp = new XMLHttpRequest();
+            event.preventDefault();
 
 
-        xmlhttp.open("POST", newsletter.getAttribute('action'), true);
+            xmlhttp.open("POST", newsletter.getAttribute('action'), true);
 
-        xmlhttp.onreadystatechange = function() {
+            xmlhttp.onreadystatechange = function() {
 
-            if (xmlhttp.readyState != 4) return;
-            newsletterMessage.classList.add('newsletter__error--hidden');
-            var response = JSON.parse(xmlhttp.response);
-            console.log(response.message);
-            if (xmlhttp.status == 200) {
-                newsletterMessage.classList.toggle('newsletter__error--success');
-                console.log(xmlhttp.statusText);
-            } else {
+                if (xmlhttp.readyState != 4) return;
+                newsletterMessage.classList.add('newsletter__error--hidden');
+                var response = JSON.parse(xmlhttp.response);
+                console.log(response.message);
+                if (xmlhttp.status == 200) {
+                    newsletterMessage.classList.toggle('newsletter__error--success');
+                    console.log(xmlhttp.statusText);
+                } else {
 
-                console.log(xmlhttp.statusText);
-            }
-            newsletterMessage.innerText = response.message;
-            newsletterMessage.classList.remove('newsletter__error--hidden');
-        };
-        xmlhttp.send(data);
-    });
+                    console.log(xmlhttp.statusText);
+                }
+                newsletterMessage.innerText = response.message;
+                newsletterMessage.classList.remove('newsletter__error--hidden');
+            };
+            xmlhttp.send(data);
+        });
+    }
 }
 newsletterForm();
 

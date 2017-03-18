@@ -1,37 +1,37 @@
 <div class="login" id="loginPopup">
-        <div class="login__wrapper" id="loginWrapper">
-            {% if form.subject.errors %}
-                <ol>
-                {% for error in form.subject.errors %}
-                    <li><strong>{{ error|escape }}</strong></li>
-                {% endfor %}
-                </ol>
-            {% endif %}
-            <h3 class="login__header" id="loginHeader">SIGN IN</h3>
-            <form action="{% url "log in" %}" id="login_form" class="login__form" method="post">
-                {% csrf_token %}
-                <input type="hidden" name="action" value="log" id="formAction">
-                <div class="login__form-group">
-                    <label for="username" class="login__form-label">Username</label>
-                    <input type="text" name="username" id="username" class="login__form-input">
-                </div>
-                <div class="login__form-group login__form-group--relative" id="forgotPassGroup">
-                    <label for="password" class="login__form-label">Password <a href="#" class="login__form-link login__form-link--right" id="forgotPassLink">
+    <div class="login__wrapper" id="loginWrapper">
+        {% if form.subject.errors %}
+        <ol>
+            {% for error in form.subject.errors %}
+            <li><strong>{{ error|escape }}</strong></li>
+            {% endfor %}
+        </ol>
+        {% endif %}
+        <h3 class="login__header" id="loginHeader">SIGN IN</h3>
+        <form action="{% url 'log in' %}" id="login_form" class="login__form" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="log" id="formAction">
+            <div class="login__form-group">
+                <label for="username" class="login__form-label">Username</label>
+                <input type="text" name="username" id="username" tabindex="1" class="login__form-input">
+            </div>
+            <div class="login__form-group login__form-group--relative" id="forgotPassGroup">
+                <label for="password" class="login__form-label">Password <a href="#" class="login__form-link login__form-link--right" id="forgotPassLink">
                       forgot password
                     </a></label>
-                    <input type="password" name="password" id="password" class="login__form-input">
-                    <a href="#" class="login__form-link login__form-link--show-pass" id="showPass">show</a>
-                </div>
-                <div class="login__form-group login__form-group--invisible" id="passwordRepeat">
-                    <label for="password2" class="login__form-label">Password Repeat</label>
-                    <input type="password" name="passwordRepeat" id="password2" class="login__form-input">
-                </div>
-                <div class="login__form-submit">
-                    <button type="submit" class="login__form-button" id="submitButton">Sign in</button>
-                    <a href="#" id="signUpLink" class="login__form-link login__form-link--block">
+                <input type="password" name="password" id="password" tabindex="2" class="login__form-input">
+                <a href="#" class="login__form-link login__form-link--show-pass" id="showPass">show</a>
+            </div>
+            <div class="login__form-group login__form-group--invisible" id="passwordRepeat">
+                <label for="password2" class="login__form-label">Password Repeat</label>
+                <input type="password" name="passwordRepeat" tabindex="3" id="password2" class="login__form-input">
+            </div>
+            <div class="login__form-submit">
+                <button type="submit" class="login__form-button" tabindex="4" id="submitButton">Sign in</button>
+                <a href="#" id="signUpLink" class="login__form-link login__form-link--block">
                       I don't have an account
                     </a>
-                </div>
-            </form>
-        </div>
+            </div>
+        </form>
+    </div>
 </div>
