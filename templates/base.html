@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Furzone</title>
+    <title>Furzon</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static 'less/main.less' %}" rel="stylesheet/less" type="text/css">
@@ -83,10 +83,11 @@
             </nav>
             <div class="header__options" id="headerOptions">
                 <div class="header__account">
-                    <!--TODO: link to user cabinet -->
                     <a href="#" class="header__options-link" {% if user.is_authenticated == False %}id="signInLink" {% endif %}><svg class="icon icon-user header__options-icon">
                     <use xlink:href="#icon-user"></use>
-                </svg>{% if user.is_authenticated %} {{ user }} {% else %} Log in {% endif %}</a>
+                </svg>{% if user.is_authenticated %}
+                        <a href="{% url "account" %}" class="header__options-link"> {{ user|capfirst }} </a>
+                         {% else %} Log in {% endif %}</a>
                 </div>
                 <div class="header__cart">
                     <img src="/dist/img/shopping-bag.svg" class="header__options-img">

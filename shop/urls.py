@@ -24,6 +24,7 @@ from newsletters.views import send
 from cart.views import CartView
 from category.views import *
 from item.views import get_item, fetch_items_from_amazon
+from profiles.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -40,7 +41,8 @@ urlpatterns = [
     url(r'^amazon/$', get_amazon, name="amazon"),
     url(r'^search/', include('search.urls')),
     url(r'^register/$', RegisterForm, name='register'),
-    url(r'^parse/$', fetch_items_from_amazon, name="parse")
+    url(r'^parse/$', fetch_items_from_amazon, name="parse"),
+    url(r'^account/$', Account.as_view(), name='account')
 ]
 
 if settings.DEBUG:

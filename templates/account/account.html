@@ -1,1 +1,23 @@
 {% extends "base.html" %}
+{% block breadcrumps %}
+<div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+                <a href="{% url "home" %}">Home</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="{% url "account" %}">Account</a>
+        </ul>
+    </div>
+{% endblock breadcrumps %}
+{% block content %}
+<section class="account">
+        <div class="account__caption">
+            <h1>Hi {{ user|upper }},
+            <br>This is your order history
+        </h1>
+            <a href="#" class="button button--banner">Edit your account</a>
+        </div>
+</section>
+
+{% endblock content %}

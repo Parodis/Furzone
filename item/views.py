@@ -5,7 +5,6 @@ from django.core.exceptions import ObjectDoesNotExist
 from amazon.api import AmazonAPI
 import random
 from django.template.defaultfilters import slugify
-from django.utils.encoding import smart_str
 import requests
 import shutil, os
 
