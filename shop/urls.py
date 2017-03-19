@@ -23,7 +23,7 @@ from user.views import *
 from newsletters.views import send
 from cart.views import CartView
 from category.views import *
-from item.views import get_item
+from item.views import get_item, fetch_items_from_amazon
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -39,7 +39,8 @@ urlpatterns = [
     url(r'^category/(?P<slug>[-\w]+)/(?P<product_slug>[-\w]+)/$', get_item, name="product"),
     url(r'^amazon/$', get_amazon, name="amazon"),
     url(r'^search/', include('search.urls')),
-    url(r'^register/$', RegisterForm, name='register')
+    url(r'^register/$', RegisterForm, name='register'),
+    url(r'^parse/$', fetch_items_from_amazon, name="parse")
 ]
 
 if settings.DEBUG:

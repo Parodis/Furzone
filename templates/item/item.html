@@ -20,15 +20,15 @@
 {% block content %}
 <section class="product-detail">
     <div class="product-detail__image">
-        <img src="/dist/img/{{ item.image }}">
+        <img src="/dist/img/item/{{ item.image }}">
     </div>
     <div class="product-detail__text">
         <h1>{{ item.name }}</h1>
-        <h2>Article number: 142100756062</h2>
+        <h2>Article number: {{ item.amazon_id }}</h2>
         <p>€ {{ item.price }}</p>
     </div>
     <div class="product-detail__description">
-        <p>{{ item.description }}
+        <p>{{ item.description|safe }}
         </p>
     </div>
     <div class="product-detail__size">

@@ -22,10 +22,10 @@
         <div class="category-preview__content">
             <div class="product-thumb__list">
                  {% for product in products|get_item:category.id %}
-                <a href="/{{ category.slug }}/{{ product.slug }}" class="product-thumb__link">
+                <a href="{% url "product" slug=category.slug product_slug=product.slug %}" class="product-thumb__link">
                     <div class="product-thumb">
                         <div class="product-thumb__image">
-                            <img src="/dist/img/{{ product.image }}" alt="pants">
+                            <img src="/dist/img/item/{{ product.image }}" alt="pants">
                         </div>
                         <div class="product-thumb__info">
                             <h4 class="product-thumb__name">{{ product.name }}</h4>

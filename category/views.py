@@ -44,8 +44,8 @@ def get_products_by_cat_id(id, count):
 def category_by_slug(request, slug, page=1):
     context = {}
     category = Category.objects.get(slug=slug)
-    startEl = 0 if int(page) == 1 else (int(page)-1)*10
-    endEl = int(page)*10
+    startEl = 0 if int(page) == 1 else (int(page)-1)*12
+    endEl = int(page)*12
     products = Item.objects.filter(category_id_id=category.id).order_by('id')[startEl:endEl]
     context['category'] = category
     context['products'] = products
