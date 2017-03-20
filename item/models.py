@@ -19,6 +19,8 @@ class Item(models.Model):
     quantity = models.IntegerField()
     image = models.ImageField(null=True, blank=True, upload_to='item', validators=[validate_image],
                               help_text='Maximum file size allowed is 5Mb')
+    thumbnail_image = models.ImageField(null=True, blank=True, upload_to='item', validators=[validate_image],
+                              help_text='Maximum file size allowed is 5Mb')
     price = models.IntegerField()
     category_id = models.ForeignKey(Category)
     slug = models.SlugField(null=True, unique=True, max_length=255)

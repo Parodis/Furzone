@@ -77,6 +77,7 @@ def fetch_items_from_amazon(request):
                 item.color = product.color if product.color is not None else ''
                 item.description = product.editorial_review if product.editorial_review is not None else ''
                 item.quantity = random.randint(1, 20)
+                item.thumbnail_image = download_file(product.medium_image_url)
                 item.image = download_file(product.large_image_url)
                 item.amazon_id = product.asin
                 price = int(product.price_and_currency[0])
