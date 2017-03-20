@@ -25,7 +25,7 @@
 {% block content %}
 <section class="product-detail">
     <div class="product-detail__image">
-        <img src="/dist/img/item/{{ item.image }}">
+        <img src="/dist/img/item/{{ item.image|safe }}">
     </div>
     <div class="product-detail__text">
         <h1>{{ item.name }}</h1>

@@ -15,13 +15,13 @@
 {% block content %}
  <section class="result">
         <div class="result__text">
-            <h1>Search results for: <span>{{ object_list|first }}</span></h1>
+            <h1>Search results for: <span>{{ request.GET.q }}</span></h1>
             <p>{{ object_list|length }} Items</p>
         </div>
         <div class="result__content">
             <div class="product-thumb__list">
                 {% for item in object_list %}
-                <a href="#" class="product-thumb__link">
+                <a href="{% url "product" product_slug=item.slug slug=item.category_id.parent_category.slug child_slug=item.category_id.slug %}" class="product-thumb__link">
                     <div class="product-thumb">
                         <div class="product-thumb__image">
                             <img src="/dist/img/item/{{ item.image }}" alt="pants">

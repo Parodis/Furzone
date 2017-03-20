@@ -45,12 +45,8 @@ def get_products_by_cat_id(id, count):
 
 def category_by_slug(request, slug, page=1, child_slug=None, **kwargs):
     context = {}
-    if child_slug is not None:
-        category = Category.objects.get(slug=child_slug)
-    else:
-        category = Category.objects.get(slug=slug)
-    parent_category = Category.objects.get(
-        id=category.parent_category_id) if category.parent_category_id is not None else None
+    parent_category = Category.objects.get(slug=slug)
+    category = Category.objects.get(slug=child_slug, parent_category_id=parent_category.id)
     start_element = 0 if int(page) == 1 else (int(page)-1)*12
     end_element = int(page)*12
     products = Item.objects.filter(category_id_id=category.id).order_by('id')
