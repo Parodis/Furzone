@@ -75,7 +75,7 @@
         </div>
         <div class="pages">
             {% for page in pages_count %}
-                <a class="page__link {% if page == current_page %}page__link--active{% endif %}" href="{% if page == current_page %} # {% else %} {% url "category page" slug=category.slug page=page %} {% endif %}">{{ page }}</a>
+                <a class="page__link {% if page == current_page %}page__link--active{% endif %}" href="{% if page == current_page %} # {% else %} {% url "category page" slug=category.parent_category.slug child_slug=category.slug page=page %} {% endif %}">{{ page }}</a>
             {% endfor %}
         </div>
     </section>

@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^category/$', cat, name="categories"),
     url(r'^category/(?P<slug>[-\w]+)/$', categories_child_list, name="child categories list"),
     url(r'^category/(?P<slug>[-\w]+)/(?P<child_slug>[-\w]+)/$', category_by_slug, name="category view"),
-    url(r'^category/(?P<slug>[-\w]+)/(?P<page>[\d]+)/$', category_by_slug, name="category page"),
+    url(r'^category/(?P<slug>[-\w]+)/(?P<child_slug>[-\w]+)/(?P<page>[\d]+)/$', category_by_slug, name="category page"),
     url(r'^category/(?P<slug>[-\w]+)/(?P<child_slug>[-\w]+)/(?P<product_slug>[-\w]+)/$', get_item, name="product"),
     url(r'^amazon/$', get_amazon, name="amazon"),
     url(r'^search/', include('search.urls')),
