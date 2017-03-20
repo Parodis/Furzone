@@ -5,5 +5,5 @@ from user.models import User
 
 
 def order(request):
-    pass
+    return render(request, 'cart/order.html')
 # Create your views here.
