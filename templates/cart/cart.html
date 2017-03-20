@@ -18,7 +18,6 @@
             <h1>Your shopping bag</h1>
             <p>Items reserved for limited time only</p>
         </div>
-    {% get_basket as my_basket %}
         <div class="cart__order">
             <div class="order-quality">
                 <div class="order-quality__product cart__product-block">
@@ -43,7 +42,7 @@
             {% for item in my_basket.items %}
             <div class="cart__product">
                 <div class="product__image cart__product-block">
-                    <img src="/dist/img/item/{{ item.product.image|safe }}">
+                    <img src="/dist/img/item/{{ item.product.thumbnail_image }}">
                 </div>
                 <div class="product__caption cart__product-block">
                     <h2>{{ item.product.name }}</h2>
