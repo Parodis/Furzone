@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load get_item %}
-{% load get_category_slug %}
 {% block breadcrumps %}
 <div class="breadcrumbs">
         <ul class="breadcrumbs__list">
@@ -8,7 +7,10 @@
                 <a href="{% url "home" %}">Home</a>
             </li>
             <li class="breadcrumbs__item">
-                <a href="#">Categories</a>
+                <a href="{% url "categories" %}">Categories</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="#">{{ parent_category.name }}</a>
             </li>
         </ul>
     </div>
@@ -18,12 +20,12 @@
     <div class="category-preview">
         <div class="category-preview__header">
             <h2 class="category-preview__caption">{{ category.name }}</h2>
-            <a href="{% url "child categories list" slug=category.slug %}" class="category-preview__link">show more</a><span class="category-preview__link-arrow">→</span>
+            <a href="{% url "category view" child_slug=category.slug slug=parent_category.slug %}" class="category-preview__link">show more</a><span class="category-preview__link-arrow">→</span>
         </div>
         <div class="category-preview__content">
             <div class="product-thumb__list">
                  {% for product in products|get_item:category.id %}
-                <a href="{% url "product" child_slug=category.slug slug=category.id|get_category_slug product_slug=product.slug %}" class="product-thumb__link product-thumb__link--flex-four">
+                <a href="{% url "product" child_slug=category.slug product_slug=product.slug slug=parent_category.slug %}" class="product-thumb__link product-thumb__link--flex-four">
                     <div class="product-thumb">
                         <div class="product-thumb__image">
                             <img src="/dist/img/item/{{ product.image }}" alt="{{ product.name }}">

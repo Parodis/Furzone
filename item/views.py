@@ -15,7 +15,7 @@ def get_item(request, **kwargs):
     context = {}
     try:
         item = Item.objects.get(slug=kwargs['product_slug'])
-        category = Category.objects.get(slug=kwargs['slug'])
+        category = Category.objects.get(slug=kwargs['child_slug'])
         context['item'] = item
         context['category'] = category
         return render(request, "item/item.html", context)

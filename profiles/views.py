@@ -32,7 +32,7 @@ def edit_account(request, pk):
             edit_form = AccountForm(request.POST, instance=user)
             if edit_form.is_valid():
                 edit_form.save()
-                return HttpResponseRedirect('account')
+                return HttpResponseRedirect('/account/')
             else:
                 edit_form = AccountForm()
         return render(request, "account/edit.html", {'edit_form': edit_form})
