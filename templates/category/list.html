@@ -7,7 +7,7 @@
                 <a href="{% url "home" %}">Home</a>
             </li>
             <li class="breadcrumbs__item">
-                <a href="#">Categories</a>
+                <a href="{% url "categories" %}">Categories</a>
             </li>
         </ul>
     </div>
@@ -19,6 +19,7 @@
             <h2 class="category-preview__caption">{{ category.name }}</h2>
             <a href="/category/{{ category.slug }}" class="category-preview__link">show more</a><span class="category-preview__link-arrow">→</span>
         </div>
+    {% for parent_category in categories|get_item:category.parent_category_id %}
         <div class="category-preview__content">
             <div class="product-thumb__list">
                  {% for product in products|get_item:category.id %}
@@ -36,6 +37,7 @@
                   {% endfor %}
             </div>
         </div>
+        {% endfor %}
     </div>
     {% endfor %}
 {% endblock content %}
