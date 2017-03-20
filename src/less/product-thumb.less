@@ -21,14 +21,23 @@
     }
 
     &__image {
-        width: 210px;
-        height: 300px;
-        margin: 0 auto;
-        overflow: hidden;
+            width: 250px;
+            height: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        &:hover img {
+            width: 300px;
+        }
 
         img {
             width: 100%;
             height: auto;
+            transition: 1s all ease;
         }
     }
 
