@@ -35,13 +35,10 @@ class ProfileForm(forms.ModelForm):
 @login_required
 @transaction.atomic
 def edit_account(request):
-    user = User.objects.all().select_related('profile')
-    user_form = UserForm(instance=request.user)
-    profile_form = ProfileForm(instance=request.user.profile)
     if request.user.is_authenticated():
         if request.method == 'POST':
-            user_form = UserForm(instance=request.user)
-            profile_form = ProfileForm(instance=request.user.profile)
+            user_form = UserForm(request.POST, instance=request.user)
+            profile_form = ProfileForm(request.POST, instance=request.user.profile)
             if user_form.is_valid() and profile_form.is_valid():
                 user_form.save()
                 profile_form.save()
@@ -49,7 +46,10 @@ def edit_account(request):
             else:
                 user_form = UserForm(instance=request.user)
                 profile_form = ProfileForm(instance=request.user.profile)
-        return render(request, "account/edit.html", {'user_form': user_form, 'profile_form': profile_form})
+            return render(request, "account/edit.html", {'user_form': user_form, 'profile_form': profile_form})
+        else:
+            return render(request, "account/edit.html", {'user_form': UserForm(instance=request.user),
+                                                         'profile_form': ProfileForm(instance=request.user.profile)})
     else:
         raise PermissionDenied
 
