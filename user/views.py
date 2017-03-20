@@ -64,7 +64,7 @@ def register(request):
             user = User.objects.create(username=register_form.cleaned_data['username'],
                                 password=register_form.cleaned_data['password1'],
                                 email=register_form.cleaned_data['email'])
-            return HttpResponseRedirect('/')
+            return HttpResponse(content='{"status": "True", "message": "Success"}', status=200)
         else:
             register_form = RegisterForm()
         return render(request, 'login/register.html', {'register_form': register_form})
