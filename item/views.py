@@ -15,8 +15,9 @@ from django.db import IntegrityError
 def get_item(request, **kwargs):
     context = {}
     try:
+        parent_category = Category.objects.get(slug=kwargs['slug'], parent_category_id=None)
+        category = Category.objects.get(slug=kwargs['child_slug'], parent_category_id=parent_category.id)
         item = Item.objects.get(slug=kwargs['product_slug'])
-        category = Category.objects.get(slug=kwargs['child_slug'])
         context['item'] = item
         context['category'] = category
         return render(request, "item/item.html", context)
