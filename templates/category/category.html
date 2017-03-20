@@ -70,10 +70,9 @@
             </div>
         </div>
         <div class="pages">
-            <a class="page__link page__link--active" href="#">1</a>
-            <a class="page__link" href="#">2</a>
-            <a class="page__link" href="#">3</a>
-            <a class="page__link" href="#">4</a>
+            {% for page in pages_count %}
+                <a class="page__link {% if page == current_page %}page__link--active{% endif %}" href="{% if page == current_page %} # {% else %} {% url "category page" slug=category.slug page=page %} {% endif %}">{{ page }}</a>
+            {% endfor %}
         </div>
     </section>
 {% endblock content %}
