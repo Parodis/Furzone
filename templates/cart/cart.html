@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
+{% load carton_tags %}
 {% block breadcrumps %}
-<div class="breadcrumbs">
+    <div class="breadcrumbs">
         <ul class="breadcrumbs__list">
             <li class="breadcrumbs__item">
                 <a href="{% url "home" %}">Home</a>
@@ -12,10 +13,64 @@
     </div>
 {% endblock breadcrumps %}
 {% block content %}
-<section class="cart">
+    <section class="cart">
         <div class="cart__caption">
             <h1>Your shopping bag</h1>
             <p>Items reserved for limited time only</p>
         </div>
-</section>
+    {% get_basket as my_basket %}
+        <div class="cart__order">
+            <div class="order-quality">
+                <div class="order-quality__product cart__product-block">
+                    <p>Product</p>
+                </div>
+                <div class="order-quality__description cart__product-block">
+                    <p>Description</p>
+                </div>
+                <div class="order-quality__color cart__product-block">
+                    <p>Color</p>
+                </div>
+                <div class="order-quality__size cart__product-block">
+                    <p>Size</p>
+                </div>
+                <div class="order-quality__quantity cart__product-block">
+                    <p>Qty</p>
+                </div>
+                <div class="order-quality__amount cart__product-block">
+                    <p>Amount</p>
+                </div>
+            </div>
+            {% for item in my_basket.items %}
+            <div class="cart__product">
+                <div class="product__image cart__product-block">
+                    <img src="/dist/img/item/{{ item.product.image|safe }}">
+                </div>
+                <div class="product__caption cart__product-block">
+                    <h2>{{ item.product.name }}</h2>
+                    <p>{{ item.product.amazon_id }}</p>
+                </div>
+                <div class="product__color cart__product-block">
+                    <p>{{ item.product.color }}</p>
+                </div>
+                <div class="product__size cart__product-block">
+                    <p>{{ item.product.size }}</p>
+                </div>
+                <div class="product__quantity cart__product-block">
+                    <p>{{ item.quantity }}</p>
+                </div>
+                <div class="product__amount cart__product-block">
+                    <p>€ {{ item.price }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    <div class="cart__button">
+            <div class="cart__continue">
+                <a href="{% url "categories" %}">Continue Shopping</a>
+            </div>
+            <div class="cart__order-button">
+                <a href="{% url 'order' %}">Order now</a>
+            </div>
+        </div>
+    </section>
 {% endblock content %}

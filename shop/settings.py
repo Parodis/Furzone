@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     "contact",
     "newsletters",
     "search",
-    "profiles"
+    "profiles",
+    "carton"
 ]
 
 MIDDLEWARE = [
@@ -148,6 +149,10 @@ USE_L10N = True
 USE_TZ = True
 
 AUTH_PROFILE_MODULE = 'profiles.Profile'
+
+CART_PRODUCT_MODEL = 'item.models.Item'
+
+CART_TEMPLATE_TAG_NAME = 'get_basket'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
