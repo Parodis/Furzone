@@ -49,16 +49,22 @@ class RegisterForm(forms.ModelForm):
             )
         return password2
 
-    def save(self, commit=True):
-        user = super(RegisterForm, self).save(commit=False)
-        user.set_password(self.cleaned_data['password1'])
-        if commit:
-            user.save()
-        return user
+    # def save(self, commit=True):
+    #     user = super(RegisterForm, self).save(commit=False)
+    #     user.set_password(self.cleaned_data['password1'])
+    #     if commit:
+    #         user.save()
+    #     return user
 
 
 def register(request):
     if request.method == "POST":
         register_form = RegisterForm()
         if register_form.is_valid():
-            return render(request, "base.html", {'register_form': register_form})
+            user = User.objects.create(username=register_form.cleaned_data['username'],
+                                password=register_form.cleaned_data['password1'],
+                                email=register_form.cleaned_data['email'])
+            return HttpResponseRedirect('/')
+        else:
+            register_form = RegisterForm()
+        return render(request, 'login/register.html', {'register_form': register_form})
