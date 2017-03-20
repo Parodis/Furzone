@@ -4,5 +4,4 @@ Bottlenose
 lxml
 python-dateutil
 python-amazon-simple-product-api
-mysqlclient
 requests

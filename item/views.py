@@ -6,7 +6,9 @@ from amazon.api import AmazonAPI
 import random
 from django.template.defaultfilters import slugify
 import requests
-import shutil, os
+import shutil
+import os
+from django.db import IntegrityError
 
 
 def get_item(request, **kwargs):
@@ -30,37 +32,32 @@ def download_file(url):
 
 
 def fetch_items_from_amazon(request):
-    category_id = 4
+    category_id = 3
     amazon = AmazonAPI('AKIAJWTF2DL2JCDJHFFQ', '2Pv0/KbNj5OwG6otEyg52zB9ZY3O+oWJWpzc8d+2', 'nekaravaev-20')
     products = amazon.search_n(30, Keywords="Shoes", SearchIndex='FashionBoys')
-    list = [{'id': category_id, 'keywords': '', 'SearchIndex': ''}]
+    list = [{'id': 3, 'keywords': 'Shoes', 'SearchIndex': 'FashionBoys'}]
     count = 0
     for i, product in enumerate(products):
-        item = Item()
-        if product.title is not None:
-            item.name = product.title
-        else:
-            item.name = ""
-
-        if product.editorial_review is not None:
-            item.description = product.editorial_review
-        else:
-            item.description = ""
-        item.quantity = random.randint(1, 20)
-        item.image = download_file(product.large_image_url)
-        if product.asin is not None:
+        try:
+            item = Item()
+            item.name = product.title if product.title is not None else ''
+            item.color = product.color if product.color is not None else ''
+            item.description = product.editorial_review if product.editorial_review is not None else ''
+            item.quantity = random.randint(1, 20)
+            if product.large_image_url is not None:
+                item.image = download_file(product.large_image_url)
             item.amazon_id = product.asin
-        else:
-            item.amazon_id = ""
-        formatted_price = product.formatted_price
-        price = int(float(formatted_price[1:]))
-        item.price = price
-        item.category_id_id = category_id
-        item.slug = slugify(product.title)
-        item.save()
-        count += i
+            formatted_price = product.formatted_price
+            price = int(float(formatted_price[1:]))
+            item.price = price
+            item.category_id_id = category_id
+            item.slug = slugify(product.title)
+            item.save()
+            count += i
+        except IntegrityError:
+            continue
 
-    return HttpResponse()
+    return HttpResponse(count)
     # products = amazon.search_n(1, Keywords='kindle', SearchIndex='All')
     # product = amazon.lookup(ItemId='B01LXU4VO7')
 

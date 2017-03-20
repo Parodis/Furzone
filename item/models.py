@@ -13,7 +13,7 @@ def validate_image(fieldfile_obj):
 class Item(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
-    # color = models.CharField(max_length=255)
+    color = models.CharField(max_length=255, blank=True, null=True)
     size = models.CharField(choices=(('34', '34'), ('36', '36'), ('38', '38')), max_length=20, blank=True, null=True)
     options = models.TextField(blank=True, null=True)
     quantity = models.IntegerField()

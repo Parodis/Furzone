@@ -37,12 +37,12 @@ gulp.task('runserver', function() {
 
 gulp.task('browserSync', function() {
     browserSync({
-        server: {
-            baseDir: "./"
-        },
+        // server: {
+        //     baseDir: "./"
+        // },
         port: 8080,
         open: true,
-      //  proxy: 'localhost:8000',
+        proxy: 'localhost:8000',
         notify: false
     });
 });

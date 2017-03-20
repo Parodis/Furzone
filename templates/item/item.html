@@ -12,7 +12,7 @@
                 <a href="{% url "category view" slug=category.slug %}">{{ category.name }}</a>
             </li>
             <li class="breadcrumbs__item">
-                <a href="#">{{ item.slug }}</a>
+                <a href="#">{{ item.name }}</a>
             </li>
         </ul>
     </div>
@@ -31,18 +31,21 @@
         <p>{{ item.description|safe }}
         </p>
     </div>
+    <form action="/cart/add/" method="post">
+    <input type="hidden" name="id" value="{{ item.id }}">
     <div class="product-detail__size">
-        <h3>Size</h3>
+        <h3>Colour</h3>
         <div class="size">
-            <a href="#">{{ item.size }}</a>
-{#            <a href="#">36</a>#}
-{#            <a href="#">38</a>#}
-{#            <a href="#">40</a>#}
-{#            <a href="#">42</a>#}
+             <input type="radio" name="colour" id="colour" class="color__input" checked="checked" value="{{ item.color }}">
+            <label for="colour" class="color__label">
+                {{ item.color }}
+            </label>
+
         </div>
     </div>
     <div class="product-detail__button form__input">
         <input type="submit" value="ADD TO CART">
     </div>
+    </form>
 </section>
 {% endblock content %}
