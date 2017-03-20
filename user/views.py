@@ -29,9 +29,6 @@ def login_in(request):
 
 
 class RegisterForm(forms.ModelForm):
-    # error_messages = {
-    #     'password_mismatch': ("The two password fields didn't match."),
-    # }
 
     class Meta:
         model = User

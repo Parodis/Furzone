@@ -21,10 +21,11 @@ from shop.views import *
 from contact.views import ContactCreate
 from user.views import *
 from newsletters.views import send
-from cart.views import CartView
+from cart.views import *
 from category.views import *
 from item.views import get_item, fetch_items_from_amazon
 from profiles.views import *
+from order.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -33,7 +34,7 @@ urlpatterns = [
     url(r'^about$', About.as_view(), name='about'),
     url(r'^login/$', login_in, name="log in"),
     url(r'^newsletters/$', send, name="newsletters"),
-    url(r'^cart/$', CartView.as_view(), name="cart"),
+    url(r'^cart/$', show, name="cart"),
     url(r'^category/$', cat, name="categories"),
     url(r'^category/(?P<slug>[-\w]+)/$', categories_child_list, name="child categories list"),
     url(r'^category/(?P<slug>[-\w]+)/(?P<child_slug>[-\w]+)/$', category_by_slug, name="category view"),
@@ -45,6 +46,8 @@ urlpatterns = [
     url(r'^parse/$', fetch_items_from_amazon, name="parse"),
     url(r'^account/$', Account.as_view(), name='account'),
     url(r'^account/edit/$', edit_account, name='edit'),
+    url(r'^add/$', add, name='add'),
+    url(r'^cart/order/$', order, name='order')
 ]
 
 if settings.DEBUG:
