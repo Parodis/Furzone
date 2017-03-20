@@ -35,11 +35,10 @@ class ProfileForm(forms.ModelForm):
 @login_required
 @transaction.atomic
 def edit_account(request):
-    user = User.objects.select_related('profile').get(instance=request.user.id)
+    user = User.objects.all().select_related('profile')
     user_form = UserForm(instance=request.user)
     profile_form = ProfileForm(instance=request.user.profile)
     if request.user.is_authenticated():
-
         if request.method == 'POST':
             user_form = UserForm(instance=request.user)
             profile_form = ProfileForm(instance=request.user.profile)
