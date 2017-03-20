@@ -47,9 +47,14 @@ def category_by_slug(request, slug, page=1):
     parent_category = Category.objects.get(id=category.parent_category_id) if category.parent_category_id is not None else None
     start_element = 0 if int(page) == 1 else (int(page)-1)*12
     end_element = int(page)*12
-    products = Item.objects.filter(category_id_id=category.id).order_by('id')[start_element:end_element]
+    products = Item.objects.filter(category_id_id=category.id).order_by('id')
+    count = products.count()
+    products_list = products[start_element:end_element]
     context['category'] = category
-    context['products'] = products
+    context['products'] = products_list
+    context['products_count'] = count
+    context['current_page'] = int(page)
+    context['pages_count'] = range(1, int(round(count / 12) + 1))
     context['parent_category'] = parent_category
     return render(request, "category/category.html", context)
 
