@@ -1,5 +1,7 @@
 from django.db import models
 from user.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 COUNTRIES = (
     ('GB', 'United Kingdom'),
@@ -24,7 +26,7 @@ COUNTRIES = (
 
 
 class Profile(models.Model):
-    user = models.ForeignKey(User)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100, blank=True, null=True)
     second_name = models.CharField(max_length=100, blank=True, null=True)
     city = models.CharField(max_length=100, blank=True, null=True)
@@ -37,4 +39,15 @@ class Profile(models.Model):
     forgot_key = models.CharField(max_length=255, blank=True, null=True)
     company_name = models.CharField(max_length=255, blank=True, null=True)
     email = models.EmailField(null=True, blank=True)
-# Create your models here.
+    # type = models.IntegerField(default=0)
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
