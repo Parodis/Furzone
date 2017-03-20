@@ -36,7 +36,7 @@
         <p>{{ item.description|safe }}
         </p>
     </div>
-    <form action="/add/" method="post">
+    <form action="/add/" method="post" id="addToCartForm">
         {% csrf_token %}
     <input type="hidden" name="id" value="{{ item.id }}">
     <div class="product-detail__size">

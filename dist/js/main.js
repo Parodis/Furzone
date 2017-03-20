@@ -188,6 +188,28 @@ function newsletterForm() {
 }
 newsletterForm();
 
+function addToCart() {
+    var form = selectQuery('#addToCartForm');
+
+    if (form) {
+        form.addEventListener('click', function (event) {
+            var data = new FormData(form),
+                xmlhttp = new XMLHttpRequest();
+            event.preventDefault();
+
+            xmlhttp.open("POST", form.getAttribute('action'), true);
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState != 4) return;
+                var response = xmlhttp.response;
+                console.log(response);
+            };
+            xmlhttp.send(data);
+        });
+    }
+}
+addToCart();
+
 /* Utils */
 
 function selectQuery(query) {
