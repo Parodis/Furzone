@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load get_parent_category_slug %}
+{% load get_parent_category_name %}
 {% block breadcrumps %}
 <div class="breadcrumbs">
         <ul class="breadcrumbs__list">
@@ -9,7 +11,10 @@
                 <a href="{% url "categories" %}">Categories</a>
             </li>
             <li class="breadcrumbs__item">
-                <a href="{% url "category view" slug=category.slug %}">{{ category.name }}</a>
+                <a href="{% url "child categories list" slug=category.parent_category.slug %}">{{ category.parent_category.name }}</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="{% url "category view" slug=category.parent_category.slug child_slug=category.slug %}">{{ category.name }}</a>
             </li>
             <li class="breadcrumbs__item">
                 <a href="#">{{ item.name }}</a>
