@@ -71,11 +71,13 @@ function formSignUp() {
         loginHeader = selectQuery('#loginHeader'),
         forgotPassLink = selectQuery('#forgotPassLink'),
         submitButton = selectQuery('#submitButton'),
-        forgotPassGroup = selectQuery('#forgotPassGroup');
+        forgotPassGroup = selectQuery('#forgotPassGroup'),
+        loginForm = selectQuery('#login_form');
 
     signUpLink.addEventListener('click', function (event) {
         event.preventDefault();
         if (formAction.getAttribute('value') == 'log') {
+            loginForm.setAttribute('action', '/register/');
             formAction.setAttribute('value', 'sign');
             loginHeader.innerText = 'SIGN UP';
             signUpLink.innerText = 'I have an account';
@@ -83,6 +85,7 @@ function formSignUp() {
             passwordRepeat.classList.toggle('login__form-group--invisible');
             forgotPassLink.classList.toggle('login__form-group--invisible');
         } else {
+            loginForm.setAttribute('action', '/login/');
             formAction.setAttribute('value', 'log');
             loginHeader.innerText = 'SIGN IN';
             submitButton.innerText = 'SIGN IN';

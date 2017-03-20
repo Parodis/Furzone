@@ -41,7 +41,7 @@ urlpatterns = [
     url(r'^category/(?P<slug>[-\w]+)/(?P<child_slug>[-\w]+)/(?P<product_slug>[-\w]+)/$', get_item, name="product"),
     url(r'^amazon/$', get_amazon, name="amazon"),
     url(r'^search/', include('search.urls')),
-    url(r'^register/$', RegisterForm, name='register'),
+    url(r'^register/$', register, name='register'),
     url(r'^parse/$', fetch_items_from_amazon, name="parse"),
     url(r'^account/$', Account.as_view(), name='account'),
     url(r'^account/edit/$', edit_account, name='edit'),
