@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block breadcrumps %}
-<div class="breadcrumbs">
+    <div class="breadcrumbs">
         <ul class="breadcrumbs__list">
             <li class="breadcrumbs__item">
                 <a href="{% url "home" %}">Home</a>
@@ -15,7 +15,7 @@
     </div>
 {% endblock breadcrumps %}
 {% block content %}
-<section class="category">
+    <section class="category">
         <div class="category__text">
             <h1>{{ category.name }}</h1>
             <p>All Products</p>
@@ -24,29 +24,29 @@
             <form class="form form__filters form--inline" method="get" action="/">
                 <div class="form__filter-group">
                     <select class="form__filter-select form__input">
-                      <option value="" selected="selected">Price</option>
-                      <option value="20-30">€20-30</option>
-                      <option value="30-50">€30-50</option>
-                      <option value="50-100">€50-100</option>
-                      <option value="100">€100 and more</option>
+                        <option value="" selected="selected">Price</option>
+                        <option value="20-30">€20-30</option>
+                        <option value="30-50">€30-50</option>
+                        <option value="50-100">€50-100</option>
+                        <option value="100">€100 and more</option>
                     </select>
                 </div>
                 <div class="form__filter-group">
                     <select class="form__filter-select form__input">
-                      <option value="" selected="selected">Price</option>
-                      <option value="20-30">€20-30</option>
-                      <option value="30-50">€30-50</option>
-                      <option value="50-100">€50-100</option>
-                      <option value="100">€100 and more</option>
+                        <option value="" selected="selected">Price</option>
+                        <option value="20-30">€20-30</option>
+                        <option value="30-50">€30-50</option>
+                        <option value="50-100">€50-100</option>
+                        <option value="100">€100 and more</option>
                     </select>
                 </div>
                 <div class="form__filter-group">
                     <select class="form__filter-select form__input">
-                      <option value="" selected="selected">Price</option>
-                      <option value="20-30">€20-30</option>
-                      <option value="30-50">€30-50</option>
-                      <option value="50-100">€50-100</option>
-                      <option value="100">€100 and more</option>
+                        <option value="" selected="selected">Price</option>
+                        <option value="20-30">€20-30</option>
+                        <option value="30-50">€30-50</option>
+                        <option value="50-100">€50-100</option>
+                        <option value="100">€100 and more</option>
                     </select>
                 </div>
             </form>
@@ -55,23 +55,24 @@
         <div class="category__content">
             <div class="product-thumb__list">
                 {% for i in products %}
-                <a href="{% url "product" slug=category.slug product_slug=i.slug %}" class="product-thumb__link">
-                    <div class="product-thumb">
-                        <div class="product-thumb__image">
-                            <img src="/dist/img/item/{{ i.image }}" alt="{{ i.name }}">
+                    <a href="{% url "product" slug=category.slug product_slug=i.slug %}" class="product-thumb__link">
+                        <div class="product-thumb">
+                            <div class="product-thumb__image">
+                                <img src="/dist/img/item/{{ i.image }}" alt="{{ i.name }}">
+                            </div>
+                            <div class="product-thumb__info">
+                                <h4 class="product-thumb__name">{{ i.name }}</h4>
+                                <p class="product-thumb__price">€ {{ i.price }}</p>
+                            </div>
                         </div>
-                        <div class="product-thumb__info">
-                            <h4 class="product-thumb__name">{{ i.name }}</h4>
-                            <p class="product-thumb__price">€ {{ i.price }}</p>
-                        </div>
-                    </div>
-                </a>
+                    </a>
                 {% endfor %}
             </div>
         </div>
         <div class="pages">
             {% for page in pages_count %}
-                <a class="page__link {% if page == current_page %}page__link--active{% endif %}" href="{% if page == current_page %} # {% else %} {% url "category page" slug=category.slug page=page %} {% endif %}">{{ page }}</a>
+                <a class="page__link {% if page == current_page %}page__link--active{% endif %}"
+                   href="{% if page == current_page %} # {% else %} {% url "category page" slug=category.slug page=page %} {% endif %}">{{ page }}</a>
             {% endfor %}
         </div>
     </section>

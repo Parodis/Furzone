@@ -7,6 +7,7 @@
             </li>
             <li class="breadcrumbs__item">
                 <a href="{% url "account" %}">Account</a>
+            </li>
         </ul>
     </div>
 {% endblock breadcrumps %}
@@ -16,7 +17,7 @@
             <h1>Hi {{ user|upper }},
             <br>This is your order history
         </h1>
-            <a href="#" class="button button--banner">Edit your account</a>
+            <a href="{% url 'edit' pk=user.id %}" class="button button--banner">Edit your account</a>
         </div>
 </section>
 

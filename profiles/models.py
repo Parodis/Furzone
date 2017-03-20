@@ -1,6 +1,27 @@
 from django.db import models
 from user.models import User
 
+COUNTRIES = (
+    ('GB', 'United Kingdom'),
+    ('AF', 'Afghanistan'),
+    ('AL', 'Albania'),
+    ('DZ', 'Algeria'),
+    ('AS', 'American Samoa'),
+    ('AD', 'Andorra'),
+    ('AR', 'Argentina'),
+    ('AM', 'Armenia'),
+    ('AU', 'Australia'),
+    ('AT', 'Austria'),
+    ('BY', 'Belarus'),
+    ('BE', 'Belgium'),
+    ('BZ', 'Belize'),
+    ('BM', 'Bermuda'),
+    ('LT', 'Lithuania'),
+    ('LU', 'Luxembourg'),
+    ('RU', 'Russian Federation'),
+    ('US', 'United States'),
+)
+
 
 class Profile(models.Model):
     user = models.ForeignKey(User)
@@ -9,9 +30,11 @@ class Profile(models.Model):
     city = models.CharField(max_length=100, blank=True, null=True)
     first_line_adress = models.CharField(max_length=255, blank=True, null=True)
     second_line_adress = models.CharField(max_length=255, blank=True, null=True)
-    country = models.CharField(max_length=100, blank=True, null=True)
+    country = models.CharField(choices=COUNTRIES, max_length=100, blank=True, null=True)
     postal_code = models.CharField(max_length=10, blank=True, null=True)
     personal_sale = models.IntegerField(default=0, blank=True, null=True)
     sex = models.CharField(choices=(("M", "Male"), ("F", "Female")), max_length=10, blank=True, null=True)
     forgot_key = models.CharField(max_length=255, blank=True, null=True)
+    company_name = models.CharField(max_length=255, blank=True, null=True)
+    email = models.EmailField(null=True, blank=True)
 # Create your models here.

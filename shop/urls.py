@@ -43,7 +43,8 @@ urlpatterns = [
     url(r'^search/', include('search.urls')),
     url(r'^register/$', RegisterForm, name='register'),
     url(r'^parse/$', fetch_items_from_amazon, name="parse"),
-    url(r'^account/$', Account.as_view(), name='account')
+    url(r'^account/$', Account.as_view(), name='account'),
+    url(r'^account/edit/(?P<pk>[\-\w]+)/$', edit_account, name='edit'),
 ]
 
 if settings.DEBUG:

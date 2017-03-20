@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block breadcrumps %}
+<div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+                <a href="{% url "home" %}">Home</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="{% url "account" %}">Account</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="{% url "account" %}">Edit your account</a>
+            </li>
+        </ul>
+    </div>
+{% endblock breadcrumps %}
+{% block content %}
+<section class="edit-account">
+        <div class="edit-account__caption">
+            <h1>Edit your account</h1>
+        </div>
+        <form class="form form--contact" action="/profiles/" method="post">
+        {% csrf_token %}
+            <div class="form__name">
+                <div class="form form__data--name">
+                    <label for="first_name">First name</label>
+                    {{ edit_form.first_name }}
+                </div>
+                <div class="form form__data--email">
+                    <label for="second_name">Last name</label>
+                    {{ edit_form.second_name }}
+                </div>
+            </div>
+            <div class="form__company">
+                <div class="form form__company--name">
+                    <label for="company_name">Company name<span>(optional)</span></label>
+                    {{ edit_form.company_name }}
+                </div>
+            </div>
+            <div class="form__address">
+                <label for="first_line_adress">Address</label>
+                {{ edit_form.first_line_adress }}
+            </div>
+            <div class="form__info">
+                <div class="form form__info--city">
+                    <label for="city">City</label>
+                    {{ edit_form.city }}
+                </div>
+                <div class="form form__info--zip">
+                    <label for="postal_code">Postal code</label>
+                    {{ edit_form.postal_code }}
+                </div>
+            </div>
+            <div class="form__country">
+                <label for="country">Country</label>
+                {{ edit_form.country }}
+            </div>
+            <div class="form__info">
+                <div class="form form__info--phone">
+                    <label for="sex">Sex</label>
+                    {{ edit_form.sex }}
+                </div>
+                <div class="form form__info--email">
+                    <label for="email">E-mail</label>
+                    {{ edit_form.email }}
+                </div>
+            </div>
+             <div class="form__input form__input--account">
+                <input type="submit" value="SAVE">
+            </div>
+        </form>
+</section>
+{% endblock content %}
