@@ -59,7 +59,7 @@ class RegisterForm(forms.ModelForm):
 
 def register(request):
     if request.method == "POST":
-        register_form = RegisterForm()
+        register_form = RegisterForm(request.POST)
         if register_form.is_valid():
             user = User.objects.create(username=register_form.cleaned_data['username'],
                                 password=register_form.cleaned_data['password1'],
