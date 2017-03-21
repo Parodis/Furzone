@@ -1,13 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
-from django import forms
+from .forms import NewsletterForm
 from .models import Newsletter
-from django.views.decorators.csrf import csrf_protect
-
-
-class NewsletterForm(forms.ModelForm):
-    class Meta:
-        model = Newsletter
-        exclude = ('id',)
 
 
 def send(request):

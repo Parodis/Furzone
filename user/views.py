@@ -1,15 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
-from django import forms
 from django.contrib.auth import authenticate, login
-from .models import User
-
-
-class LoginForm(forms.Form):
-    username = forms.CharField(max_length=20)
-    password = forms.CharField(widget=forms.PasswordInput())
-
-    def get_user(self):
-        return self.user or None
+from .forms import *
 
 
 def login_in(request):
@@ -26,30 +17,6 @@ def login_in(request):
                 return HttpResponse(content='login_form.errors')
 
             return render(request, 'login/success.html', {'login_form': login_form})
-
-
-class RegisterForm(forms.ModelForm):
-
-    class Meta:
-        model = User
-        fields = ('username', 'password')
-
-    # def clean_password2(self):
-    #     password1 = self.cleaned_data.get("password")
-    #     password2 = self.cleaned_data.get("passwordRepeat")
-    #     if password1 and password2 and password1 != password2:
-    #         raise forms.ValidationError(
-    #             self.error_messages['password_mismatch'],
-    #             code='password_mismatch',
-    #         )
-    #     return password2
-
-    # def save(self, commit=True):
-    #     user = super(RegisterForm, self).save(commit=False)
-    #     user.set_password(self.cleaned_data['password1'])
-    #     if commit:
-    #         user.save()
-    #     return user
 
 
 def register(request):
