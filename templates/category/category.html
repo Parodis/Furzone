@@ -19,15 +19,15 @@
     </div>
 {% endblock breadcrumps %}
 {% block content %}
-<section class="category">
+<section class="category" id="categorySection">
         <div class="category__text">
             <h1>{{ category.name }}</h1>
             <p>All Products</p>
         </div>
         <div class="category__filters">
-            <form class="form form__filters form--inline" method="get" action="/">
+            <form class="form form__filters form--inline" method="get" action="/" id="formFilter">
                 <div class="form__filter-group">
-                    <select class="form__filter-select form__input">
+                    <select name="price" class="form__filter-select form__input">
                       <option value="" selected="selected">Price</option>
                       <option value="20-30">€20-30</option>
                       <option value="30-50">€30-50</option>
@@ -36,21 +36,18 @@
                     </select>
                 </div>
                 <div class="form__filter-group">
-                    <select class="form__filter-select form__input">
-                      <option value="" selected="selected">Price</option>
-                      <option value="20-30">€20-30</option>
-                      <option value="30-50">€30-50</option>
-                      <option value="50-100">€50-100</option>
-                      <option value="100">€100 and more</option>
+                    <select name="brand" class="form__filter-select form__input">
+                      <option value="" selected="selected">Brand</option>
+                      <option value="Gucci">Gucci</option>
+                      <option value="Karavaev">Karavaev</option>
                     </select>
                 </div>
                 <div class="form__filter-group">
-                    <select class="form__filter-select form__input">
-                      <option value="" selected="selected">Price</option>
-                      <option value="20-30">€20-30</option>
-                      <option value="30-50">€30-50</option>
-                      <option value="50-100">€50-100</option>
-                      <option value="100">€100 and more</option>
+                    <select name="sort" class="form__filter-select form__input">
+                      <option value="" selected="selected">Sort</option>
+                      <option value="Price:ASC">Price low to high</option>
+                      <option value="Price:DESC">Price high to low</option>
+                      <option value="Random">Random</option>
                     </select>
                 </div>
             </form>

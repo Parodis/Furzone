@@ -8,14 +8,14 @@ def add(request):
     cart = Cart(request.session)
     item = Item.objects.get(id=request.POST.get('id'))
     cart.add(item, price=item.price)
-    return HttpResponse('Added')
+    return HttpResponse(content='{"status": "True", "message": "OK"}', status=200)
 
 
 def remove(request):
     cart = Cart(request.session)
     product = Item.objects.get(id=request.GET.get('id'))
     cart.remove(product)
-    return HttpResponse("Removed")
+    return HttpResponse(content='{"status": "True", "message": "Removed"}', status=200)
 
 
 def show(request):

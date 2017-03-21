@@ -197,10 +197,14 @@ function newsletterForm() {
 newsletterForm();
 
 function addToCart() {
-    let form = selectQuery('#addToCartForm');
+    let form = selectQuery('#addToCartForm'),
+        spinner = selectQuery('.buy__spinner'),
+        message = selectQuery('.buy__message-span');
 
     if (form) {
         form.addEventListener('click', (event) =>{
+            message.classList.remove('buy__message-span--visible');
+            spinner.classList.add('buy__spinner--visible');
             let data = new FormData(form),
                 xmlhttp = new XMLHttpRequest();
             event.preventDefault();
@@ -209,14 +213,33 @@ function addToCart() {
 
             xmlhttp.onreadystatechange = function() {
                 if (xmlhttp.readyState != 4) return;
-                let response = xmlhttp.response;
-                console.log(response);
+                let response = JSON.parse(xmlhttp.response);
+                message.innerText = response.message;
+                setTimeout(function () {
+                     spinner.classList.remove('buy__spinner--visible');
+                        message.classList.add('buy__message-span--visible');
+                }, 400);
+
             };
             xmlhttp.send(data);
         });
     }
 }
 addToCart();
+
+function categoryFilter() {
+    let formFilter = selectQuery('#formFilter'),
+        categoryLoader = selectQuery('#categoryLoader'),
+        categorySection = selectQuery('#categorySection');
+
+    if (categorySection) {
+        categorySection.addEventListener('change', (event) => {
+        categoryLoader.classList.toggle('category__loader--visible');
+    });
+    }
+
+}
+categoryFilter();
 
 /* Utils */
 

@@ -90,6 +90,10 @@
                 </svg>{% if user.is_authenticated %}
                         <a href="{% url "account" %}" class="header__options-link"> {{ user|capfirst }} </a>
                          {% else %} Log in {% endif %}</a>
+                    <ul class="account__submenu">
+                        <li><a href="#">Edit</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
                 </div>
                 <div class="header__cart">
                     <img src="/dist/img/shopping-bag.svg" class="header__options-img">
@@ -135,10 +139,8 @@
             <div class="footer__block footer__collection">
                 <h2>COLLECTION</h2>
                 <ul>
-                    <li><a href="{% url 'child categories list' slug='women' %}">Women (1735)</a></li>
-                    <li><a href="{% url 'child categories list' slug='men' %}">Men (650)</a></li>
-                    <li><a href="#">Kids (2140)</a></li>
-                    <li><a href="#">Other (76)</a></li>
+                    <li><a href="{% url 'child categories list' slug='women' %}">Women</a></li>
+                    <li><a href="{% url 'child categories list' slug='men' %}">Men</a></li>
                 </ul>
             </div>
             <div class="footer__block footer__site">
@@ -188,6 +190,10 @@
             </div>
         </div>
     </footer>
+    <div class="category__loader" id="categoryLoader">
+                <div class="pacman"></div>
+                <div class="dot"></div>
+    </div>
     {% include 'popup.html' %} {% block scripts %}
     <script src="{% static 'js/validation.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
