@@ -17,9 +17,9 @@ def send(request):
             email = letter_form.cleaned_data['email']
             if email is not None:
                 if Newsletter.objects.filter(email=email).exists():
-                    return HttpResponse(content='{"status": "False", "message": "Email is duplicate"}', status=400)
+                    return HttpResponse(content='{"status": "false", "message": "Email is duplicate"}', status=400)
                 letter_form.save()
-                return HttpResponse(content='{"status": "True", "message": "Successfully added"}', status=200)
+                return HttpResponse(content='{"status": "true", "message": "Successfully added"}', status=200)
         else:
             letter_form = NewsletterForm()
     else:

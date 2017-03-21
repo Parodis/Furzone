@@ -16,6 +16,7 @@ class Item(models.Model):
     color = models.CharField(max_length=255, blank=True, null=True)
     size = models.CharField(choices=(('34', '34'), ('36', '36'), ('38', '38')), max_length=20, blank=True, null=True)
     options = models.TextField(blank=True, null=True)
+    brand = models.CharField(blank=True, null=True, max_length=255)
     quantity = models.IntegerField()
     image = models.ImageField(null=True, blank=True, upload_to='item', validators=[validate_image],
                               help_text='Maximum file size allowed is 5Mb')

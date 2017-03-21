@@ -33,6 +33,41 @@ def download_file(url):
     return local_filename
 
 
+def set_if_not_none(mapping, key, value):
+    if value != '':
+        mapping[key] = value
+
+
+def filter_items(request):
+    if request.method == "POST":
+        context = {}
+        sort_params = {}
+
+        brand = request.POST.get('brand')
+        category_id = request.POST.get('category_id')
+        price = request.POST.get('price')
+        sort_from_request = request.POST.get('sort')
+        prices_list = [0, 9999]
+        sort = '?'
+
+        if sort_from_request != '':
+            sort = sort_from_request
+
+        if price is not None:
+            prices_list = price.split('-')
+
+        set_if_not_none(sort_params, 'category_id', category_id)
+        set_if_not_none(sort_params, 'brand', brand)
+        set_if_not_none(sort_params, 'price__gte', prices_list[0])
+        set_if_not_none(sort_params, 'price__lte', prices_list[1])
+
+        products = Item.objects.filter(**sort_params).order_by(sort)
+        context['products'] = products
+        return render(request, "category/ajax.html", context)
+    else:
+        return HttpResponse('{"status": "false", "message": "No params are requested"}', status=400)
+
+
 def fetch_items_from_amazon(request):
     category_id = 3
     amazon = AmazonAPI('AKIAJWTF2DL2JCDJHFFQ', '2Pv0/KbNj5OwG6otEyg52zB9ZY3O+oWJWpzc8d+2', 'nekaravaev-20')
@@ -74,6 +109,7 @@ def fetch_items_from_amazon(request):
                     continue
                 item = Item()
                 item.name = product.title if product.title is not None else ''
+                item.brand = product.brand if product.brand is not None else ''
                 item.color = product.color if product.color is not None else ''
                 item.description = product.editorial_review if product.editorial_review is not None else ''
                 item.quantity = random.randint(1, 20)

@@ -50,8 +50,10 @@ def category_by_slug(request, slug, page=1, child_slug=None, **kwargs):
     start_element = 0 if int(page) == 1 else (int(page)-1)*12
     end_element = int(page)*12
     products = Item.objects.filter(category_id_id=category.id).order_by('id')
+    brands = Item.objects.filter(category_id_id=category.id).values('brand').distinct()
     count = products.count()
     products_list = products[start_element:end_element]
+    context['brands'] = brands
     context['category'] = category
     context['products'] = products_list
     context['products_count'] = count

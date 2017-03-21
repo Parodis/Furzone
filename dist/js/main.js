@@ -192,7 +192,8 @@ newsletterForm();
 function addToCart() {
     var form = selectQuery('#addToCartForm'),
         spinner = selectQuery('.buy__spinner'),
-        message = selectQuery('.buy__message-span');
+        message = selectQuery('.buy__message-span'),
+        basketQuantity = selectQuery('#basketQuantity');
 
     if (form) {
         form.addEventListener('click', function (event) {
@@ -208,6 +209,7 @@ function addToCart() {
                 if (xmlhttp.readyState != 4) return;
                 var response = JSON.parse(xmlhttp.response);
                 message.innerText = response.message;
+                basketQuantity.innerText = '(' + response.count + ')';
                 setTimeout(function () {
                     spinner.classList.remove('buy__spinner--visible');
                     message.classList.add('buy__message-span--visible');
@@ -222,11 +224,31 @@ addToCart();
 function categoryFilter() {
     var formFilter = selectQuery('#formFilter'),
         categoryLoader = selectQuery('#categoryLoader'),
-        categorySection = selectQuery('#categorySection');
+        categorySection = selectQuery('#categorySection'),
+        categoryContent = selectQuery('#categoryContent'),
+        pages = selectQuery('.pages');
 
     if (categorySection) {
         categorySection.addEventListener('change', function (event) {
             categoryLoader.classList.toggle('category__loader--visible');
+            pages.style.display = 'none';
+
+            var data = new FormData(formFilter),
+                xmlhttp = new XMLHttpRequest();
+
+            event.preventDefault();
+            xmlhttp.open("POST", formFilter.getAttribute('action'), true);
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState != 4) return;
+                var response = xmlhttp.response;
+                console.log(response);
+                categoryContent.innerHTML = response;
+                setTimeout(function () {
+                    categoryLoader.classList.toggle('category__loader--visible');
+                }, 400);
+            };
+            xmlhttp.send(data);
         });
     }
 }

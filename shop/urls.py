@@ -23,7 +23,7 @@ from user.views import *
 from newsletters.views import send
 from cart.views import *
 from category.views import *
-from item.views import get_item, fetch_items_from_amazon
+from item.views import get_item, fetch_items_from_amazon, filter_items
 from profiles.views import *
 from order.views import *
 
@@ -36,6 +36,7 @@ urlpatterns = [
     url(r'^newsletters/$', send, name="newsletters"),
     url(r'^cart/$', show, name="cart"),
     url(r'^category/$', cat, name="categories"),
+    url(r'^product-filter/$', filter_items, name="filter"),
     url(r'^category/(?P<slug>[-\w]+)/$', categories_child_list, name="child categories list"),
     url(r'^category/(?P<slug>[-\w]+)/(?P<child_slug>[-\w]+)/$', category_by_slug, name="category view"),
     url(r'^category/(?P<slug>[-\w]+)/(?P<child_slug>[-\w]+)/(?P<page>[\d]+)/$', category_by_slug, name="category page"),

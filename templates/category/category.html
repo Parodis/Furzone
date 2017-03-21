@@ -25,35 +25,38 @@
             <p>All Products</p>
         </div>
         <div class="category__filters">
-            <form class="form form__filters form--inline" method="get" action="/" id="formFilter">
+            <form class="form form__filters form--inline" method="post" action="{% url "filter" %}" id="formFilter">
+                {% csrf_token %}
+                <input type="hidden" name="category_id" value="{{ category.id }}">
                 <div class="form__filter-group">
                     <select name="price" class="form__filter-select form__input">
-                      <option value="" selected="selected">Price</option>
+                      <option value="0-9999" selected="selected">Price</option>
                       <option value="20-30">€20-30</option>
                       <option value="30-50">€30-50</option>
                       <option value="50-100">€50-100</option>
-                      <option value="100">€100 and more</option>
+                      <option value="100-9999">€100 and more</option>
                     </select>
                 </div>
                 <div class="form__filter-group">
                     <select name="brand" class="form__filter-select form__input">
                       <option value="" selected="selected">Brand</option>
-                      <option value="Gucci">Gucci</option>
-                      <option value="Karavaev">Karavaev</option>
+                      {% for brand in brands %}
+                      <option value="{{ brand.brand }}">{{ brand.brand|lower|capfirst }}</option>
+                      {% endfor %}
                     </select>
                 </div>
                 <div class="form__filter-group">
                     <select name="sort" class="form__filter-select form__input">
-                      <option value="" selected="selected">Sort</option>
-                      <option value="Price:ASC">Price low to high</option>
-                      <option value="Price:DESC">Price high to low</option>
-                      <option value="Random">Random</option>
+                      <option value="?" selected="selected">Sort</option>
+                      <option value="price">Price low to high</option>
+                      <option value="-price">Price high to low</option>
+                      <option value="?">Random</option>
                     </select>
                 </div>
             </form>
         </div>
 
-        <div class="category__content">
+        <div class="category__content" id="categoryContent">
             <div class="product-thumb__list">
                 {% for i in products %}
                 <a href="{% url "product" slug=category.parent_category.slug product_slug=i.slug child_slug=category.slug %}" class="product-thumb__link">

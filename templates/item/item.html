@@ -29,6 +29,9 @@
     </div>
     <div class="product-detail__text">
         <h1>{{ item.name }}</h1>
+        {% if item.brand != '' %}
+         <h2>{{ item.brand }}</h2>
+        {% endif %}
         <p>€ {{ item.price }}</p>
     </div>
     <div class="product-detail__description">

@@ -1,0 +1,15 @@
+            <div class="product-thumb__list">
+                    {% for i in products %}
+                <a href="{% url "product" slug=i.category_id.parent_category.slug product_slug=i.slug child_slug=i.category_id.slug %}" class="product-thumb__link">
+                    <div class="product-thumb">
+                        <div class="product-thumb__image">
+                            <img src="/dist/img/item/{{ i.image }}" alt="{{ i.name }}">
+                        </div>
+                        <div class="product-thumb__info">
+                            <h4 class="product-thumb__name">{{ i.name }}</h4>
+                            <p class="product-thumb__price">€ {{ i.price }}</p>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>

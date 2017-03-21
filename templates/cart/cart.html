@@ -45,7 +45,7 @@
                     <img src="/dist/img/item/{{ item.product.thumbnail_image }}">
                 </div>
                 <div class="product__caption cart__product-block">
-                    <h2>{{ item.product.name }}</h2>
+                    <a href="{% url "product" child_slug=item.product.category_id.slug slug=item.product.category_id.parent_category.slug product_slug=item.product.slug %}"><h2>{{ item.product.name }}</h2></a>
                     <p>{{ item.product.amazon_id }}</p>
                 </div>
                 <div class="product__color cart__product-block">

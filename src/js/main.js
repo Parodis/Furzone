@@ -199,7 +199,8 @@ newsletterForm();
 function addToCart() {
     let form = selectQuery('#addToCartForm'),
         spinner = selectQuery('.buy__spinner'),
-        message = selectQuery('.buy__message-span');
+        message = selectQuery('.buy__message-span'),
+        basketQuantity = selectQuery('#basketQuantity');
 
     if (form) {
         form.addEventListener('click', (event) =>{
@@ -215,6 +216,7 @@ function addToCart() {
                 if (xmlhttp.readyState != 4) return;
                 let response = JSON.parse(xmlhttp.response);
                 message.innerText = response.message;
+                basketQuantity.innerText = '('+response.count+')';
                 setTimeout(function () {
                      spinner.classList.remove('buy__spinner--visible');
                         message.classList.add('buy__message-span--visible');
@@ -230,11 +232,32 @@ addToCart();
 function categoryFilter() {
     let formFilter = selectQuery('#formFilter'),
         categoryLoader = selectQuery('#categoryLoader'),
-        categorySection = selectQuery('#categorySection');
+        categorySection = selectQuery('#categorySection'),
+        categoryContent = selectQuery('#categoryContent'),
+        pages = selectQuery('.pages');
 
     if (categorySection) {
         categorySection.addEventListener('change', (event) => {
         categoryLoader.classList.toggle('category__loader--visible');
+        pages.style.display = 'none';
+
+        let data = new FormData(formFilter),
+                xmlhttp = new XMLHttpRequest();
+
+            event.preventDefault();
+            xmlhttp.open("POST", formFilter.getAttribute('action'), true);
+
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState != 4) return;
+                let response = xmlhttp.response;
+                console.log(response);
+                categoryContent.innerHTML = response;
+                setTimeout(function () {
+                     categoryLoader.classList.toggle('category__loader--visible');
+                }, 400);
+
+            };
+            xmlhttp.send(data);
     });
     }
 
