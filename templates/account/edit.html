@@ -19,9 +19,9 @@
         <div class="edit-account__caption">
             <h1>Edit your account</h1>
         </div>
-        <form class="form form--contact" action="." method="post">
+        <form class="form form--contact form--edit-account" action="." method="post">
         {% csrf_token %}
-            <div class="form__name">
+            <div class="form__data">
                 <div class="form form__data--name">
                     <label for="first_name">First name</label>
                     {{ user_form.first_name }}
@@ -33,7 +33,7 @@
             </div>
             <div class="form__company">
                 <div class="form form__company--name">
-                    <label for="company_name">Company name<span>(optional)</span></label>
+                    <label for="company_name">Company name<span> (optional)</span></label>
                     {{ profile_form.company_name }}
                 </div>
             </div>
@@ -41,26 +41,26 @@
                 <label for="first_line_adress">Address</label>
                 {{ profile_form.first_line_adress }}
             </div>
-            <div class="form__info">
-                <div class="form form__info--city">
+            <div class="form__data">
+                <div class="form form__data--name">
                     <label for="city">City</label>
                     {{ profile_form.city }}
                 </div>
-                <div class="form form__info--zip">
+                <div class="form form__data--email">
                     <label for="postal_code">Postal code</label>
                     {{ profile_form.postal_code }}
                 </div>
             </div>
-            <div class="form__country">
+            <div class="form__country form__topic">
                 <label for="country">Country</label>
                 {{ profile_form.country }}
             </div>
-            <div class="form__info">
-                <div class="form form__info--phone">
+            <div class="form__data">
+                <div class="form form__data--name form__data--sex">
                     <label for="sex">Sex</label>
                     {{ profile_form.sex }}
                 </div>
-                <div class="form form__info--email">
+                <div class="form form__data--email">
                     <label for="email">E-mail</label>
                     {{ user_form.email }}
                 </div>

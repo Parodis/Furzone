@@ -30,6 +30,12 @@
             margin-left: 0;
         }
 
+        &--hidden-mobile {
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+
         &:last-child {
             &::after {
                 content: '';

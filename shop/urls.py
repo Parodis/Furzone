@@ -47,7 +47,7 @@ urlpatterns = [
     url(r'^account/$', Account.as_view(), name='account'),
     url(r'^account/edit/$', edit_account, name='edit'),
     url(r'^add/$', add, name='add'),
-    url(r'^/order/$', order, name='order')
+    url(r'^order/$', order, name='order')
 ]
 
 if settings.DEBUG:

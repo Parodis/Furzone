@@ -4,7 +4,8 @@ function headerSearch() {
         headerOptions = document.querySelector('#headerOptions'),
         searchInput = document.querySelector('#searchInput');
 
-    search.addEventListener('click', () => {
+    search.addEventListener('click', (e) => {
+        e.preventDefault();
         console.log('click');
         headerNavigation.classList.add('header__navigation--shorted');
         headerOptions.classList.add('header__options--expanded');

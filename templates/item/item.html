@@ -7,7 +7,7 @@
             <li class="breadcrumbs__item">
                 <a href="{% url "home" %}">Home</a>
             </li>
-             <li class="breadcrumbs__item">
+             <li class="breadcrumbs__item breadcrumbs__item--hidden-mobile">
                 <a href="{% url "categories" %}">Categories</a>
             </li>
             <li class="breadcrumbs__item">
@@ -16,7 +16,7 @@
             <li class="breadcrumbs__item">
                 <a href="{% url "category view" slug=category.parent_category.slug child_slug=category.slug %}">{{ category.name }}</a>
             </li>
-            <li class="breadcrumbs__item">
+            <li class="breadcrumbs__item breadcrumbs__item--hidden-mobile">
                 <a href="#">{{ item.name }}</a>
             </li>
         </ul>
@@ -29,7 +29,6 @@
     </div>
     <div class="product-detail__text">
         <h1>{{ item.name }}</h1>
-        <h2>Article number: {{ item.amazon_id }}</h2>
         <p>€ {{ item.price }}</p>
     </div>
     <div class="product-detail__description">
