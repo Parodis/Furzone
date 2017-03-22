@@ -16,7 +16,8 @@
     </div>
 {% endblock breadcrumps %}
 {% block content %}
-<div class="order__wrap">
+<form class="order__wrap" method="post" action="." name="order_form" novalidate>
+    {% csrf_token %}
     <div class="order order--page">
     <section class="cart cart--order-page" id="cartSection">
         <div class="cart__caption">
@@ -75,11 +76,11 @@
                         <p>€    {{ item.subtotal }}</p>
                     </div>
                     <div class="product__amount cart__product-block">
-                        <form action="{% url 'remove' %}" method="POST" class="removeForm">
-                            {% csrf_token %}
-                            <input type="hidden" name="id" value="{{ item.product.id }}">
-                            <button type="submit" class="cart__remove-link">&#215</button>
-                        </form>
+{#                        <form action="{% url 'remove' %}" method="POST" class="removeForm">#}
+{#                            {% csrf_token %}#}
+{#                            <input type="hidden" name="id" value="{{ item.product.id }}">#}
+{#                            <button type="submit" class="cart__remove-link">&#215</button>#}
+{#                        </form>#}
                     </div>
                 </div>
             {% endfor %}
@@ -184,8 +185,8 @@
             </div>
         </div>
     </section>
- </div>
-</div>
+    </div>
+</form>
 
 {% endblock content %}
 
