@@ -292,6 +292,34 @@ function categoryFilter() {
 }
 categoryFilter();
 
+function showShippingAddress() {
+    let showShippingAddress = selectQuery('#showShippingAddress'),
+        orderPage = selectQuery('.order--page'),
+        cartSection = selectQuery('#cartSection'),
+        shippingSection = selectQuery('#shippingSection'),
+        paymentSection = selectQuery('#paymentSection'),
+        showCart = selectQuery('#showCart'),
+        showPayment = selectQuery('#showPayment');
+
+    if (orderPage) {
+        orderPage.addEventListener('click', function (event) {
+            if (event.target && event.target.id == 'showShippingAddress') {
+                event.preventDefault();
+                cartSection.classList.add('animation__hide');
+                shippingSection.classList.add('animation__show');
+            }
+            if (event.target && event.target.id == 'showPayment') {
+                    event.preventDefault();
+                    shippingSection.classList.remove('animation__show');
+                    shippingSection.classList.add('animation__hide');
+                    paymentSection.classList.add('animation__show');
+            }
+            });
+    }
+}
+
+showShippingAddress();
+
 /* Utils */
 
 function selectQuery(query) {
