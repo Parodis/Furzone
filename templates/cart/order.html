@@ -16,12 +16,18 @@
     </div>
 {% endblock breadcrumps %}
 {% block content %}
-    <section class="cart">
+<div class="order__wrap">
+    <div class="order order--page">
+    <section class="cart cart--order-page" id="cartSection">
         <div class="cart__caption">
             <h1>Your shopping bag</h1>
+            {% if my_basket.count == 0 %}
+            <p>is empty</p>
+            {% else %}
             <p>Items reserved for limited time only</p>
+            {% endif %}
         </div>
-    {% get_basket as my_basket %}
+        {% if my_basket.count > 0 %}
         <div class="cart__order">
             <div class="order-quality">
                 <div class="order-quality__product cart__product-block">
@@ -33,117 +39,152 @@
                 <div class="order-quality__color cart__product-block">
                     <p>Color</p>
                 </div>
-                <div class="order-quality__size cart__product-block">
-                    <p>Size</p>
-                </div>
                 <div class="order-quality__quantity cart__product-block">
                     <p>Qty</p>
                 </div>
                 <div class="order-quality__amount cart__product-block">
                     <p>Amount</p>
                 </div>
+                <div class="order-quality__size cart__product-block">
+                    <p>Subtotal</p>
+                </div>
+                <div class="order-quality__amount cart__product-block">
+                    <p>Remove</p>
+                </div>
             </div>
             {% for item in my_basket.items %}
-            <div class="cart__product">
-                <div class="product__image cart__product-block">
-                    <img src="/dist/img/item/{{ item.product.image|safe }}">
+                <div class="cart__product">
+                    <div class="product__image cart__product-block">
+                        <img src="/dist/img/item/{{ item.product.thumbnail_image }}">
+                    </div>
+                    <div class="product__caption cart__product-block">
+                        <a href="{% url "product" child_slug=item.product.category_id.slug slug=item.product.category_id.parent_category.slug product_slug=item.product.slug %}">
+                            <h2>{{ item.product.name }}</h2></a>
+                        <p>{{ item.product.amazon_id }}</p>
+                    </div>
+                    <div class="product__color cart__product-block">
+                        <p>{{ item.product.color }}</p>
+                    </div>
+                    <div class="product__quantity cart__product-block">
+                        <p>{{ item.quantity }}</p>
+                    </div>
+                    <div class="product__amount cart__product-block">
+                        <p>€ {{ item.price }}</p>
+                    </div>
+                    <div class="product__size cart__product-block">
+                        <p>€    {{ item.subtotal }}</p>
+                    </div>
+                    <div class="product__amount cart__product-block">
+                        <form action="{% url 'remove' %}" method="POST" class="removeForm">
+                            {% csrf_token %}
+                            <input type="hidden" name="id" value="{{ item.product.id }}">
+                            <button type="submit" class="cart__remove-link">&#215</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="product__caption cart__product-block">
-                    <h2>{{ item.product.name }}</h2>
-                    <p>{{ item.product.amazon_id }}</p>
-                </div>
-                <div class="product__color cart__product-block">
-                    <p>{{ item.product.color }}</p>
-                </div>
-                <div class="product__size cart__product-block">
-                    <p>{{ item.product.size }}</p>
-                </div>
-                <div class="product__quantity cart__product-block">
-                    <p>{{ item.quantity }}</p>
-                </div>
-                <div class="product__amount cart__product-block">
-                    <p>€ {{ item.price }}</p>
-                </div>
-            </div>
             {% endfor %}
+                <div class="cart__total">
+                    <h3>Subtotal: <span>€ {{ my_basket.total }}</span></h3>
+                </div>
         </div>
-<form class="form form--contact form--edit-account">
-        <div class="form__caption">
-            <h2>Shipping address</h2>
-            <p>All fields are required</p>
-        </div>
-        <div class="form__delivery">
-            <label for="delivery">Select delivery method</label>
-            <select id="delivery" name="delivery">
-                <option>DHL International - € 15,00</option>
-                <option>Lorem ipsum</option>
-                <option>Lorem ipsum</option>
-            </select>
-        </div>
-        <div class="form__data">
-            <div class="form form__data--name">
-                <label for="first_name">First name</label>
-                <input type="text" id="first_name" required>
+        <div class="cart__button">
+            <div class="cart__continue">
+                <a href="{% url "categories" %}">Continue Shopping</a>
             </div>
-            <div class="form form__data--email">
-                <label for="last_name">Last name</label>
-                <input type="text" id="last_name" required>
+            <div class="cart__order-button">
+                <a href="{% url 'order' %}" id="showShippingAddress">Order now</a>
             </div>
         </div>
-        <div class="form__address">
-            <label for="address_1">Address <span>(line 1)</span></label>
-            <input type="text" id="address_1" required name="address">
-        </div>
-        <div class="form__address">
-            <label for="address_2">Address <span>(line 2)</span></label>
-            <input type="text" id="address_2" required>
-        </div>
-        <div class="form__data">
-            <div class="form form__data--name">
-                <label for="city">City</label>
-                <input id="city" type="text" required>
+        {% endif %}
+    </section>
+    <section class="shipping" id="shippingSection">
+        <form class="form form--contact form--edit-account form--order-page">
+            <div class="form__caption">
+                <h2>Shipping address</h2>
+                <p>All fields are required</p>
             </div>
-            <div class="form form__data--email">
-                <label for="zip">Postal code</label>
-                <input id="zip" type="text" required>
+            <div class="form__delivery">
+                <label for="delivery">Select delivery method</label>
+                <select id="delivery" name="delivery">
+                    <option>DHL International - € 15,00</option>
+                    <option>Lorem ipsum</option>
+                    <option>Lorem ipsum</option>
+                </select>
+            </div>
+            <div class="form__data">
+                <div class="form form__data--name">
+                    <label for="first_name">First name</label>
+                    <input type="text" id="first_name" required>
+                </div>
+                <div class="form form__data--email">
+                    <label for="last_name">Last name</label>
+                    <input type="text" id="last_name" required>
+                </div>
+            </div>
+            <div class="form__address">
+                <label for="address_1">Address <span>(line 1)</span></label>
+                <input type="text" id="address_1" required name="address">
+            </div>
+            <div class="form__address">
+                <label for="address_2">Address <span>(line 2)</span></label>
+                <input type="text" id="address_2" required>
+            </div>
+            <div class="form__data">
+                <div class="form form__data--name">
+                    <label for="city">City</label>
+                    <input id="city" type="text" required>
+                </div>
+                <div class="form form__data--email">
+                    <label for="zip">Postal code</label>
+                    <input id="zip" type="text" required>
+                </div>
+            </div>
+            <div class="form__data">
+                <div class="form form__data--name">
+                    <label for="phone">Phone number</label>
+                    <input id="phone" type="tel" required>
+                </div>
+                <div class="form form__data--email">
+                    <label for="email">E-mail</label>
+                    <input id="email" type="email" required>
+                </div>
+            </div>
+            <div class="form__checkbox">
+                <input id="check" type="checkbox">
+                <label for="check">Use this address for Billing</label>
+            </div>
+        <div class="cart__button cart__button--form">
+            <div class="cart__order-button">
+                <a href="/order/" id="showPayment">Next step</a>
             </div>
         </div>
-        <div class="form__data">
-            <div class="form form__data--name">
-                <label for="phone">Phone number</label>
-                <input id="phone" type="tel" required>
+        </form>
+    </section>
+    <section class="payment" id="paymentSection">
+          <form class="form form--payment">
+            <div class="form__caption">
+                <h2>Payment options</h2>
+                <p>All fields are required</p>
             </div>
-            <div class="form form__data--email">
-                <label for="email">E-mail</label>
-                <input id="email" type="email" required>
+            <div class="form__amount">
+                <h3>Subtotal: <span>€ 269,85</span></h3>
+                <h3>Shipping: <span>€ 15</span></h3>
+                <h3><span class="total">Total: <span>€ 284,85</span></span></h3>
             </div>
-        </div>
-        <div class="form__checkbox">
-            <input id="check" type="checkbox">
-            <label for="check">Use this address for Billing</label>
-        </div>
-    </form>
-    <form class="form form--payment">
-        <div class="form__caption">
-            <h2>Payment options</h2>
-            <p>All fields are required</p>
-        </div>
-        <div class="form__amount">
-            <h3>Subtotal: <span>€ 269,85</span></h3>
-            <h3>Shipping: <span>€ 15</span></h3>
-            <h3><span class="total">Total: <span>€ 284,85</span></span></h3>
-        </div>
-        <div class="form__payment">
-            <label for="payment">Select payment method</label>
-            <select id="payment">
-                <option>Credit cart</option>
-                <option>Cash</option>
-            </select>
-        </div>
-        <div class="form__input form__input--order">
-            <input type="submit" value="ORDER NOW">
-        </div>
-    </form>
-</section>
+            <div class="form__payment">
+                <label for="payment">Select payment method</label>
+                <select id="payment">
+                    <option>Credit cart</option>
+                    <option>Cash</option>
+                </select>
+            </div>
+            <div class="form__input form__input--order">
+                <input type="submit" value="ORDER NOW">
+            </div>
+        </form>
+    </section>
+ </div>
+</div>
+
 {% endblock content %}
 

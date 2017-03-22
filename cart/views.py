@@ -21,12 +21,7 @@ def remove(request):
     cart = Cart(request.session)
     product = Item.objects.get(id=request.POST.get('id'))
     cart.remove(product)
-    response = {
-        'status': 'true',
-        'message': 'Removed',
-        'count': cart.count
-    }
-    return HttpResponse(json.dumps(response), content_type='application/javascript; charset=utf8', status=200)
+    return render(request, 'cart/cart-ajax.html')
 
 
 def show(request):

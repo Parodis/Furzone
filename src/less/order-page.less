@@ -1,0 +1,93 @@
+.order__wrap {
+
+  overflow: hidden;
+
+  div.order {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+ // transition: 5s all ease;
+
+  .animation__hide {
+    animation: hide 1500ms linear;
+    animation-fill-mode: forwards;
+  }
+
+  .animation__show {
+     animation: show 1500ms linear;
+     animation-delay: 700ms;
+     animation-fill-mode: forwards;
+  }
+
+  .animation__show-r {
+     animation: show 1500ms linear;
+     animation-delay: 1s;
+     animation-fill-mode: forwards;
+  }
+
+  @keyframes show {
+    0% {
+       visibility: hidden;
+       opacity: 0;
+    }
+
+    100% {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+    @keyframes show-r {
+    0% {
+       visibility: hidden;
+       opacity: 0;
+        position: absolute;
+    }
+
+    50% {
+      position: static;
+    }
+
+    100% {
+      visibility: visible;
+      opacity: 1;
+      position: static;
+    }
+  }
+
+  @keyframes hide {
+    0% {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    50% {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    100% {
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  & > section {
+    flex: 0 0 auto;
+  }
+
+  .shipping {
+    width: 100%;
+  }
+
+  .payment {
+    width: 100%;
+  }
+
+
+}
+
+
+}

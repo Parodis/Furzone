@@ -1,0 +1,79 @@
+{% load carton_tags %}
+{% get_basket as my_basket %}
+        <div class="cart__caption">
+            <h1>Your shopping bag</h1>
+            {% if my_basket.count == 0 %}
+            <p>is empty</p>
+            {% else %}
+            <p>Items reserved for limited time only</p>
+            {% endif %}
+        </div>
+        {% if my_basket.count > 0 %}
+        <div class="cart__order">
+            <div class="order-quality">
+                <div class="order-quality__product cart__product-block">
+                    <p>Product</p>
+                </div>
+                <div class="order-quality__description cart__product-block">
+                    <p>Description</p>
+                </div>
+                <div class="order-quality__color cart__product-block">
+                    <p>Color</p>
+                </div>
+                <div class="order-quality__quantity cart__product-block">
+                    <p>Qty</p>
+                </div>
+                <div class="order-quality__amount cart__product-block">
+                    <p>Amount</p>
+                </div>
+                <div class="order-quality__size cart__product-block">
+                    <p>Subtotal</p>
+                </div>
+                <div class="order-quality__amount cart__product-block">
+                    <p>Remove</p>
+                </div>
+            </div>
+            {% for item in my_basket.items %}
+                <div class="cart__product">
+                    <div class="product__image cart__product-block">
+                        <img src="/dist/img/item/{{ item.product.thumbnail_image }}">
+                    </div>
+                    <div class="product__caption cart__product-block">
+                        <a href="{% url "product" child_slug=item.product.category_id.slug slug=item.product.category_id.parent_category.slug product_slug=item.product.slug %}">
+                            <h2>{{ item.product.name }}</h2></a>
+                        <p>{{ item.product.amazon_id }}</p>
+                    </div>
+                    <div class="product__color cart__product-block">
+                        <p>{{ item.product.color }}</p>
+                    </div>
+                    <div class="product__quantity cart__product-block">
+                        <p>{{ item.quantity }}</p>
+                    </div>
+                    <div class="product__amount cart__product-block">
+                        <p>€ {{ item.price }}</p>
+                    </div>
+                    <div class="product__size cart__product-block">
+                        <p>€    {{ item.subtotal }}</p>
+                    </div>
+                    <div class="product__amount cart__product-block">
+                        <form action="{% url 'remove' %}" method="POST" class="removeForm">
+                            {% csrf_token %}
+                            <input type="hidden" name="id" value="{{ item.product.id }}">
+                            <button type="submit" class="cart__remove-link">&#215</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+                <div class="cart__total">
+                    <h3>Subtotal: <span>€ {{ my_basket.total }}</span></h3>
+                </div>
+        </div>
+        <div class="cart__button">
+            <div class="cart__continue">
+                <a href="{% url "categories" %}">Continue Shopping</a>
+            </div>
+            <div class="cart__order-button">
+                <a href="{% url 'order' %}" id="showShippingAddress">Order now</a>
+            </div>
+        </div>
+        {% endif %}
