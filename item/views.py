@@ -71,7 +71,6 @@ def filter_items(request):
 
 
 def fetch_items_from_amazon(request):
-    category_id = 3
     amazon = AmazonAPI('AKIAJWTF2DL2JCDJHFFQ', '2Pv0/KbNj5OwG6otEyg52zB9ZY3O+oWJWpzc8d+2', 'nekaravaev-20')
     terms_list = [
                   {'cat_id': 3, 'keywords': 'Shoes', 'Title': 'Adidas', 'SearchIndex': 'FashionMen', 'Sort': '-price'},
@@ -97,11 +96,16 @@ def fetch_items_from_amazon(request):
                   {'cat_id': 10, 'keywords': 'shorts', 'Title': 'Calvin Klein', 'SearchIndex': 'FashionWomen', 'Sort': 'relevancerank'},
                   {'cat_id': 10, 'keywords': 'shorts', 'Title': 'Hanes', 'SearchIndex': 'FashionWomen', 'Sort': 'relevancerank'},
                   {'cat_id': 10, 'keywords': 'shorts', 'Title': 'Lee', 'SearchIndex': 'FashionWomen', 'Sort': 'relevancerank'},
+                  {'cat_id': 12, 'keywords': 'bakeware', 'Title': 'Bakeware', 'SearchIndex': 'HomeGarden', 'Sort': '-price'},
+                  {'cat_id': 13, 'keywords': 'flower', 'Title': 'Flower', 'SearchIndex': 'HomeGarden', 'Sort': 'salesrank'},
+                  {'cat_id': 13, 'keywords': 'lights', 'Title': 'Lights', 'SearchIndex': 'HomeGarden', 'Sort': 'salesrank'},
+                  {'cat_id': 14, 'keywords': 'bath rug', 'Title': 'Bath Rug', 'SearchIndex': 'HomeGarden', 'Sort': 'salesrank'},
+                  {'cat_id': 15, 'keywords': 'indoor fountain', 'Title': 'Indoor Fountains', 'SearchIndex': 'HomeGarden', 'Sort': 'salesrank'},
+                  {'cat_id': 15, 'keywords': 'photo album', 'Title': 'Photo Album', 'SearchIndex': 'HomeGarden', 'Sort': 'salesrank'},
                  ]
 
     count = 0
     for term in terms_list:
-        time.sleep(1)
         products = amazon.search_n(15, Keywords=term.get('keywords'),
                                    Title=term.get('Title') if term.get('Title') is not None else None,
                                    SearchIndex=term.get('SearchIndex'),
