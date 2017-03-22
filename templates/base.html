@@ -88,7 +88,7 @@
                     <a href="#" class="header__options-link" {% if user.is_authenticated == False %}id="signInLink" {% endif %}><svg class="icon icon-user header__options-icon">
                     <use xlink:href="#icon-user"></use>
                 </svg>{% if user.is_authenticated %}
-                        <a href="{% url "account" %}" class="header__options-link"> {{ user|capfirst }} </a>
+                        <a href="{% url "account" %}" class="header__options-link"> {{ user|capfirst }} (<a href="{% url "logout" %}" class="header__options-link" style="color: orange">logout</a>)</a>
                          {% else %} Log in {% endif %}</a>
                     <ul class="account__submenu">
                         <li><a href="{% url 'account' %}">Edit</a></li>
@@ -117,6 +117,16 @@
     <div class="page-container">
         {% block breadcrumps %}{% endblock breadcrumps %}
         {% block content %}
+                <section class="banner">
+        <div class="banner__container">
+            <h1>HAZY SHADE OF SPRING</h1>
+            <p>Quisque lorem tortor fringilla sed, vestibulum id, eleifrnd justo.</p>
+
+            <div class="banner__link">
+                <a href="{% url 'categories' %}" class="button button--banner">CHECK OUR PRODUCTS</a>
+            </div>
+        </div>
+    </section>
             <section class="home-promo">
         <div class="home-promo__container">
             <div class="home-promo__column">
