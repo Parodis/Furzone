@@ -10,6 +10,7 @@ import shutil
 import os
 import re
 from django.db import IntegrityError
+import time
 
 
 def get_item(request, **kwargs):
@@ -99,6 +100,7 @@ def fetch_items_from_amazon(request):
 
     count = 0
     for term in terms_list:
+        time.sleep(1)
         products = amazon.search_n(15, Keywords=term.get('keywords'),
                                    Title=term.get('Title') if term.get('Title') is not None else None,
                                    SearchIndex=term.get('SearchIndex'),
