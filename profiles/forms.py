@@ -3,6 +3,28 @@ from .models import *
 from user.models import User
 
 
+COUNTRIES = (
+    ('GB', 'United Kingdom'),
+    ('AF', 'Afghanistan'),
+    ('AL', 'Albania'),
+    ('DZ', 'Algeria'),
+    ('AS', 'American Samoa'),
+    ('AD', 'Andorra'),
+    ('AR', 'Argentina'),
+    ('AM', 'Armenia'),
+    ('AU', 'Australia'),
+    ('AT', 'Austria'),
+    ('BY', 'Belarus'),
+    ('BE', 'Belgium'),
+    ('BZ', 'Belize'),
+    ('BM', 'Bermuda'),
+    ('LT', 'Lithuania'),
+    ('LU', 'Luxembourg'),
+    ('RU', 'Russian Federation'),
+    ('US', 'United States'),
+)
+
+
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
