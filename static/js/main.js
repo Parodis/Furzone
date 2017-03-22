@@ -229,6 +229,34 @@ function addToCart() {
 }
 addToCart();
 
+
+function removeFromCart() {
+    let removeForm = selectQuery('.removeForm'),
+        cartSection = selectQuery('#cartSection');
+
+    if (cartSection) {
+        cartSection.addEventListener('submit', function(event) {
+             event.preventDefault();
+            if (event.target && event.target.classList.contains('removeForm')) {
+                console.log(event.target);
+                let data = new FormData(event.target),
+                    xmlhttp = new XMLHttpRequest();
+
+                xmlhttp.open("POST", event.target.getAttribute('action'), true);
+
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState != 4) return;
+                    cartSection.innerHTML = xmlhttp.response;
+
+                };
+                xmlhttp.send(data);
+            }
+
+        });
+    }
+}
+removeFromCart();
+
 function categoryFilter() {
     let formFilter = selectQuery('#formFilter'),
         categoryLoader = selectQuery('#categoryLoader'),
@@ -263,6 +291,34 @@ function categoryFilter() {
 
 }
 categoryFilter();
+
+function showShippingAddress() {
+    let showShippingAddress = selectQuery('#showShippingAddress'),
+        orderPage = selectQuery('.order--page'),
+        cartSection = selectQuery('#cartSection'),
+        shippingSection = selectQuery('#shippingSection'),
+        paymentSection = selectQuery('#paymentSection'),
+        showCart = selectQuery('#showCart'),
+        showPayment = selectQuery('#showPayment');
+
+    if (orderPage) {
+        orderPage.addEventListener('click', function (event) {
+            if (event.target && event.target.id == 'showShippingAddress') {
+                event.preventDefault();
+                cartSection.classList.add('animation__hide');
+                shippingSection.classList.add('animation__show');
+            }
+            if (event.target && event.target.id == 'showPayment') {
+                    event.preventDefault();
+                    shippingSection.classList.remove('animation__show');
+                    shippingSection.classList.add('animation__hide');
+                    paymentSection.classList.add('animation__show');
+            }
+            });
+    }
+}
+
+showShippingAddress();
 
 /* Utils */
 
