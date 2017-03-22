@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import *
 
 
@@ -34,3 +34,8 @@ def register(request):
         else:
             register_form = RegisterForm()
         return render(request, 'login/register.html', {'register_form': register_form})
+
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
