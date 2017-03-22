@@ -3,6 +3,14 @@
     .container;
     margin-bottom: 55px;
     margin-top: @h2-to-content;
+
+    img {
+        @media (max-width: 768px) {
+            width: 100%;
+            height: auto;
+        }
+
+    }
 }
 
 .cart__caption {
@@ -69,6 +77,16 @@
         h2 {
             text-transform: uppercase;
             font-size: 1.1em;
+
+            @media (max-width: 768px) {
+                font-size: 0.8em;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: @p-color;
+
         }
 
         p {
