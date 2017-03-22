@@ -229,6 +229,34 @@ function addToCart() {
 }
 addToCart();
 
+
+function removeFromCart() {
+    let removeForm = selectQuery('.removeForm'),
+        cartSection = selectQuery('#cartSection');
+
+    if (cartSection) {
+        cartSection.addEventListener('submit', function(event) {
+             event.preventDefault();
+            if (event.target && event.target.classList.contains('removeForm')) {
+                console.log(event.target);
+                let data = new FormData(event.target),
+                    xmlhttp = new XMLHttpRequest();
+
+                xmlhttp.open("POST", event.target.getAttribute('action'), true);
+
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState != 4) return;
+                    cartSection.innerHTML = xmlhttp.response;
+
+                };
+                xmlhttp.send(data);
+            }
+
+        });
+    }
+}
+removeFromCart();
+
 function categoryFilter() {
     let formFilter = selectQuery('#formFilter'),
         categoryLoader = selectQuery('#categoryLoader'),
