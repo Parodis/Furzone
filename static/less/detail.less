@@ -4,19 +4,33 @@
   margin-bottom: 55px;
 
   &__image {
+    max-width: 100%;
     text-align: center;
     margin-bottom: @h2-to-content;
+    img {
+      //max-width: 100%;
+      //height: auto;
+       @media (max-width: 768px) {
+            width: 100%;
+            height: auto;
+        }
+    }
   }
 
   &__text {
     text-align: center;
-    margin-bottom: 40px;
+    max-width: 50%;
+    margin: 0 auto 40px auto;
     h1 {
       color: @h-color;
       font-weight: 700;
-      font-size: 2.2em;
+      font-size: 1.2em;
       text-transform: uppercase;
       letter-spacing: @h-letter-spacing;
+      @media (max-width: 768px) {
+        font-size: 1.2em;
+        line-height: 1.5em;
+      }
     }
 
     h2 {
@@ -34,13 +48,22 @@
       font-size: 1.3em;
       font-weight: 300;
     }
+
+    @media (max-width: 768px) {
+      max-width: 90%;
+    }
   }
 
   &__description {
     text-align: center;
     color: @p-color;
     line-height: 30px;
-    margin-bottom: 40px;
+    max-width: 50%;
+    margin: 0 auto 40px auto;
+
+     @media (max-width: 768px) {
+      max-width: 90%;
+    }
   }
 
   &__size {

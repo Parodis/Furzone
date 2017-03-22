@@ -4,7 +4,7 @@
 @border-color: #eaeaea;
 @form-border-color: #c2c2c2;
 @mb-bread: 70px;
-@indent-h1-to-h2: -20px;
+@indent-h1-to-h2: 0px;
 @h2-to-content: 70px;
 @orange: #f68236;
 @form-divs-indent: 30px;
@@ -17,6 +17,21 @@
     @media (max-width: 780px) {
         width: 100%;
     }
+}
+
+html {
+    height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+}
+
+.page-container {
+   flex: 1;
 }
 
 .icon {

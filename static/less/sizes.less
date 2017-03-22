@@ -1,6 +1,12 @@
 .size {
+  position: relative;
 
-  a {
+  .color__input {
+    visibility: hidden;
+    position: absolute;
+  }
+
+  .color__label {
     text-decoration: none;
     padding: 5px 7px;
     background: #fff;
@@ -9,7 +15,7 @@
     transition: all 0.5s ease;
   }
 
-  a:hover {
+  .color__input:checked + .color__label, .color__label:hover {
     background: #222;
     color: #fff;
   }

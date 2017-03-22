@@ -1,5 +1,6 @@
 .product-thumb__list {
     display: flex;
+    flex-wrap: wrap;
     @media (max-width: 768px) {
         display: block;
     }
@@ -10,20 +11,38 @@
         display: block;
         text-decoration: none;
         color: @h-color;
-        flex: 1 1 auto;
+        flex: 1 1 33%;
         text-align: center;
         margin: 30px 0;
+
+        &--flex-four {
+            flex: 1 1 25%;
+        }
     }
 
     &__image {
-        width: 210px;
-        height: 300px;
-        margin: 0 auto;
-        overflow: hidden;
+            width: 250px;
+            height: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @media (max-width: 768px) {
+                //width: 110px;
+                //height: 150px;
+            }
+
+
+        &:hover img {
+            width: 300px;
+        }
 
         img {
             width: 100%;
             height: auto;
+            transition: 1s all ease;
         }
     }
 

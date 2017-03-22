@@ -3,6 +3,29 @@
     .container;
     margin-bottom: 55px;
     margin-top: @h2-to-content;
+
+    img {
+        @media (max-width: 768px) {
+            width: 100%;
+            height: auto;
+        }
+
+    }
+    &__remove-link {
+        text-decoration: none;
+        color: @h-color;
+        font-size: 1.4em;
+        padding: 20px;
+        background: none;
+        border: none;
+    }
+    &--order-page {
+        width: 100%;
+        padding: 0 2.5%;
+        box-sizing: border-box;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
 }
 
 .cart__caption {
@@ -69,6 +92,16 @@
         h2 {
             text-transform: uppercase;
             font-size: 1.1em;
+
+            @media (max-width: 768px) {
+                font-size: 0.8em;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: @p-color;
+
         }
 
         p {
@@ -130,6 +163,12 @@
             padding: 12px 25px;
             border: none;
         }
+    }
+
+    &--form {
+        width: 100%;
+        margin-top: 10%;
+        justify-content: center;
     }
 }
 

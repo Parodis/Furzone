@@ -4,7 +4,8 @@ function headerSearch() {
         headerOptions = document.querySelector('#headerOptions'),
         searchInput = document.querySelector('#searchInput');
 
-    search.addEventListener('click', () => {
+    search.addEventListener('click', (e) => {
+        e.preventDefault();
         console.log('click');
         headerNavigation.classList.add('header__navigation--shorted');
         headerOptions.classList.add('header__options--expanded');
@@ -50,17 +51,19 @@ function togglePopup() {
         signInLink = selectQuery('#signInLink'),
         loginWrapper = selectQuery('#loginWrapper');
 
-    signInLink.addEventListener('click', (event) => {
+    if (signInLink) {
+        signInLink.addEventListener('click', (event) => {
         event.preventDefault();
         popup.classList.toggle('login__opened');
-    });
-    popup.addEventListener('click', (event) => {
-        if (!event.path.includes(loginWrapper)) {
-            popup.classList.toggle('login__opened');
-        }
-
-    });
+        });
+        popup.addEventListener('click', (event) => {
+            if (!event.path.includes(loginWrapper)) {
+                popup.classList.toggle('login__opened');
+            }
+        });
+    }
 }
+
 togglePopup();
 
 function formSignUp() {
@@ -70,12 +73,14 @@ function formSignUp() {
         loginHeader = selectQuery('#loginHeader'),
         forgotPassLink = selectQuery('#forgotPassLink'),
         submitButton = selectQuery('#submitButton'),
-        forgotPassGroup = selectQuery('#forgotPassGroup');
+        forgotPassGroup = selectQuery('#forgotPassGroup'),
+        loginForm = selectQuery('#login_form');
 
 
     signUpLink.addEventListener('click', (event) => {
         event.preventDefault();
         if (formAction.getAttribute('value') == 'log') {
+            loginForm.setAttribute('action', '/register/');
             formAction.setAttribute('value', 'sign');
             loginHeader.innerText = 'SIGN UP';
             signUpLink.innerText = 'I have an account';
@@ -83,6 +88,7 @@ function formSignUp() {
             passwordRepeat.classList.toggle('login__form-group--invisible');
             forgotPassLink.classList.toggle('login__form-group--invisible');
         } else {
+            loginForm.setAttribute('action', '/login/');
             formAction.setAttribute('value', 'log');
             loginHeader.innerText = 'SIGN IN';
             submitButton.innerText = 'SIGN IN';
@@ -122,15 +128,17 @@ function loginFormSubmit() {
 
         xmlhttp.open("POST", loginForm.getAttribute('action'), true);
 
-        xmlhttp.onreadystatechange = function() {
+        xmlhttp.onreadystatechange = () => {
             if (xmlhttp.readyState != 4) return;
-
+            let response = JSON.parse(xmlhttp.responseText);
             if (xmlhttp.status == 200) {
-
+                if (response.message == "Success") {
+                    location.reload();
+                }
             } else {
                 console.log(xmlhttp.statusText);
             }
-        }
+        };
         xmlhttp.send(data);
     });
 }
@@ -157,34 +165,160 @@ function newsletterForm() {
     //     }
     // });
 
-    newsletter.addEventListener('submit', (event) => {
-        let data = new FormData(newsletter),
-            xmlhttp = new XMLHttpRequest();
-        event.preventDefault();
+    if (newsletter) {
+        newsletter.addEventListener('submit', (event) => {
+            let data = new FormData(newsletter),
+                xmlhttp = new XMLHttpRequest();
+            event.preventDefault();
 
 
-        xmlhttp.open("POST", newsletter.getAttribute('action'), true);
+            xmlhttp.open("POST", newsletter.getAttribute('action'), true);
 
-        xmlhttp.onreadystatechange = function() {
+            xmlhttp.onreadystatechange = function() {
 
-            if (xmlhttp.readyState != 4) return;
-            newsletterMessage.classList.add('newsletter__error--hidden');
-            var response = JSON.parse(xmlhttp.response);
-            console.log(response.message);
-            if (xmlhttp.status == 200) {
-                newsletterMessage.classList.toggle('newsletter__error--success');
-                console.log(xmlhttp.statusText);
-            } else {
+                if (xmlhttp.readyState != 4) return;
+                newsletterMessage.classList.add('newsletter__error--hidden');
+                var response = JSON.parse(xmlhttp.response);
+                console.log(response.message);
+                if (xmlhttp.status == 200) {
+                    newsletterMessage.classList.toggle('newsletter__error--success');
+                    console.log(xmlhttp.statusText);
+                } else {
 
-                console.log(xmlhttp.statusText);
-            }
-            newsletterMessage.innerText = response.message;
-            newsletterMessage.classList.remove('newsletter__error--hidden');
-        };
-        xmlhttp.send(data);
-    });
+                    console.log(xmlhttp.statusText);
+                }
+                newsletterMessage.innerText = response.message;
+                newsletterMessage.classList.remove('newsletter__error--hidden');
+            };
+            xmlhttp.send(data);
+        });
+    }
 }
 newsletterForm();
+
+function addToCart() {
+    let form = selectQuery('#addToCartForm'),
+        spinner = selectQuery('.buy__spinner'),
+        message = selectQuery('.buy__message-span'),
+        basketQuantity = selectQuery('#basketQuantity');
+
+    if (form) {
+        form.addEventListener('click', (event) =>{
+            message.classList.remove('buy__message-span--visible');
+            spinner.classList.add('buy__spinner--visible');
+            let data = new FormData(form),
+                xmlhttp = new XMLHttpRequest();
+            event.preventDefault();
+
+            xmlhttp.open("POST", form.getAttribute('action'), true);
+
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState != 4) return;
+                let response = JSON.parse(xmlhttp.response);
+                message.innerText = response.message;
+                basketQuantity.innerText = '('+response.count+')';
+                setTimeout(function () {
+                     spinner.classList.remove('buy__spinner--visible');
+                        message.classList.add('buy__message-span--visible');
+                }, 400);
+
+            };
+            xmlhttp.send(data);
+        });
+    }
+}
+addToCart();
+
+
+function removeFromCart() {
+    let removeForm = selectQuery('.removeForm'),
+        cartSection = selectQuery('#cartSection');
+
+    if (cartSection) {
+        cartSection.addEventListener('submit', function(event) {
+             event.preventDefault();
+            if (event.target && event.target.classList.contains('removeForm')) {
+                console.log(event.target);
+                let data = new FormData(event.target),
+                    xmlhttp = new XMLHttpRequest();
+
+                xmlhttp.open("POST", event.target.getAttribute('action'), true);
+
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState != 4) return;
+                    cartSection.innerHTML = xmlhttp.response;
+
+                };
+                xmlhttp.send(data);
+            }
+
+        });
+    }
+}
+removeFromCart();
+
+function categoryFilter() {
+    let formFilter = selectQuery('#formFilter'),
+        categoryLoader = selectQuery('#categoryLoader'),
+        categorySection = selectQuery('#categorySection'),
+        categoryContent = selectQuery('#categoryContent'),
+        pages = selectQuery('.pages');
+
+    if (categorySection) {
+        categorySection.addEventListener('change', (event) => {
+        categoryLoader.classList.toggle('category__loader--visible');
+        pages.style.display = 'none';
+
+        let data = new FormData(formFilter),
+                xmlhttp = new XMLHttpRequest();
+
+            event.preventDefault();
+            xmlhttp.open("POST", formFilter.getAttribute('action'), true);
+
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState != 4) return;
+                let response = xmlhttp.response;
+                console.log(response);
+                categoryContent.innerHTML = response;
+                setTimeout(function () {
+                     categoryLoader.classList.toggle('category__loader--visible');
+                }, 400);
+
+            };
+            xmlhttp.send(data);
+    });
+    }
+
+}
+categoryFilter();
+
+function showShippingAddress() {
+    let showShippingAddress = selectQuery('#showShippingAddress'),
+        orderPage = selectQuery('.order--page'),
+        cartSection = selectQuery('#cartSection'),
+        shippingSection = selectQuery('#shippingSection'),
+        paymentSection = selectQuery('#paymentSection'),
+        showCart = selectQuery('#showCart'),
+        showPayment = selectQuery('#showPayment');
+
+    if (orderPage) {
+        orderPage.addEventListener('click', function (event) {
+            if (event.target && event.target.id == 'showShippingAddress') {
+                event.preventDefault();
+                cartSection.classList.add('animation__hide');
+                shippingSection.classList.add('animation__show');
+            }
+            if (event.target && event.target.id == 'showPayment') {
+                    event.preventDefault();
+                    shippingSection.classList.remove('animation__show');
+                    shippingSection.classList.add('animation__hide');
+                    paymentSection.classList.add('animation__show');
+            }
+            });
+    }
+}
+
+showShippingAddress();
 
 /* Utils */
 

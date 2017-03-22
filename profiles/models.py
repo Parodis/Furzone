@@ -39,6 +39,7 @@ class Profile(models.Model):
     forgot_key = models.CharField(max_length=255, blank=True, null=True)
     company_name = models.CharField(max_length=255, blank=True, null=True)
     email = models.EmailField(null=True, blank=True)
+    phone = models.IntegerField(null=True, blank=True)
     # type = models.IntegerField(default=0)
 
     def __str__(self):

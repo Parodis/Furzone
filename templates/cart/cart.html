@@ -50,7 +50,7 @@
             {% for item in my_basket.items %}
                 <div class="cart__product">
                     <div class="product__image cart__product-block">
-                        <img src="/dist/img/item/{{ item.product.thumbnail_image }}">
+                        <img src="/static/img/item/{{ item.product.thumbnail_image }}">
                     </div>
                     <div class="product__caption cart__product-block">
                         <a href="{% url "product" child_slug=item.product.category_id.slug slug=item.product.category_id.parent_category.slug product_slug=item.product.slug %}">

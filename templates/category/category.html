@@ -62,7 +62,7 @@
                 <a href="{% url "product" slug=category.parent_category.slug product_slug=i.slug child_slug=category.slug %}" class="product-thumb__link">
                     <div class="product-thumb">
                         <div class="product-thumb__image">
-                            <img src="/dist/img/item/{{ i.image }}" alt="{{ i.name }}">
+                            <img src="/static/img/item/{{ i.image }}" alt="{{ i.name }}">
                         </div>
                         <div class="product-thumb__info">
                             <h4 class="product-thumb__name">{{ i.name }}</h4>
