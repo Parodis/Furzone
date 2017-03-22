@@ -38,32 +38,42 @@
                 <div class="order-quality__amount cart__product-block">
                     <p>Amount</p>
                 </div>
+                <div class="order-quality__amount cart__product-block">
+                    <p>Remove</p>
+                </div>
             </div>
             {% for item in my_basket.items %}
-            <div class="cart__product">
-                <div class="product__image cart__product-block">
-                    <img src="/dist/img/item/{{ item.product.thumbnail_image }}">
+                <div class="cart__product">
+                    <div class="product__image cart__product-block">
+                        <img src="/dist/img/item/{{ item.product.thumbnail_image }}">
+                    </div>
+                    <div class="product__caption cart__product-block">
+                        <a href="{% url "product" child_slug=item.product.category_id.slug slug=item.product.category_id.parent_category.slug product_slug=item.product.slug %}">
+                            <h2>{{ item.product.name }}</h2></a>
+                        <p>{{ item.product.amazon_id }}</p>
+                    </div>
+                    <div class="product__color cart__product-block">
+                        <p>{{ item.product.color }}</p>
+                    </div>
+                    <div class="product__size cart__product-block">
+                        <p>{{ item.product.size }}</p>
+                    </div>
+                    <div class="product__quantity cart__product-block">
+                        <p>{{ item.quantity }}</p>
+                    </div>
+                    <div class="product__amount cart__product-block">
+                        <p>€ {{ item.price }}</p>
+                    </div>
+                    <div class="product__amount cart__product-block">
+                        <a href="{% url 'remove' %}">&#215</a>
+                    </div>
                 </div>
-                <div class="product__caption cart__product-block">
-                    <a href="{% url "product" child_slug=item.product.category_id.slug slug=item.product.category_id.parent_category.slug product_slug=item.product.slug %}"><h2>{{ item.product.name }}</h2></a>
-                    <p>{{ item.product.amazon_id }}</p>
+                <div class="cart__total">
+                    <h3>Subtotal:<span>€ {{ item.subtotal }}</span></h3>
                 </div>
-                <div class="product__color cart__product-block">
-                    <p>{{ item.product.color }}</p>
-                </div>
-                <div class="product__size cart__product-block">
-                    <p>{{ item.product.size }}</p>
-                </div>
-                <div class="product__quantity cart__product-block">
-                    <p>{{ item.quantity }}</p>
-                </div>
-                <div class="product__amount cart__product-block">
-                    <p>€ {{ item.price }}</p>
-                </div>
-            </div>
             {% endfor %}
         </div>
-    <div class="cart__button">
+        <div class="cart__button">
             <div class="cart__continue">
                 <a href="{% url "categories" %}">Continue Shopping</a>
             </div>

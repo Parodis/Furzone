@@ -49,7 +49,8 @@ urlpatterns = [
     url(r'^account/edit/$', edit_account, name='edit'),
     url(r'^add/$', add, name='add'),
     url(r'^order/$', order, name='order'),
-    url(r'^logout/$', logout_view, name='logout')
+    url(r'^logout/$', logout_view, name='logout'),
+    url(r'^remove/$', remove, name='remove')
 ]
 
 if settings.DEBUG:

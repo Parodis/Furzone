@@ -91,7 +91,7 @@
                         <a href="{% url "account" %}" class="header__options-link"> {{ user|capfirst }} </a>
                          {% else %} Log in {% endif %}</a>
                     <ul class="account__submenu">
-                        <li><a href="#">Edit</a></li>
+                        <li><a href="{% url 'account' %}">Edit</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
                     </ul>
                 </div>

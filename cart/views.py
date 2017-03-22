@@ -19,7 +19,7 @@ def add(request):
 
 def remove(request):
     cart = Cart(request.session)
-    product = Item.objects.get(id=request.GET.get('id'))
+    product = Item.objects.get(id=request.POST.get('id'))
     cart.remove(product)
     response = {
         'status': 'true',
