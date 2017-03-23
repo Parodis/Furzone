@@ -164,8 +164,8 @@ STATICFILES_DIRS = [
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_URL = '/static/img/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/static/img')
+MEDIA_URL = '/dist/img/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'dist/img')
 
 try:
     from shop.local_settings import *

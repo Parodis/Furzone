@@ -27,7 +27,7 @@ let gulp = require('gulp'),
     config = {
         production: !!util.env.production,
         srcDir: 'src/',
-        distDir: 'static/'
+        distDir: 'dist/'
     }
 
 gulp.task('runserver', function() {
@@ -56,7 +56,17 @@ gulp.task('production:styles', function() {
         }))
         .pipe(cssmin())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('static/css'));
+        .pipe(gulp.dest('dist/css'));
+});
+
+gulp.task('scripts', function() {
+    gulp.src('src/js/*.js')
+        .pipe(plumber(plumberErrorHandler))
+        .pipe(babel())
+        .pipe(gulp.dest('dist/js'))
+        .pipe(reload({
+            stream: true
+        }))
 });
 
 // gulp.task('img', function() {
@@ -73,7 +83,7 @@ gulp.task('scripts', function() {
     gulp.src('src/js/*.js')
         .pipe(plumber(plumberErrorHandler))
         .pipe(babel())
-        .pipe(gulp.dest('static/js'))
+        .pipe(gulp.dest('dist/js'))
         .pipe(reload({
             stream: true
         }))
