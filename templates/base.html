@@ -76,11 +76,11 @@
                   </button>
                 </div>
                 <ul class="header__menu">
-                    <li class="header__menu-item element__animated" style="animation-delay: 0s;"><a href="{% url 'child categories list' slug='women' %}">Women</a></li>
-                    <li class="header__menu-item element__animated" style="animation-delay: .2s;"><a href="{% url 'child categories list' slug='men' %}">Men</a></li>
-                    <li class="header__menu-item element__animated" style="animation-delay: .4s;"><a href="{% url 'child categories list' slug='homegarden' %}">Home&Garden</a></li>
-                    <li class="header__menu-item element__animated header__menu-item--active" style="animation-delay: .6s;"><a href="{% url 'child categories list' slug='comingsoon' %}">Coming soon</a></li>
-                    <li class="header__menu-item element__animated" style="animation-delay: .8s;"><a href="{% url 'about' %}">About</a></li>
+                    <li class="header__menu-item element__animated{% if request.resolver_match.kwargs.slug == "women" %} header__menu-item--active{% endif %}" style="animation-delay: 0s;"><a href="{% url 'child categories list' slug='women' %}">Women</a></li>
+                    <li class="header__menu-item element__animated{% if request.resolver_match.kwargs.slug == "men" %} header__menu-item--active{% endif %}" style="animation-delay: .2s;"><a href="{% url 'child categories list' slug='men' %}">Men</a></li>
+                    <li class="header__menu-item element__animated{% if request.resolver_match.kwargs.slug == "homegarden" %} header__menu-item--active{% endif %}" style="animation-delay: .4s;"><a href="{% url 'child categories list' slug='homegarden' %}">Home&Garden</a></li>
+                    <li class="header__menu-item element__animated{% if request.resolver_match.kwargs.slug == "other" %} header__menu-item--active{% endif %}" style="animation-delay: .6s;"><a href="{% url 'child categories list' slug='other' %}">Other</a></li>
+                    <li class="header__menu-item element__animated{% if request.resolver_match.url_name == "about" %} header__menu-item--active{% endif %}" style="animation-delay: .8s;"><a href="{% url 'about' %}">About</a></li>
                 </ul>
             </nav>
             <div class="header__options" id="headerOptions">

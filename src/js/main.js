@@ -303,11 +303,11 @@ function showShippingAddress() {
 
     if (orderPage) {
         orderPage.addEventListener('click', function (event) {
-            if (event.target && event.target.id == 'showShippingAddress') {
-                event.preventDefault();
-                cartSection.classList.add('animation__hide');
-                shippingSection.classList.add('animation__show');
-            }
+            // if (event.target && event.target.id == 'showShippingAddress') {
+            //     event.preventDefault();
+            //     cartSection.classList.add('animation__hide');
+            //     shippingSection.classList.add('animation__show');
+            // }
             if (event.target && event.target.id == 'showPayment') {
                     event.preventDefault();
                     shippingSection.classList.remove('animation__show');
@@ -321,6 +321,23 @@ function showShippingAddress() {
 showShippingAddress();
 
 /* Utils */
+
+// function formOrder() {
+//     let formOrder = selectQuery('#formOrder');
+//
+//     if (formOrder) {
+//         formOrder.addEventListener('submit', (event) => {
+//             let data = new FormData(formOrder);
+//             for (let pair of data.entries()) {
+//                 console.log(pair[0]+ ', ' + pair[1]);
+//             }
+//             event.preventDefault();
+//         })
+//
+//     }
+// }
+// formOrder();
+
 
 function selectQuery(query) {
     return document.querySelector(query);

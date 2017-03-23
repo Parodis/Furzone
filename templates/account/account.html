@@ -20,5 +20,43 @@
             <a href="{% url 'edit' %}" class="button button--banner">Edit your account</a>
         </div>
 </section>
+    <section class="cart">
+        {% if products is not None %}
+        <div class="cart__order">
+            <div class="order-quality">
+                <div class="order-quality__product cart__product-block">
+                    <p>Product</p>
+                </div>
+                <div class="order-quality__description cart__product-block">
+                    <p>Description</p>
+                </div>
+                <div class="order-quality__color cart__product-block">
+                    <p>Color</p>
+                </div>
+                <div class="order-quality__amount cart__product-block">
+                    <p>Amount</p>
+                </div>
+            </div>
+            {% for item in products %}
+                <div class="cart__product">
+                    <div class="product__image cart__product-block">
+                        <img src="/static/img/item/{{ item.thumbnail_image }}">
+                    </div>
+                    <div class="product__caption cart__product-block">
+                        <a href="{% url "product" child_slug=item.category_id.slug slug=item.category_id.parent_category.slug product_slug=item.slug %}">
+                            <h2>{{ item.name }}</h2></a>
+                        <p>{{ item.amazon_id }}</p>
+                    </div>
+                    <div class="product__color cart__product-block">
+                        <p>{{ item.color }}</p>
+                    </div>
+                    <div class="product__amount cart__product-block">
+                        <p>€ {{ item.price }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </section>
 
 {% endblock content %}

@@ -303,11 +303,11 @@ function showShippingAddress() {
 
     if (orderPage) {
         orderPage.addEventListener('click', function (event) {
-            if (event.target && event.target.id == 'showShippingAddress') {
-                event.preventDefault();
-                cartSection.classList.add('animation__hide');
-                shippingSection.classList.add('animation__show');
-            }
+            // if (event.target && event.target.id == 'showShippingAddress') {
+            //     event.preventDefault();
+            //     cartSection.classList.add('animation__hide');
+            //     shippingSection.classList.add('animation__show');
+            // }
             if (event.target && event.target.id == 'showPayment') {
                     event.preventDefault();
                     shippingSection.classList.remove('animation__show');

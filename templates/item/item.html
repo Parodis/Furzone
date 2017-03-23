@@ -41,6 +41,7 @@
     <form action="/add/" method="post" id="addToCartForm">
         {% csrf_token %}
     <input type="hidden" name="id" value="{{ item.id }}">
+    {% if item.color != '' %}
     <div class="product-detail__size">
         <h3>Colour</h3>
         <div class="size">
@@ -48,9 +49,9 @@
             <label for="colour" class="color__label">
                 {{ item.color }}
             </label>
-
         </div>
     </div>
+    {% endif %}
     <div class="product-detail__button form__input">
         <input type="submit" value="ADD TO CART">
         <div class="buy__spinner">
