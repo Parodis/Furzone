@@ -88,6 +88,7 @@
                 </svg>{% if user.is_authenticated %}
                         <a href="{% url "account" %}" class="header__options-link"> {{ user|capfirst }} (<a href="{% url "logout" %}" class="header__options-link" style="color: orange">logout</a>)</a>
                          {% else %} Log in {% endif %}</a>
+                 <!-- TODO: submenu -->
                     <ul class="account__submenu">
                         <li><a href="{% url 'account' %}">Edit</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
