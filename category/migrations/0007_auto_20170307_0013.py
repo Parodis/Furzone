@@ -16,6 +16,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='category',
             name='image',
-            field=models.ImageField(blank=True, help_text='Maximum file size allowed is 5Mb', null=True, upload_to='dist/img', validators=[category.models.validate_image]),
+            field=models.ImageField(blank=True, help_text='Maximum file size allowed is 5Mb', null=True, upload_to='static/img', validators=[category.models.validate_image]),
         ),
     ]

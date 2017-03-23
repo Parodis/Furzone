@@ -1,10 +1,12 @@
+'use strict';
+
 function headerSearch() {
-    let search = document.querySelector('#headerSearch'),
+    var search = document.querySelector('#headerSearch'),
         headerNavigation = document.querySelector('#headerNavigation'),
         headerOptions = document.querySelector('#headerOptions'),
         searchInput = document.querySelector('#searchInput');
 
-    search.addEventListener('click', (e) => {
+    search.addEventListener('click', function (e) {
         e.preventDefault();
         console.log('click');
         headerNavigation.classList.add('header__navigation--shorted');
@@ -15,14 +17,14 @@ function headerSearch() {
 headerSearch();
 
 function mobileMenu() {
-    let mobileMenu = selectQuery('#mobileMenu'),
+    var mobileMenu = selectQuery('#mobileMenu'),
         headerMenu = selectQuery('.header__menu'),
         options = selectQuery('.header__options'),
         childs = getChildElements(headerMenu),
-        childCount;
+        childCount = void 0;
 
-    mobileMenu.addEventListener('click', () => {
-        options.classList.toggle('header__options--active')
+    mobileMenu.addEventListener('click', function () {
+        options.classList.toggle('header__options--active');
         mobileMenu.classList.toggle('is-active');
         headerMenu.classList.toggle('header__menu--active');
 
@@ -31,32 +33,29 @@ function mobileMenu() {
         }
     });
 }
-mobileMenu()
+mobileMenu();
 
 function showPass() {
-    let showLink = selectQuery('#showPass'),
+    var showLink = selectQuery('#showPass'),
         password = selectQuery('#password');
 
-    showLink.addEventListener('click', () => {
-        if (password.getAttribute('type') == 'password')
-            password.setAttribute('type', 'text')
-        else
-            password.setAttribute('type', 'password');
-    })
+    showLink.addEventListener('click', function () {
+        if (password.getAttribute('type') == 'password') password.setAttribute('type', 'text');else password.setAttribute('type', 'password');
+    });
 }
 showPass();
 
 function togglePopup() {
-    let popup = selectQuery('#loginPopup'),
+    var popup = selectQuery('#loginPopup'),
         signInLink = selectQuery('#signInLink'),
         loginWrapper = selectQuery('#loginWrapper');
 
     if (signInLink) {
-        signInLink.addEventListener('click', (event) => {
-        event.preventDefault();
-        popup.classList.toggle('login__opened');
+        signInLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            popup.classList.toggle('login__opened');
         });
-        popup.addEventListener('click', (event) => {
+        popup.addEventListener('click', function (event) {
             if (!event.path.includes(loginWrapper)) {
                 popup.classList.toggle('login__opened');
             }
@@ -67,7 +66,7 @@ function togglePopup() {
 togglePopup();
 
 function formSignUp() {
-    let signUpLink = selectQuery('#signUpLink'),
+    var signUpLink = selectQuery('#signUpLink'),
         formAction = selectQuery('#formAction'),
         passwordRepeat = selectQuery('#passwordRepeat'),
         loginHeader = selectQuery('#loginHeader'),
@@ -76,8 +75,7 @@ function formSignUp() {
         forgotPassGroup = selectQuery('#forgotPassGroup'),
         loginForm = selectQuery('#login_form');
 
-
-    signUpLink.addEventListener('click', (event) => {
+    signUpLink.addEventListener('click', function (event) {
         event.preventDefault();
         if (formAction.getAttribute('value') == 'log') {
             loginForm.setAttribute('action', '/register/');
@@ -94,43 +92,40 @@ function formSignUp() {
             submitButton.innerText = 'SIGN IN';
             passwordRepeat.classList.toggle('login__form-group--invisible');
             if (forgotPassLink.classList.contains('login__form-group--invisible')) {
-                forgotPassLink.classList.remove('login__form-group--invisible')
+                forgotPassLink.classList.remove('login__form-group--invisible');
             }
         }
-
     });
-    forgotPassLink.addEventListener('click', (event) => {
+    forgotPassLink.addEventListener('click', function (event) {
         event.preventDefault();
         formAction.setAttribute('value', 'forgot');
         if (!passwordRepeat.classList.contains('login__form-group--invisible')) {
-            passwordRepeat.classList.add('login__form-group--invisible')
+            passwordRepeat.classList.add('login__form-group--invisible');
         }
         loginHeader.innerText = 'SEND PASS';
         submitButton.innerText = 'SEND PASS';
         forgotPassLink.classList.toggle('login__form-group--invisible');
         forgotPassGroup.classList.toggle('login__form-group--invisible');
         signUpLink.classList.toggle('login__form-group--invisible');
-    })
-
+    });
 }
 formSignUp();
 
 function loginFormSubmit() {
-    let loginForm = selectQuery('#login_form'),
+    var loginForm = selectQuery('#login_form'),
         login = selectQuery('#login_form #email'),
         password = selectQuery('#login_form #password');
 
-    loginForm.addEventListener('submit', (event) => {
-        let data = new FormData(loginForm),
+    loginForm.addEventListener('submit', function (event) {
+        var data = new FormData(loginForm),
             xmlhttp = new XMLHttpRequest();
         event.preventDefault();
 
-
         xmlhttp.open("POST", loginForm.getAttribute('action'), true);
 
-        xmlhttp.onreadystatechange = () => {
+        xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState != 4) return;
-            let response = JSON.parse(xmlhttp.responseText);
+            var response = JSON.parse(xmlhttp.responseText);
             if (xmlhttp.status == 200) {
                 if (response.message == "Success") {
                     location.reload();
@@ -145,9 +140,8 @@ function loginFormSubmit() {
 
 loginFormSubmit();
 
-
 function newsletterForm() {
-    let newsletter = selectQuery('#newsLetter'),
+    var newsletter = selectQuery('#newsLetter'),
         newsletterMessage = selectQuery('#newsletterMessage');
     // validator = new FormValidator('newsletter', [{
     //     name: 'email',
@@ -166,15 +160,14 @@ function newsletterForm() {
     // });
 
     if (newsletter) {
-        newsletter.addEventListener('submit', (event) => {
-            let data = new FormData(newsletter),
+        newsletter.addEventListener('submit', function (event) {
+            var data = new FormData(newsletter),
                 xmlhttp = new XMLHttpRequest();
             event.preventDefault();
 
-
             xmlhttp.open("POST", newsletter.getAttribute('action'), true);
 
-            xmlhttp.onreadystatechange = function() {
+            xmlhttp.onreadystatechange = function () {
 
                 if (xmlhttp.readyState != 4) return;
                 newsletterMessage.classList.add('newsletter__error--hidden');
@@ -197,31 +190,30 @@ function newsletterForm() {
 newsletterForm();
 
 function addToCart() {
-    let form = selectQuery('#addToCartForm'),
+    var form = selectQuery('#addToCartForm'),
         spinner = selectQuery('.buy__spinner'),
         message = selectQuery('.buy__message-span'),
         basketQuantity = selectQuery('#basketQuantity');
 
     if (form) {
-        form.addEventListener('click', (event) =>{
+        form.addEventListener('click', function (event) {
             message.classList.remove('buy__message-span--visible');
             spinner.classList.add('buy__spinner--visible');
-            let data = new FormData(form),
+            var data = new FormData(form),
                 xmlhttp = new XMLHttpRequest();
             event.preventDefault();
 
             xmlhttp.open("POST", form.getAttribute('action'), true);
 
-            xmlhttp.onreadystatechange = function() {
+            xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState != 4) return;
-                let response = JSON.parse(xmlhttp.response);
+                var response = JSON.parse(xmlhttp.response);
                 message.innerText = response.message;
-                basketQuantity.innerText = '('+response.count+')';
+                basketQuantity.innerText = '(' + response.count + ')';
                 setTimeout(function () {
-                     spinner.classList.remove('buy__spinner--visible');
-                        message.classList.add('buy__message-span--visible');
+                    spinner.classList.remove('buy__spinner--visible');
+                    message.classList.add('buy__message-span--visible');
                 }, 400);
-
             };
             xmlhttp.send(data);
         });
@@ -229,17 +221,16 @@ function addToCart() {
 }
 addToCart();
 
-
 function removeFromCart() {
-    let removeForm = selectQuery('.removeForm'),
+    var removeForm = selectQuery('.removeForm'),
         cartSection = selectQuery('#cartSection');
 
     if (cartSection) {
-        cartSection.addEventListener('submit', function(event) {
-             event.preventDefault();
+        cartSection.addEventListener('submit', function (event) {
+            event.preventDefault();
             if (event.target && event.target.classList.contains('removeForm')) {
                 console.log(event.target);
-                let data = new FormData(event.target),
+                var data = new FormData(event.target),
                     xmlhttp = new XMLHttpRequest();
 
                 xmlhttp.open("POST", event.target.getAttribute('action'), true);
@@ -247,53 +238,49 @@ function removeFromCart() {
                 xmlhttp.onreadystatechange = function () {
                     if (xmlhttp.readyState != 4) return;
                     cartSection.innerHTML = xmlhttp.response;
-
                 };
                 xmlhttp.send(data);
             }
-
         });
     }
 }
 removeFromCart();
 
 function categoryFilter() {
-    let formFilter = selectQuery('#formFilter'),
+    var formFilter = selectQuery('#formFilter'),
         categoryLoader = selectQuery('#categoryLoader'),
         categorySection = selectQuery('#categorySection'),
         categoryContent = selectQuery('#categoryContent'),
         pages = selectQuery('.pages');
 
     if (categorySection) {
-        categorySection.addEventListener('change', (event) => {
-        categoryLoader.classList.toggle('category__loader--visible');
-        pages.style.display = 'none';
+        categorySection.addEventListener('change', function (event) {
+            categoryLoader.classList.toggle('category__loader--visible');
+            pages.style.display = 'none';
 
-        let data = new FormData(formFilter),
+            var data = new FormData(formFilter),
                 xmlhttp = new XMLHttpRequest();
 
             event.preventDefault();
             xmlhttp.open("POST", formFilter.getAttribute('action'), true);
 
-            xmlhttp.onreadystatechange = function() {
+            xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState != 4) return;
-                let response = xmlhttp.response;
+                var response = xmlhttp.response;
                 console.log(response);
                 categoryContent.innerHTML = response;
                 setTimeout(function () {
-                     categoryLoader.classList.toggle('category__loader--visible');
+                    categoryLoader.classList.toggle('category__loader--visible');
                 }, 400);
-
             };
             xmlhttp.send(data);
-    });
+        });
     }
-
 }
 categoryFilter();
 
 function showShippingAddress() {
-    let showShippingAddress = selectQuery('#showShippingAddress'),
+    var showShippingAddress = selectQuery('#showShippingAddress'),
         orderPage = selectQuery('.order--page'),
         cartSection = selectQuery('#cartSection'),
         shippingSection = selectQuery('#shippingSection'),
@@ -309,12 +296,12 @@ function showShippingAddress() {
             //     shippingSection.classList.add('animation__show');
             // }
             if (event.target && event.target.id == 'showPayment') {
-                    event.preventDefault();
-                    shippingSection.classList.remove('animation__show');
-                    shippingSection.classList.add('animation__hide');
-                    paymentSection.classList.add('animation__show');
+                event.preventDefault();
+                shippingSection.classList.remove('animation__show');
+                shippingSection.classList.add('animation__hide');
+                paymentSection.classList.add('animation__show');
             }
-            });
+        });
     }
 }
 
@@ -322,13 +309,30 @@ showShippingAddress();
 
 /* Utils */
 
+// function formOrder() {
+//     let formOrder = selectQuery('#formOrder');
+//
+//     if (formOrder) {
+//         formOrder.addEventListener('submit', (event) => {
+//             let data = new FormData(formOrder);
+//             for (let pair of data.entries()) {
+//                 console.log(pair[0]+ ', ' + pair[1]);
+//             }
+//             event.preventDefault();
+//         })
+//
+//     }
+// }
+// formOrder();
+
+
 function selectQuery(query) {
     return document.querySelector(query);
 }
 
 function getChildElements(el) {
-    let childs = el.childNodes,
-        childCount,
+    var childs = el.childNodes,
+        childCount = void 0,
         nodes = [];
 
     for (childCount = 0; childCount < childs.length; childCount++) {

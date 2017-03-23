@@ -30,7 +30,7 @@ def get_item(request, **kwargs):
 def download_file(url):
     local_filename = re.sub('[^A-Za-z0-9.]+', '', url.split('/')[-1])
     r = requests.get(url, stream=True)
-    with open(os.path.join('dist/img/item/', local_filename), 'wb') as f:
+    with open(os.path.join('static/img/item/', local_filename), 'wb') as f:
         shutil.copyfileobj(r.raw, f)
     return local_filename
 
