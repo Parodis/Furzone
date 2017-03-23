@@ -274,7 +274,7 @@
     };
 
     $(document).ready(function() {
-        $(".js-inline-admin-formset").each(function() {
+        $(".es6_js-inline-admin-formset").each(function() {
             var data = $(this).data(),
                 inlineOptions = data.inlineFormset;
             switch(data.inlineType) {

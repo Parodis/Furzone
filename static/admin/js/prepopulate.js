@@ -3,7 +3,7 @@
     'use strict';
     $.fn.prepopulate = function(dependencies, maxLength, allowUnicode) {
         /*
-            Depends on urlify.js
+            Depends on urlify.es6_js
             Populates a selected field with the values of the dependent fields,
             URLifies and shortens the string.
             dependencies - array of dependent fields ids

@@ -1,5 +1,5 @@
 
-/***** xregexp.js *****/
+/***** xregexp.es6_js *****/
 
 /*!
  * XRegExp v2.0.0
@@ -1267,7 +1267,7 @@ XRegExp = XRegExp || (function (undef) {
 }());
 
 
-/***** unicode-base.js *****/
+/***** unicode-base.es6_js *****/
 
 /*!
  * XRegExp Unicode Base v1.0.0
@@ -1422,7 +1422,7 @@ XRegExp = XRegExp || (function (undef) {
 }(XRegExp));
 
 
-/***** unicode-categories.js *****/
+/***** unicode-categories.es6_js *****/
 
 /*!
  * XRegExp Unicode Categories v1.2.0
@@ -1527,7 +1527,7 @@ XRegExp = XRegExp || (function (undef) {
 }(XRegExp));
 
 
-/***** unicode-scripts.js *****/
+/***** unicode-scripts.es6_js *****/
 
 /*!
  * XRegExp Unicode Scripts v1.2.0
@@ -1628,7 +1628,7 @@ XRegExp = XRegExp || (function (undef) {
 }(XRegExp));
 
 
-/***** unicode-blocks.js *****/
+/***** unicode-blocks.es6_js *****/
 
 /*!
  * XRegExp Unicode Blocks v1.2.0
@@ -1814,7 +1814,7 @@ XRegExp = XRegExp || (function (undef) {
 }(XRegExp));
 
 
-/***** unicode-properties.js *****/
+/***** unicode-properties.es6_js *****/
 
 /*!
  * XRegExp Unicode Properties v1.0.0
@@ -1856,7 +1856,7 @@ XRegExp = XRegExp || (function (undef) {
 }(XRegExp));
 
 
-/***** matchrecursive.js *****/
+/***** matchrecursive.es6_js *****/
 
 /*!
  * XRegExp.matchRecursive v0.2.0
@@ -2040,7 +2040,7 @@ XRegExp = XRegExp || (function (undef) {
 }(XRegExp));
 
 
-/***** build.js *****/
+/***** build.es6_js *****/
 
 /*!
  * XRegExp.build v0.1.0
@@ -2189,7 +2189,7 @@ XRegExp = XRegExp || (function (undef) {
 }(XRegExp));
 
 
-/***** prototypes.js *****/
+/***** prototypes.es6_js *****/
 
 /*!
  * XRegExp Prototype Methods v1.0.0

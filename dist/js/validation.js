@@ -3,10 +3,10 @@
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /*
- * validate.js 2.0.1
+ * validate.es6_js 2.0.1
  * Copyright (c) 2011 - 2015 Rick Harrison, http://rickharrison.me
- * validate.js is open sourced under the MIT license.
- * Portions of validate.js are inspired by CodeIgniter.
+ * validate.es6_js is open sourced under the MIT license.
+ * Portions of validate.es6_js are inspired by CodeIgniter.
  * http://rickharrison.github.com/validate.js
  */
 (function (r, t, l) {
@@ -70,7 +70,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 if (d.names) for (var n = 0, f = d.names.length; n < f; n++) {
                     this._addField(d, d.names[n]);
                 } else this._addField(d, d.name);
-            } else console.warn("validate.js: The following field is being skipped due to a misconfiguration:"), console.warn(d), console.warn("Check to ensure you have properly configured a name and rules for this field");
+            } else console.warn("validate.es6_js: The following field is being skipped due to a misconfiguration:"), console.warn(d), console.warn("Check to ensure you have properly configured a name and rules for this field");
         }
         var e = this.form.onsubmit;
         this.form.onsubmit = function (a) {
