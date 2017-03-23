@@ -125,16 +125,16 @@
             </div>
             <div class="form__address">
                 <label for="address_1">Address</label>
-                <input type="text" id="address_1" required name="first_line_adress" value="{% if user.profile.first_line_adress != '' %}{{ user.profile.first_line_adress }}{% else %}{% endif %}">
+                <input type="text" id="address_1" required name="first_line_adress" value="{% if user.profile.first_line_adress != None %}{{ user.profile.first_line_adress }}{% else %}{% endif %}">
             </div>
             <div class="form__data">
                 <div class="form form__data--name">
                     <label for="city">City</label>
-                    <input id="city" type="text" name="city" required value="{% if user.profile.city != '' %}{{ user.profile.city }}{% else %}{% endif %}">
+                    <input id="city" type="text" name="city" required value="{% if user.profile.city != None %}{{ user.profile.city }}{% else %}{% endif %}">
                 </div>
                 <div class="form form__data--email">
                     <label for="zip">Postal code</label>
-                    <input id="zip" type="text" required name="postal_code" value="{% if user.profile.postal_code != '' %}{{ user.profile.postal_code }}{% else %}{% endif %}">
+                    <input id="zip" type="text" required name="postal_code" value="{% if user.profile.postal_code != None %}{{ user.profile.postal_code }}{% else %}{% endif %}">
                 </div>
             </div>
             <div class="form__country form__topic">
